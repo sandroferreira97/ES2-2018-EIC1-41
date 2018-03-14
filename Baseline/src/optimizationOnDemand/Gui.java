@@ -25,14 +25,14 @@ import javax.swing.JToggleButton;
 public class Gui {
 
 	private JFrame frame;
-	private JTextField nome;
+	private JTextField name;
 	private JTextField emailuser;
 	private String nomeproblema;
 	private String mailuser;
 	private String descricao;
 	private JTextField emailresposta;
-	private JTextField assunto;
-	private JTextField nomevar;
+	private JTextField subject;
+	private JTextField varname;
 
 	/**
 	 * Launch the application.
@@ -70,25 +70,25 @@ public class Gui {
 		frame.getContentPane().add(tab, BorderLayout.CENTER);
 		
 		JPanel config = new JPanel();
-		tab.addTab("Configuração", null, config, null);
+		tab.addTab("Configuration", null, config, null);
 		config.setLayout(null);
 		
-		nome = new JTextField();
-		nome.setBounds(157, 30, 351, 22);
-		config.add(nome);
-		nome.setColumns(10);
+		name = new JTextField();
+		name.setBounds(157, 30, 351, 22);
+		config.add(name);
+		name.setColumns(10);
 		
-		JLabel nomeprob = new JLabel("Nome do Problema:");
-		nomeprob.setBounds(12, 33, 116, 16);
-		config.add(nomeprob);
+		JLabel probname = new JLabel("Problem name:");
+		probname.setBounds(12, 33, 116, 16);
+		config.add(probname);
 		
-		JLabel relatorioprob = new JLabel("Descrição do Problema:");
-		relatorioprob.setBounds(12, 84, 144, 16);
-		config.add(relatorioprob);
+		JLabel probdescipt = new JLabel("Problem description:");
+		probdescipt.setBounds(12, 84, 144, 16);
+		config.add(probdescipt);
 		
-		JEditorPane relatorio = new JEditorPane();
-		relatorio.setBounds(158, 84, 350, 150);
-		config.add(relatorio);
+		JEditorPane description = new JEditorPane();
+		description.setBounds(158, 84, 350, 150);
+		config.add(description);
 		
 		JLabel email = new JLabel("Email");
 		email.setBounds(12, 265, 56, 16);
@@ -99,15 +99,15 @@ public class Gui {
 		config.add(emailuser);
 		emailuser.setColumns(10);
 		
-		JButton validar = new JButton("Validar");
-		validar.setBounds(300, 500, 100, 25);
-		config.add(validar);
-		validar.addActionListener(new ActionListener() {
+		JButton validate = new JButton("Validate");
+		validate.setBounds(300, 500, 100, 25);
+		config.add(validate);
+		validate.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(emailuser.getText().length()>0 && nome.getText().length()>0 && relatorio.getText().length()>0){
-					nomeproblema = nome.getText();
+				if(emailuser.getText().length()>0 && name.getText().length()>0 && description.getText().length()>0){
+					nomeproblema = name.getText();
 					mailuser = emailuser.getText();
-					descricao = relatorio.getText();
+					descricao = description.getText();
 					JOptionPane.showMessageDialog(frame, "Dados validados com sucesso");
 				}else{
 					JOptionPane.showMessageDialog(frame, "Não foi possivel validar os dados");
@@ -116,42 +116,42 @@ public class Gui {
 		});
 		
 		JPanel configadvanced = new JPanel();
-		tab.addTab("Configura\u00E7\u00E3o Avan\u00E7ada", null, configadvanced, null);
+		tab.addTab("Advanced Configuration", null, configadvanced, null);
 		configadvanced.setLayout(null);
 		
-		JLabel lbltempo = new JLabel("Tempo m\u00E1ximo de Espera");
-		lbltempo.setBounds(40, 50, 150, 16);
-		configadvanced.add(lbltempo);
+		JLabel lbltime = new JLabel("Maximum waiting time");
+		lbltime.setBounds(40, 50, 150, 16);
+		configadvanced.add(lbltime);
 		
-		JLabel lblquantidade = new JLabel("Quantidade de variaveis:");
-		lblquantidade.setBounds(40, 115, 150, 16);
-		configadvanced.add(lblquantidade);
+		JLabel lblquantity = new JLabel("Number of variables:");
+		lblquantity.setBounds(40, 115, 150, 16);
+		configadvanced.add(lblquantity);
 		
-		JSpinner quantidade = new JSpinner();
-		quantidade.setBounds(255, 112, 116, 22);
-		configadvanced.add(quantidade);
+		JSpinner quantity = new JSpinner();
+		quantity.setBounds(255, 112, 116, 22);
+		configadvanced.add(quantity);
 		
-		JLabel lblNomeDasRegras = new JLabel("Nome das regras:");
-		lblNomeDasRegras.setBounds(40, 178, 150, 16);
-		configadvanced.add(lblNomeDasRegras);
+		JLabel lblRuleName = new JLabel("Rules name:");
+		lblRuleName.setBounds(40, 178, 150, 16);
+		configadvanced.add(lblRuleName);
 		
-		nomevar = new JTextField();
-		nomevar.setBounds(255, 175, 116, 22);
-		configadvanced.add(nomevar);
-		nomevar.setColumns(10);
+		varname = new JTextField();
+		varname.setBounds(255, 175, 116, 22);
+		configadvanced.add(varname);
+		varname.setColumns(10);
 		
-		JLabel lblTipoDeVariaveis = new JLabel("Tipo de variaveis");
-		lblTipoDeVariaveis.setBounds(40, 239, 150, 16);
-		configadvanced.add(lblTipoDeVariaveis);
+		JLabel lblVarType = new JLabel("Variable type:");
+		lblVarType.setBounds(40, 239, 150, 16);
+		configadvanced.add(lblVarType);
 		
-		JComboBox tipo = new JComboBox();
-		tipo.setModel(new DefaultComboBoxModel(new String[] {"", "Inteiro", "Bin\u00E1rio", "Decimal"}));
-		tipo.setBounds(255, 236, 116, 22);
-		configadvanced.add(tipo);
+		JComboBox type = new JComboBox();
+		type.setModel(new DefaultComboBoxModel(new String[] {"", "Inteiro", "Bin\u00E1rio", "Decimal"}));
+		type.setBounds(255, 236, 116, 22);
+		configadvanced.add(type);
 		
-		JLabel lblIntervaloDeValores = new JLabel("Intervalo de Valores:");
-		lblIntervaloDeValores.setBounds(40, 299, 150, 16);
-		configadvanced.add(lblIntervaloDeValores);
+		JLabel lblvaluerange = new JLabel("Range of values:");
+		lblvaluerange.setBounds(40, 299, 150, 16);
+		configadvanced.add(lblvaluerange);
 		
 		JLabel label = new JLabel("");
 		label.setBounds(40, 353, 56, 16);
@@ -162,51 +162,51 @@ public class Gui {
 		tab.addTab("FAQ", null, faq, "Frequently Asked Questions");
 		faq.setLayout(null);
 		
-		JPanel ajuda = new JPanel();
-		tab.addTab("Ajuda", null, ajuda, null);
-		ajuda.setLayout(null);
+		JPanel help = new JPanel();
+		tab.addTab("Help", null, help, null);
+		help.setLayout(null);
 		
-		JLabel lblEnvieAoAdministrador = new JLabel("Envie ao Administrador a sua duvida para que ele possa ajudar");
-		lblEnvieAoAdministrador.setBounds(158, 13, 371, 16);
-		ajuda.add(lblEnvieAoAdministrador);
+		JLabel lbltophelp = new JLabel("Send your problem to the administrator so he can help you");
+		lbltophelp.setBounds(197, 13, 371, 16);
+		help.add(lbltophelp);
 		
-		JLabel lblAssunto = new JLabel("Email para resposta:");
-		lblAssunto.setBounds(50, 65, 130, 16);
-		ajuda.add(lblAssunto);
+		JLabel lblemail = new JLabel("Email for further contact");
+		lblemail.setBounds(50, 65, 168, 16);
+		help.add(lblemail);
 		
 		emailresposta = new JTextField();
 		emailresposta.setBounds(192, 62, 337, 22);
-		ajuda.add(emailresposta);
+		help.add(emailresposta);
 		emailresposta.setColumns(10);
 		
-		JLabel lblAssunto_1 = new JLabel("Assunto:");
-		lblAssunto_1.setBounds(50, 133, 56, 16);
-		ajuda.add(lblAssunto_1);
+		JLabel lblSubject = new JLabel("Subject:");
+		lblSubject.setBounds(50, 133, 56, 16);
+		help.add(lblSubject);
 		
-		assunto = new JTextField();
-		assunto.setBounds(192, 130, 337, 22);
-		ajuda.add(assunto);
-		assunto.setColumns(10);
+		subject = new JTextField();
+		subject.setBounds(192, 130, 337, 22);
+		help.add(subject);
+		subject.setColumns(10);
 		
-		JLabel lbldescri = new JLabel("Descrição:");
-		lbldescri.setBounds(50, 210, 70, 16);
-		ajuda.add(lbldescri);
+		JLabel lblDescription = new JLabel("Description:");
+		lblDescription.setBounds(50, 210, 70, 16);
+		help.add(lblDescription);
 		
-		JEditorPane mensagem = new JEditorPane();
-		mensagem.setBounds(192, 210, 337, 170);
-		ajuda.add(mensagem);
+		JEditorPane message = new JEditorPane();
+		message.setBounds(192, 210, 337, 170);
+		help.add(message);
 		
-		JButton btnsend = new JButton("Enviar");
+		JButton btnsend = new JButton("Send");
 		btnsend.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				if(mensagem.getText().length()>0&&emailresposta.getText().length()>0&&assunto.getText().length()>0){
-					Email.enviar(emailresposta.getText(), assunto.getText(), mensagem.getText());
+				if(message.getText().length()>0&&emailresposta.getText().length()>0&&subject.getText().length()>0){
+					Email.enviar(emailresposta.getText(), subject.getText(), message.getText());
 				}else{
 					JOptionPane.showMessageDialog(frame, "Por favor preencha todos os dados necessários");
 				}
 			}
 		});
 		btnsend.setBounds(300, 400, 100, 25);
-		ajuda.add(btnsend);
+		help.add(btnsend);
 	}
 }
