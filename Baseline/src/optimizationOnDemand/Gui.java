@@ -21,6 +21,12 @@ import javax.swing.JSlider;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JToggleButton;
+import javax.swing.JTable;
+import javax.swing.border.CompoundBorder;
+import javax.swing.JScrollPane;
+import javax.swing.table.DefaultTableModel;
+import java.awt.Color;
+import java.awt.Font;
 
 public class Gui {
 
@@ -33,6 +39,10 @@ public class Gui {
 	private JTextField emailresposta;
 	private JTextField subject;
 	private JTextField varname;
+	private JTextField varmin;
+	private JTextField varmax;
+	private JTable table;
+	private JTextField path;
 
 	/**
 	 * Launch the application.
@@ -108,9 +118,9 @@ public class Gui {
 					nomeproblema = name.getText();
 					mailuser = emailuser.getText();
 					descricao = description.getText();
-					JOptionPane.showMessageDialog(frame, "Dados validados com sucesso");
+					JOptionPane.showMessageDialog(frame, "Data validated with success");
 				}else{
-					JOptionPane.showMessageDialog(frame, "Não foi possivel validar os dados");
+					JOptionPane.showMessageDialog(frame, "Please fill all fields");
 				}
 			}
 		});
@@ -144,23 +154,133 @@ public class Gui {
 		lblVarType.setBounds(40, 239, 150, 16);
 		configadvanced.add(lblVarType);
 		
-		JComboBox type = new JComboBox();
-		type.setModel(new DefaultComboBoxModel(new String[] {"", "Inteiro", "Bin\u00E1rio", "Decimal"}));
-		type.setBounds(255, 236, 116, 22);
-		configadvanced.add(type);
-		
 		JLabel lblvaluerange = new JLabel("Range of values:");
 		lblvaluerange.setBounds(40, 299, 150, 16);
 		configadvanced.add(lblvaluerange);
 		
-		JLabel label = new JLabel("");
-		label.setBounds(40, 353, 56, 16);
-		configadvanced.add(label);
+		
+		varmin = new JTextField();
+		varmin.setBounds(255, 296, 116, 22);
+		configadvanced.add(varmin);
+		varmin.setColumns(10);
+		
+		varmax = new JTextField();
+		varmax.setBounds(424, 296, 116, 22);
+		configadvanced.add(varmax);
+		varmax.setColumns(10);
+		
+		
+		
+		
+		lblvaluerange.setVisible(false);
+		varmin.setVisible(false);
+		varmax.setVisible(false);
+		
+		JComboBox<?> type = new JComboBox();
+		type.setModel(new DefaultComboBoxModel(new String[] {"", "Binary", "Integer", "Double"}));
+		type.setBounds(255, 236, 116, 22);
+		configadvanced.add(type);
+		type.addActionListener(new ActionListener(){
+	        public void actionPerformed(ActionEvent e){
+	        	
+	        	if(type.getSelectedItem().toString().equals("")){
+	        		lblvaluerange.setVisible(false);
+	        		varmin.setVisible(false);
+	        		varmax.setVisible(false);
+	        	}
+	        	
+	        	if(type.getSelectedItem().toString().equals("Binary")){
+	        		lblvaluerange.setVisible(false);
+	        		varmin.setVisible(false);
+	        		varmax.setVisible(false);
+	        	}
+	        	
+	        	if(type.getSelectedItem().toString().equals("Integer")){
+	        		lblvaluerange.setVisible(true);
+	        		varmin.setVisible(true);
+	        		varmax.setVisible(true);
+	        	}
+	        	
+	        	if(type.getSelectedItem().toString().equals("Double")){
+	        		lblvaluerange.setVisible(true);
+	        		varmin.setVisible(true);
+	        		varmax.setVisible(true);
+	        	}
+	        }
+		});
+		
+		
+		
+		
+		
+		
+		
+		JPanel varconfig = new JPanel();
+		tab.addTab("Variable Configuration", null, varconfig, null);
+		varconfig.setLayout(null);
+		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(111, 113, 419, 381);
+		varconfig.add(scrollPane);
+		
+		table = new JTable();
+		table.setModel(new DefaultTableModel(
+			new Object[][] {
+			},
+			new String[] {
+				"Rule", "Weight"
+			}
+		) {
+			Class[] columnTypes = new Class[] {
+				String.class, Object.class
+			};
+			public Class getColumnClass(int columnIndex) {
+				return columnTypes[columnIndex];
+			}
+		});
+		table.getColumnModel().getColumn(0).setPreferredWidth(250);
+		scrollPane.setViewportView(table);
+		
+		JPanel run = new JPanel();
+		tab.addTab("Run", null, run, null);
+		run.setLayout(null);
+		
+		JButton btnSaveConfiguration = new JButton("Save configuration");
+		btnSaveConfiguration.setBounds(133, 416, 144, 49);
+		run.add(btnSaveConfiguration);
+		
+		path = new JTextField();
+		path.setBounds(120, 77, 348, 22);
+		run.add(path);
+		path.setColumns(10);
+		
+		JButton btnLoadConfiguration = new JButton("Load configuration");
+		btnLoadConfiguration.setBounds(520, 76, 137, 22);
+		run.add(btnLoadConfiguration);
+		
+		JLabel lblXmlPath = new JLabel("Xml path");
+		lblXmlPath.setBounds(39, 80, 56, 16);
+		run.add(lblXmlPath);
+		
+		JButton btnRun = new JButton("Run");
+		btnRun.setBounds(402, 416, 144, 49);
+		run.add(btnRun);
 		
 		
 		JPanel faq = new JPanel();
 		tab.addTab("FAQ", null, faq, "Frequently Asked Questions");
 		faq.setLayout(null);
+		
+		JLabel lblQuestion1 = new JLabel("1- Example Question");
+		lblQuestion1.setFont(new Font("Tahoma", Font.BOLD, 16));
+		lblQuestion1.setBackground(Color.WHITE);
+		lblQuestion1.setBounds(12, 26, 181, 16);
+		faq.add(lblQuestion1);
+		
+		JLabel lblAnswear1 = new JLabel("Example Answear");
+		lblAnswear1.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblAnswear1.setBounds(47, 55, 129, 16);
+		faq.add(lblAnswear1);
 		
 		JPanel help = new JPanel();
 		tab.addTab("Help", null, help, null);
