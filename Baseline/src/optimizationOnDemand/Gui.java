@@ -39,10 +39,12 @@ public class Gui {
 	private JTextField emailresposta;
 	private JTextField subject;
 	private JTextField varname;
-	private JTextField varmin;
-	private JTextField varmax;
+	private static JTextField varmin;
+	private static JTextField varmax;
 	private JTable table;
 	private JTextField path;
+	private static JLabel lblquantity;
+	private static JLabel lblvaluerange;
 
 	/**
 	 * Launch the application.
@@ -157,6 +159,15 @@ public class Gui {
 		JLabel lblvaluerange = new JLabel("Range of values:");
 		lblvaluerange.setBounds(40, 299, 150, 16);
 		configadvanced.add(lblvaluerange);
+		
+		JLabel lblOptimizationType = new JLabel("Optimization type:");
+		lblOptimizationType.setBounds(40, 350, 150, 16);
+		configadvanced.add(lblOptimizationType);
+		
+		JComboBox OptimizationType = new JComboBox();
+		OptimizationType.setModel(new DefaultComboBoxModel(new String[] {"", "Manual", "Automatic", "Mixed"}));
+		OptimizationType.setBounds(255, 350, 116, 22);
+		configadvanced.add(OptimizationType);
 		
 		
 		varmin = new JTextField();
@@ -329,4 +340,22 @@ public class Gui {
 		btnsend.setBounds(300, 400, 100, 25);
 		help.add(btnsend);
 	}
+	
+	public static int getQuantity(){
+		return Integer.valueOf(lblquantity.getText());
+	}
+	
+	public static int getMinRange(){
+		return Integer.valueOf(varmin.getText());
+	}
+	
+	public static int getMaxRange(){
+		return Integer.valueOf(varmax.getText());
+	}
+	
+	
+	//tem que dar para outros tipos de dados
+//	public static int getRange(){
+//		return Integer.valueOf(lblvaluerange.getText());
+//	}
 }

@@ -2,12 +2,6 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
-	<classpathentry kind="lib" path="C:/Users/nunol/Downloads/javamail-1.4.5/mail.jar"/>
-	<classpathentry kind="lib" path="C:/Users/nunol/Downloads/javamail-1.4.5/lib/dsn.jar"/>
-	<classpathentry kind="lib" path="C:/Users/nunol/Downloads/javamail-1.4.5/lib/imap.jar"/>
-	<classpathentry kind="lib" path="C:/Users/nunol/Downloads/javamail-1.4.5/lib/mailapi.jar"/>
-	<classpathentry kind="lib" path="C:/Users/nunol/Downloads/javamail-1.4.5/lib/pop3.jar"/>
-	<classpathentry kind="lib" path="C:/Users/nunol/Downloads/javamail-1.4.5/lib/smtp.jar"/>
 	<classpathentry kind="lib" path="jmetal-algorithm-5.3.jar"/>
 	<classpathentry kind="lib" path="jmetal-core-5.3.jar"/>
 	<classpathentry kind="lib" path="jmetal-exec-5.3.jar"/>
@@ -15,6 +9,6 @@
 	<classpathentry kind="lib" path="commons-io-2.5.jar"/>
 	<classpathentry kind="lib" path="commons-lang3-3.3.2.jar"/>
 	<classpathentry kind="lib" path="commons-math3-3.3.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Duarte/Desktop/javamail-1.4.5/mail.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Sandro/Downloads/javamail1_4_5.zip"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
