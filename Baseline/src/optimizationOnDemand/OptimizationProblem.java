@@ -11,7 +11,6 @@ import javax.swing.JLabel;
 import org.uma.jmetal.problem.impl.AbstractDoubleProblem;
 import org.uma.jmetal.solution.DoubleSolution;
 
-import optimizationOnDemand.Gui;
 
 public class OptimizationProblem extends AbstractDoubleProblem {
 	

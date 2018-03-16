@@ -43,8 +43,9 @@ public class Gui {
 	private static JTextField varmax;
 	private JTable table;
 	private JTextField path;
-	private static JLabel lblquantity;
-	private static JLabel lblvaluerange;
+	private boolean configuration;
+	private boolean advanced;
+	private JSpinner quantity;
 
 	/**
 	 * Launch the application.
@@ -73,6 +74,10 @@ public class Gui {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
+		configuration=false;
+		advanced=false;
+		
+		
 		frame = new JFrame();
 		frame.setResizable(false);
 		frame.setBounds(100, 100, 700, 700);
@@ -121,6 +126,7 @@ public class Gui {
 					mailuser = emailuser.getText();
 					descricao = description.getText();
 					JOptionPane.showMessageDialog(frame, "Data validated with success");
+					configuration=true;
 				}else{
 					JOptionPane.showMessageDialog(frame, "Please fill all fields");
 				}
@@ -131,15 +137,15 @@ public class Gui {
 		tab.addTab("Advanced Configuration", null, configadvanced, null);
 		configadvanced.setLayout(null);
 		
-		JLabel lbltime = new JLabel("Maximum waiting time");
-		lbltime.setBounds(40, 50, 150, 16);
+		JLabel lbltime = new JLabel("Maximum waiting time(seconds)");
+		lbltime.setBounds(40, 50, 196, 16);
 		configadvanced.add(lbltime);
 		
 		JLabel lblquantity = new JLabel("Number of variables:");
 		lblquantity.setBounds(40, 115, 150, 16);
 		configadvanced.add(lblquantity);
 		
-		JSpinner quantity = new JSpinner();
+		quantity = new JSpinner();
 		quantity.setBounds(255, 112, 116, 22);
 		configadvanced.add(quantity);
 		
@@ -159,15 +165,6 @@ public class Gui {
 		JLabel lblvaluerange = new JLabel("Range of values:");
 		lblvaluerange.setBounds(40, 299, 150, 16);
 		configadvanced.add(lblvaluerange);
-		
-		JLabel lblOptimizationType = new JLabel("Optimization type:");
-		lblOptimizationType.setBounds(40, 350, 150, 16);
-		configadvanced.add(lblOptimizationType);
-		
-		JComboBox OptimizationType = new JComboBox();
-		OptimizationType.setModel(new DefaultComboBoxModel(new String[] {"", "Manual", "Automatic", "Mixed"}));
-		OptimizationType.setBounds(255, 350, 116, 22);
-		configadvanced.add(OptimizationType);
 		
 		
 		varmin = new JTextField();
@@ -191,6 +188,13 @@ public class Gui {
 		type.setModel(new DefaultComboBoxModel(new String[] {"", "Binary", "Integer", "Double"}));
 		type.setBounds(255, 236, 116, 22);
 		configadvanced.add(type);
+		
+		
+		
+		
+		JSpinner maxtime = new JSpinner();
+		maxtime.setBounds(255, 47, 116, 22);
+		configadvanced.add(maxtime);
 		type.addActionListener(new ActionListener(){
 	        public void actionPerformed(ActionEvent e){
 	        	
@@ -220,10 +224,35 @@ public class Gui {
 	        }
 		});
 		
+		JLabel lblOptimizationType = new JLabel("Optimization type:");
+		lblOptimizationType.setBounds(40, 350, 150, 16);
+		configadvanced.add(lblOptimizationType);
 		
+		JComboBox OptimizationType = new JComboBox();
+		OptimizationType.setModel(new DefaultComboBoxModel(new String[] {"", "Manual", "Automatic", "Mixed"}));
+		OptimizationType.setBounds(255, 350, 116, 22);
+		configadvanced.add(OptimizationType);
+			
 		
+		JButton btnGenerate = new JButton("Generate");
+		btnGenerate.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				if(!configuration){
+					JOptionPane.showMessageDialog(frame, "Please fill all fields in the configuration tab");
+				}else if((int)maxtime.getValue()!=0 && !type.getSelectedItem().toString().equals("")&& !varname.getText().equals("") && (int)quantity.getValue()!=0){
+					
+					
+					JOptionPane.showMessageDialog(frame, "Data generated with success");
+					advanced=true;
+				}else{
+					JOptionPane.showMessageDialog(frame, "Please fill in the required data");
+					
+				}
+			}
+		});
 		
-		
+		btnGenerate.setBounds(255, 474, 97, 25);
+		configadvanced.add(btnGenerate);
 		
 		
 		JPanel varconfig = new JPanel();
@@ -340,9 +369,9 @@ public class Gui {
 		btnsend.setBounds(300, 400, 100, 25);
 		help.add(btnsend);
 	}
-	
-	public static int getQuantity(){
-		return Integer.valueOf(lblquantity.getText());
+	public int getQuantity(){
+		int x = (int) quantity.getValue();
+		return x;
 	}
 	
 	public static int getMinRange(){
@@ -358,4 +387,5 @@ public class Gui {
 //	public static int getRange(){
 //		return Integer.valueOf(lblvaluerange.getText());
 //	}
+	
 }
