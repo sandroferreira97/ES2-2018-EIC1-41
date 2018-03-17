@@ -45,7 +45,7 @@ public class Gui {
 	private JTextField path;
 	private boolean configuration;
 	private boolean advanced;
-	private JSpinner quantity;
+	private static JSpinner quantity;
 
 	/**
 	 * Launch the application.
@@ -369,9 +369,8 @@ public class Gui {
 		btnsend.setBounds(300, 400, 100, 25);
 		help.add(btnsend);
 	}
-	public int getQuantity(){
-		int x = (int) quantity.getValue();
-		return x;
+	public static int getQuantity(){
+		return (int) quantity.getValue();
 	}
 	
 	public static int getMinRange(){
@@ -382,10 +381,10 @@ public class Gui {
 		return Integer.valueOf(varmax.getText());
 	}
 	
+	public String getPath(){
+		return path.getText();
+	}
 	
-	//tem que dar para outros tipos de dados
-//	public static int getRange(){
-//		return Integer.valueOf(lblvaluerange.getText());
-//	}
+	
 	
 }

@@ -30,20 +30,12 @@ import javax.swing.JLabel;
 public class OptimizationConfiguration {
 	private static final int INDEPENDENT_RUNS = 5 ;
 	  
-	  /**
-	   * Function that generates automatic weights to the rules depending on the results of false positives and false negatives 
-	   * 
-	   * @param rulesPath is the directory of the rules file 
-	   * @param hamPathis the directory of the ham file 
-	   * @param spamPath is the directory of the spam file 
-	   * 
-	   * @throws IOException
-	   */
-	  public static void automatic(String rulesPath, String hamPath, String spamPath) throws IOException {
+	 
+	  public static void automatic(String path) throws IOException {
 	    String experimentBaseDirectory = "experimentBaseDirectory";
 
 	    List<ExperimentProblem<DoubleSolution>> problemList = new ArrayList<>();
-	    problemList.add(new ExperimentProblem<>(new OptimizationProblem(rulesPath, hamPath, spamPath)));
+	    problemList.add(new ExperimentProblem<>(new OptimizationProblem(path)));
 
 	    List<ExperimentAlgorithm<DoubleSolution, List<DoubleSolution>>> algorithmList =
 	            configureAlgorithmList(problemList);

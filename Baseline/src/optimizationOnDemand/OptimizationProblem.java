@@ -15,16 +15,13 @@ import org.uma.jmetal.solution.DoubleSolution;
 public class OptimizationProblem extends AbstractDoubleProblem {
 	
 	private static final long serialVersionUID = 1L;
-	private String rulesPath, hamPath, spamPath;
+	private String path;
 	
-	/*
-	  public OptimizationProblem(String rulesPath, String hamPath, String spamPath) {
-	    this(335);
-	    this.rulesPath = rulesPath;
-	    this.hamPath = hamPath;
-	    this.spamPath = spamPath;
+	
+	  public OptimizationProblem(String path) {
+	    this.path = path;
 	  }
-	  */
+	  
 	  
 	 
 	  public OptimizationProblem(Integer numberOfVariables) {
