@@ -9,7 +9,6 @@
 	<classpathentry kind="lib" path="commons-io-2.5.jar"/>
 	<classpathentry kind="lib" path="commons-lang3-3.3.2.jar"/>
 	<classpathentry kind="lib" path="commons-math3-3.3.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Duarte/Desktop/javamail-1.4.5/mail.jar"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/5"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

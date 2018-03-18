@@ -64,8 +64,8 @@ public class Gui {
 	 */
 	public static void main(String[] args) {
 		
-		GraphsWindow j = new GraphsWindow();
-		j.init();
+//		GraphsWindow j = new GraphsWindow();
+//		j.init();
 		
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
