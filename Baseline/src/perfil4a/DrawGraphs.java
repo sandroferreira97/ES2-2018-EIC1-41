@@ -10,16 +10,29 @@ import java.util.ArrayList;
 
 import javax.swing.JPanel;
 
-public class DesenhoGraficos extends JPanel {
+/**
+ * DrawGraphs is the class that draws the 2Dgraphic.
+ *
+ * @author Nuno Fialho EIC1 72910
+ * @author Sandro Ferreira EIC1 72911
+ * @author Duarte Pinto EIC1 73117
+ */
+public class DrawGraphs extends JPanel {
 	
-	private GraficosJanela gj;
+	private GraphsWindow gj;
 	private ArrayList <Integer> values = new ArrayList<Integer>();  
 	
-	public DesenhoGraficos (GraficosJanela gj, ArrayList values){
+	/**
+	 * Creating/Initializing a 2D graphic.
+	 */
+	public DrawGraphs (GraphsWindow gj, ArrayList values){
 		this.gj=gj;
 		this.values=values;
 	}
 	
+	/**
+	 * Painting the component with the values given in the cration of the 2D graphic.
+	 */
 	public void paintComponent (Graphics g){
 		super.paintComponent(g);
 		

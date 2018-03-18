@@ -9,8 +9,20 @@ import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
-public class Email {
 
+/**
+ * Email is the class that will allow the user to request help if it is needed.
+ *
+ * @author Nuno Fialho EIC1 72910
+ * @author Sandro Ferreira EIC1 72911
+ * @author Duarte Pinto EIC1 73117
+ */
+
+public class Email {
+	
+	/**
+	 * Function that allow the user to send an email to us
+	 */
 	public static void enviar(String email, String assunto, String mensagem){
 		final String username = "eic2.2018.41@gmail.com";
 		final String password = "duartenunosandro";

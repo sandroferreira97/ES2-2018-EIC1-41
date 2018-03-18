@@ -27,6 +27,7 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 
+
 public class OptimizationConfiguration {
 	private static final int INDEPENDENT_RUNS = 5 ;
 	  

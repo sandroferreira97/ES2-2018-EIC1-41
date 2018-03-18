@@ -1,3 +1,4 @@
+
 package optimizationOnDemand;
 
 import java.awt.EventQueue;
@@ -25,8 +26,19 @@ import javax.swing.JTable;
 import javax.swing.border.CompoundBorder;
 import javax.swing.JScrollPane;
 import javax.swing.table.DefaultTableModel;
+
+import perfil4a.GraphsWindow;
+
 import java.awt.Color;
 import java.awt.Font;
+
+/**
+ * GUI is the class that creates the application interface
+ *
+ * @author Nuno Fialho EIC1 72910
+ * @author Sandro Ferreira EIC1 72911
+ * @author Duarte Pinto EIC1 73117
+ */
 
 public class Gui {
 
@@ -51,6 +63,10 @@ public class Gui {
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
+		
+		GraphsWindow j = new GraphsWindow();
+		j.init();
+		
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -369,17 +385,31 @@ public class Gui {
 		btnsend.setBounds(300, 400, 100, 25);
 		help.add(btnsend);
 	}
+	
+	/**
+	 * Function that allow us to get the quantity
+	 * @return the quantity
+	 */
 	public static int getQuantity(){
 		return (int) quantity.getValue();
 	}
 	
+	/**
+	 * Function that allow us to get minimum value of the range set by the user
+	 * @return the minimum value
+	 */
 	public static int getMinRange(){
 		return Integer.valueOf(varmin.getText());
 	}
 	
+	/**
+	 * Function that allow us to get maximum value of the range set by the user
+	 * @return the maximum value
+	 */
 	public static int getMaxRange(){
 		return Integer.valueOf(varmax.getText());
 	}
+	
 	
 	public String getPath(){
 		return path.getText();

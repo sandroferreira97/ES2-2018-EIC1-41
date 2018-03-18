@@ -11,19 +11,31 @@ import javax.swing.JLabel;
 import org.uma.jmetal.problem.impl.AbstractDoubleProblem;
 import org.uma.jmetal.solution.DoubleSolution;
 
+/**
+ * OptimizationProblem is the class that will allow to count whatever the user 
+ * writes in the interface (number of variables, objectives, interval of values)
+ * 
+ * @author Nuno Fialho EIC1 72910
+ * @author Sandro Ferreira EIC1 72911
+ * @author Duarte Pinto EIC1 73117
+ */
 
 public class OptimizationProblem extends AbstractDoubleProblem {
 	
 	private static final long serialVersionUID = 1L;
 	private String path;
 	
-	
+	/**
+	 * Creating an OptimizationProblem
+	 */
 	  public OptimizationProblem(String path) {
 	    this.path = path;
 	  }
 	  
 	  
-	 
+	  /**
+	   * Creating an OptimizationProblem
+	   */
 	  public OptimizationProblem(Integer numberOfVariables) {
 		numberOfVariables = Gui.getQuantity();
 	    setNumberOfVariables(numberOfVariables);
@@ -42,7 +54,11 @@ public class OptimizationProblem extends AbstractDoubleProblem {
 	    setLowerLimit(lowerLimit);
 	    setUpperLimit(upperLimit);
 	  }
-
+	  
+	  /**
+	   * Function that counts what the user 
+	   * wrote in the interface
+	   */
 	public void evaluate(DoubleSolution solution){
 		//RP[] rules = Functions.getRules("rules.cf");
 	    double[] fx = new double[getNumberOfObjectives()];
