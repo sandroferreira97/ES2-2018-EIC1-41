@@ -1,4 +1,4 @@
-package optimizationOnDemand;
+package jMetal;
 
 import java.util.ArrayList;
 
@@ -10,6 +10,8 @@ import javax.swing.JLabel;
 
 import org.uma.jmetal.problem.impl.AbstractDoubleProblem;
 import org.uma.jmetal.solution.DoubleSolution;
+
+import optimizationOnDemand.Gui;
 
 /**
  * OptimizationProblem is the class that will allow to count whatever the user 
