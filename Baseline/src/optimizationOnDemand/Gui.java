@@ -27,6 +27,7 @@ import javax.swing.border.CompoundBorder;
 import javax.swing.JScrollPane;
 import javax.swing.table.DefaultTableModel;
 
+import jMetal.OptimizationProcess;
 import perfil4a.GraphsWindow;
 
 import java.awt.Color;
@@ -381,6 +382,12 @@ public class Gui {
 		JButton btnRun = new JButton("Run");
 		btnRun.setBounds(402, 416, 144, 49);
 		run.add(btnRun);
+		btnRun.addActionListener(new ActionListener(){
+	        public void actionPerformed(ActionEvent e){
+	        	OptimizationProcess.main(null);
+	        	
+	        }
+		});
 		
 		
 		JPanel faq = new JPanel();
