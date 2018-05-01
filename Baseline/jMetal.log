@@ -1,0 +1,499 @@
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2018-05-01T14:24:56</date>
+  <millis>1525181096715</millis>
+  <sequence>0</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.JMetalLogger</class>
+  <method>configureLoggers</method>
+  <thread>14</thread>
+  <message>Loggers configured with null</message>
+</record>
+<record>
+  <date>2018-05-01T14:24:56</date>
+  <millis>1525181096746</millis>
+  <sequence>1</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.component.ExecuteAlgorithms</class>
+  <method>run</method>
+  <thread>14</thread>
+  <message>ExecuteAlgorithms: Preparing output directory</message>
+</record>
+<record>
+  <date>2018-05-01T14:24:56</date>
+  <millis>1525181096764</millis>
+  <sequence>2</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.util.ExperimentAlgorithm</class>
+  <method>runAlgorithm</method>
+  <thread>14</thread>
+  <message> Running algorithm: PAES, problem: MyProblemBinary, run: 0, funFile: experimentBaseDirectory/ExperimentsBinary/data/PAES/MyProblemBinary/FUN0.tsv</message>
+</record>
+<record>
+  <date>2018-05-01T14:24:56</date>
+  <millis>1525181096768</millis>
+  <sequence>3</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.util.ExperimentAlgorithm</class>
+  <method>runAlgorithm</method>
+  <thread>19</thread>
+  <message> Running algorithm: SMSEMOA, problem: MyProblemBinary, run: 0, funFile: experimentBaseDirectory/ExperimentsBinary/data/SMSEMOA/MyProblemBinary/FUN0.tsv</message>
+</record>
+<record>
+  <date>2018-05-01T14:24:56</date>
+  <millis>1525181096768</millis>
+  <sequence>4</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.util.ExperimentAlgorithm</class>
+  <method>runAlgorithm</method>
+  <thread>22</thread>
+  <message> Running algorithm: SPEA2, problem: MyProblemBinary, run: 0, funFile: experimentBaseDirectory/ExperimentsBinary/data/SPEA2/MyProblemBinary/FUN0.tsv</message>
+</record>
+<record>
+  <date>2018-05-01T14:24:56</date>
+  <millis>1525181096768</millis>
+  <sequence>6</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.util.ExperimentAlgorithm</class>
+  <method>runAlgorithm</method>
+  <thread>21</thread>
+  <message> Running algorithm: MOCell, problem: MyProblemBinary, run: 0, funFile: experimentBaseDirectory/ExperimentsBinary/data/MOCell/MyProblemBinary/FUN0.tsv</message>
+</record>
+<record>
+  <date>2018-05-01T14:24:56</date>
+  <millis>1525181096768</millis>
+  <sequence>5</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.util.ExperimentAlgorithm</class>
+  <method>runAlgorithm</method>
+  <thread>23</thread>
+  <message> Running algorithm: MOCH, problem: MyProblemBinary, run: 0, funFile: experimentBaseDirectory/ExperimentsBinary/data/MOCH/MyProblemBinary/FUN0.tsv</message>
+</record>
+<record>
+  <date>2018-05-01T14:24:56</date>
+  <millis>1525181096772</millis>
+  <sequence>8</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.util.ExperimentAlgorithm</class>
+  <method>runAlgorithm</method>
+  <thread>20</thread>
+  <message> Running algorithm: NSGAII, problem: MyProblemBinary, run: 0, funFile: experimentBaseDirectory/ExperimentsBinary/data/NSGAII/MyProblemBinary/FUN0.tsv</message>
+</record>
+<record>
+  <date>2018-05-01T14:24:56</date>
+  <millis>1525181096772</millis>
+  <sequence>7</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.util.ExperimentAlgorithm</class>
+  <method>runAlgorithm</method>
+  <thread>24</thread>
+  <message> Running algorithm: RandomSearch, problem: MyProblemBinary, run: 0, funFile: experimentBaseDirectory/ExperimentsBinary/data/RandomSearch/MyProblemBinary/FUN0.tsv</message>
+</record>
+<record>
+  <date>2018-05-01T14:25:12</date>
+  <millis>1525181112116</millis>
+  <sequence>9</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.component.ComputeQualityIndicators</class>
+  <method>run</method>
+  <thread>14</thread>
+  <message>Computing indicator: HV</message>
+</record>
+<record>
+  <date>2018-05-01T14:25:12</date>
+  <millis>1525181112126</millis>
+  <sequence>10</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.component.ComputeQualityIndicators</class>
+  <method>run</method>
+  <thread>14</thread>
+  <message>RF: experimentBaseDirectory/referenceFronts/MyProblemBinary.rf</message>
+</record>
+<record>
+  <date>2018-05-01T14:25:12</date>
+  <millis>1525181112128</millis>
+  <sequence>11</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.component.ComputeQualityIndicators</class>
+  <method>resetFile</method>
+  <thread>14</thread>
+  <message>File experimentBaseDirectory/ExperimentsBinary/data/NSGAII/MyProblemBinary/HV exist.</message>
+</record>
+<record>
+  <date>2018-05-01T14:25:12</date>
+  <millis>1525181112128</millis>
+  <sequence>12</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.component.ComputeQualityIndicators</class>
+  <method>resetFile</method>
+  <thread>14</thread>
+  <message>File experimentBaseDirectory/ExperimentsBinary/data/NSGAII/MyProblemBinary/HV is a file. Deleting file.</message>
+</record>
+<record>
+  <date>2018-05-01T14:25:12</date>
+  <millis>1525181112128</millis>
+  <sequence>13</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.component.ComputeQualityIndicators</class>
+  <method>resetFile</method>
+  <thread>14</thread>
+  <message>File succesfully deleted.</message>
+</record>
+<record>
+  <date>2018-05-01T14:25:12</date>
+  <millis>1525181112128</millis>
+  <sequence>14</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.component.ComputeQualityIndicators</class>
+  <method>run</method>
+  <thread>14</thread>
+  <message>HV: 0.4444444444444444</message>
+</record>
+<record>
+  <date>2018-05-01T14:25:12</date>
+  <millis>1525181112128</millis>
+  <sequence>15</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.component.ComputeQualityIndicators</class>
+  <method>run</method>
+  <thread>14</thread>
+  <message>RF: experimentBaseDirectory/referenceFronts/MyProblemBinary.rf</message>
+</record>
+<record>
+  <date>2018-05-01T14:25:12</date>
+  <millis>1525181112128</millis>
+  <sequence>16</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.component.ComputeQualityIndicators</class>
+  <method>resetFile</method>
+  <thread>14</thread>
+  <message>File experimentBaseDirectory/ExperimentsBinary/data/SMSEMOA/MyProblemBinary/HV exist.</message>
+</record>
+<record>
+  <date>2018-05-01T14:25:12</date>
+  <millis>1525181112144</millis>
+  <sequence>17</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.component.ComputeQualityIndicators</class>
+  <method>resetFile</method>
+  <thread>14</thread>
+  <message>File experimentBaseDirectory/ExperimentsBinary/data/SMSEMOA/MyProblemBinary/HV is a file. Deleting file.</message>
+</record>
+<record>
+  <date>2018-05-01T14:25:12</date>
+  <millis>1525181112144</millis>
+  <sequence>18</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.component.ComputeQualityIndicators</class>
+  <method>resetFile</method>
+  <thread>14</thread>
+  <message>File succesfully deleted.</message>
+</record>
+<record>
+  <date>2018-05-01T14:25:12</date>
+  <millis>1525181112144</millis>
+  <sequence>19</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.component.ComputeQualityIndicators</class>
+  <method>run</method>
+  <thread>14</thread>
+  <message>HV: 0.4444444444444444</message>
+</record>
+<record>
+  <date>2018-05-01T14:25:12</date>
+  <millis>1525181112144</millis>
+  <sequence>20</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.component.ComputeQualityIndicators</class>
+  <method>run</method>
+  <thread>14</thread>
+  <message>RF: experimentBaseDirectory/referenceFronts/MyProblemBinary.rf</message>
+</record>
+<record>
+  <date>2018-05-01T14:25:12</date>
+  <millis>1525181112160</millis>
+  <sequence>21</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.component.ComputeQualityIndicators</class>
+  <method>resetFile</method>
+  <thread>14</thread>
+  <message>File experimentBaseDirectory/ExperimentsBinary/data/MOCell/MyProblemBinary/HV exist.</message>
+</record>
+<record>
+  <date>2018-05-01T14:25:12</date>
+  <millis>1525181112160</millis>
+  <sequence>22</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.component.ComputeQualityIndicators</class>
+  <method>resetFile</method>
+  <thread>14</thread>
+  <message>File experimentBaseDirectory/ExperimentsBinary/data/MOCell/MyProblemBinary/HV is a file. Deleting file.</message>
+</record>
+<record>
+  <date>2018-05-01T14:25:12</date>
+  <millis>1525181112164</millis>
+  <sequence>23</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.component.ComputeQualityIndicators</class>
+  <method>resetFile</method>
+  <thread>14</thread>
+  <message>File succesfully deleted.</message>
+</record>
+<record>
+  <date>2018-05-01T14:25:12</date>
+  <millis>1525181112172</millis>
+  <sequence>24</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.component.ComputeQualityIndicators</class>
+  <method>run</method>
+  <thread>14</thread>
+  <message>HV: 0.4444444444444444</message>
+</record>
+<record>
+  <date>2018-05-01T14:25:12</date>
+  <millis>1525181112184</millis>
+  <sequence>25</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.component.ComputeQualityIndicators</class>
+  <method>run</method>
+  <thread>14</thread>
+  <message>RF: experimentBaseDirectory/referenceFronts/MyProblemBinary.rf</message>
+</record>
+<record>
+  <date>2018-05-01T14:25:12</date>
+  <millis>1525181112188</millis>
+  <sequence>26</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.component.ComputeQualityIndicators</class>
+  <method>resetFile</method>
+  <thread>14</thread>
+  <message>File experimentBaseDirectory/ExperimentsBinary/data/MOCH/MyProblemBinary/HV exist.</message>
+</record>
+<record>
+  <date>2018-05-01T14:25:12</date>
+  <millis>1525181112188</millis>
+  <sequence>27</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.component.ComputeQualityIndicators</class>
+  <method>resetFile</method>
+  <thread>14</thread>
+  <message>File experimentBaseDirectory/ExperimentsBinary/data/MOCH/MyProblemBinary/HV is a file. Deleting file.</message>
+</record>
+<record>
+  <date>2018-05-01T14:25:12</date>
+  <millis>1525181112188</millis>
+  <sequence>28</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.component.ComputeQualityIndicators</class>
+  <method>resetFile</method>
+  <thread>14</thread>
+  <message>File succesfully deleted.</message>
+</record>
+<record>
+  <date>2018-05-01T14:25:12</date>
+  <millis>1525181112192</millis>
+  <sequence>29</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.component.ComputeQualityIndicators</class>
+  <method>run</method>
+  <thread>14</thread>
+  <message>HV: 0.4444444444444444</message>
+</record>
+<record>
+  <date>2018-05-01T14:25:12</date>
+  <millis>1525181112196</millis>
+  <sequence>30</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.component.ComputeQualityIndicators</class>
+  <method>run</method>
+  <thread>14</thread>
+  <message>RF: experimentBaseDirectory/referenceFronts/MyProblemBinary.rf</message>
+</record>
+<record>
+  <date>2018-05-01T14:25:12</date>
+  <millis>1525181112196</millis>
+  <sequence>31</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.component.ComputeQualityIndicators</class>
+  <method>resetFile</method>
+  <thread>14</thread>
+  <message>File experimentBaseDirectory/ExperimentsBinary/data/PAES/MyProblemBinary/HV exist.</message>
+</record>
+<record>
+  <date>2018-05-01T14:25:12</date>
+  <millis>1525181112200</millis>
+  <sequence>32</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.component.ComputeQualityIndicators</class>
+  <method>resetFile</method>
+  <thread>14</thread>
+  <message>File experimentBaseDirectory/ExperimentsBinary/data/PAES/MyProblemBinary/HV is a file. Deleting file.</message>
+</record>
+<record>
+  <date>2018-05-01T14:25:12</date>
+  <millis>1525181112200</millis>
+  <sequence>33</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.component.ComputeQualityIndicators</class>
+  <method>resetFile</method>
+  <thread>14</thread>
+  <message>File succesfully deleted.</message>
+</record>
+<record>
+  <date>2018-05-01T14:25:12</date>
+  <millis>1525181112204</millis>
+  <sequence>34</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.component.ComputeQualityIndicators</class>
+  <method>run</method>
+  <thread>14</thread>
+  <message>HV: 0.4197530864197531</message>
+</record>
+<record>
+  <date>2018-05-01T14:25:12</date>
+  <millis>1525181112208</millis>
+  <sequence>35</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.component.ComputeQualityIndicators</class>
+  <method>run</method>
+  <thread>14</thread>
+  <message>RF: experimentBaseDirectory/referenceFronts/MyProblemBinary.rf</message>
+</record>
+<record>
+  <date>2018-05-01T14:25:12</date>
+  <millis>1525181112208</millis>
+  <sequence>36</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.component.ComputeQualityIndicators</class>
+  <method>resetFile</method>
+  <thread>14</thread>
+  <message>File experimentBaseDirectory/ExperimentsBinary/data/RandomSearch/MyProblemBinary/HV exist.</message>
+</record>
+<record>
+  <date>2018-05-01T14:25:12</date>
+  <millis>1525181112208</millis>
+  <sequence>37</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.component.ComputeQualityIndicators</class>
+  <method>resetFile</method>
+  <thread>14</thread>
+  <message>File experimentBaseDirectory/ExperimentsBinary/data/RandomSearch/MyProblemBinary/HV is a file. Deleting file.</message>
+</record>
+<record>
+  <date>2018-05-01T14:25:12</date>
+  <millis>1525181112212</millis>
+  <sequence>38</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.component.ComputeQualityIndicators</class>
+  <method>resetFile</method>
+  <thread>14</thread>
+  <message>File succesfully deleted.</message>
+</record>
+<record>
+  <date>2018-05-01T14:25:12</date>
+  <millis>1525181112212</millis>
+  <sequence>39</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.component.ComputeQualityIndicators</class>
+  <method>run</method>
+  <thread>14</thread>
+  <message>HV: 0.4444444444444444</message>
+</record>
+<record>
+  <date>2018-05-01T14:25:12</date>
+  <millis>1525181112216</millis>
+  <sequence>40</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.component.ComputeQualityIndicators</class>
+  <method>run</method>
+  <thread>14</thread>
+  <message>RF: experimentBaseDirectory/referenceFronts/MyProblemBinary.rf</message>
+</record>
+<record>
+  <date>2018-05-01T14:25:12</date>
+  <millis>1525181112220</millis>
+  <sequence>41</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.component.ComputeQualityIndicators</class>
+  <method>resetFile</method>
+  <thread>14</thread>
+  <message>File experimentBaseDirectory/ExperimentsBinary/data/SPEA2/MyProblemBinary/HV exist.</message>
+</record>
+<record>
+  <date>2018-05-01T14:25:12</date>
+  <millis>1525181112220</millis>
+  <sequence>42</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.component.ComputeQualityIndicators</class>
+  <method>resetFile</method>
+  <thread>14</thread>
+  <message>File experimentBaseDirectory/ExperimentsBinary/data/SPEA2/MyProblemBinary/HV is a file. Deleting file.</message>
+</record>
+<record>
+  <date>2018-05-01T14:25:12</date>
+  <millis>1525181112220</millis>
+  <sequence>43</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.component.ComputeQualityIndicators</class>
+  <method>resetFile</method>
+  <thread>14</thread>
+  <message>File succesfully deleted.</message>
+</record>
+<record>
+  <date>2018-05-01T14:25:12</date>
+  <millis>1525181112224</millis>
+  <sequence>44</sequence>
+  <logger>org.uma.jmetal.util.JMetalLogger</logger>
+  <level>INFO</level>
+  <class>org.uma.jmetal.util.experiment.component.ComputeQualityIndicators</class>
+  <method>run</method>
+  <thread>14</thread>
+  <message>HV: 0.4444444444444444</message>
+</record>
+</log>
