@@ -11,7 +11,7 @@ import javax.swing.JLabel;
 import org.uma.jmetal.problem.impl.AbstractDoubleProblem;
 import org.uma.jmetal.solution.DoubleSolution;
 
-import optimizationOnDemand.Gui;
+import ui.Gui;
 
 /**
  * OptimizationProblem is the class that will allow to count whatever the user 

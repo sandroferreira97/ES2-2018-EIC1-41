@@ -1,4 +1,4 @@
-package optimizationOnDemand;
+package email;
 
 import java.util.Properties;
 
