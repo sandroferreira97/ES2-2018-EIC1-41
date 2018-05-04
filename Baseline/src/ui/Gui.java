@@ -27,7 +27,7 @@ import javax.swing.border.CompoundBorder;
 import javax.swing.JScrollPane;
 import javax.swing.table.DefaultTableModel;
 
-import email.Email;
+import generic.Email;
 import jMetal.OptimizationProcess;
 import perfil4a.GraphsWindow;
 
@@ -44,7 +44,7 @@ import java.awt.Font;
 
 public class Gui {
 
-	private JFrame frame;
+	private static JFrame frame;
 	private boolean configuration;
 
 	
@@ -134,7 +134,7 @@ public class Gui {
 		tab.addTab("FAQ", null, faq, "Frequently Asked Questions");
 		
 		//
-		//Creatin the help panel
+		//Creating the help panel
 		//
 		HelpTab helpTab = new HelpTab(frame,this);
 		JPanel help = helpTab.getHelp();
@@ -148,6 +148,10 @@ public class Gui {
 	
 	public void setConfiguration(boolean configuration) {
 		this.configuration = configuration;
+	}
+	
+	public static void repaint() {
+		frame.repaint();
 	}
 	
 	public boolean isAdvanced() {

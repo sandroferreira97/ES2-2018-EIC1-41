@@ -3,7 +3,7 @@ package tests;
 import static org.junit.Assert.*;
 import org.junit.Test;
 
-import email.Email;
+import generic.Email;
 
 public class TestEmail {
 	

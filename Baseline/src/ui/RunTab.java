@@ -17,7 +17,7 @@ public class RunTab {
 	private JTextField path;
 
 	public RunTab(JFrame frame, Gui gui) {
-		JPanel run = new JPanel();	
+		run = new JPanel();	
 		run.setLayout(null);
 		
 		JButton btnSaveConfiguration = new JButton("Save configuration");

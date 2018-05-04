@@ -1,4 +1,4 @@
-package email;
+package generic;
 
 import java.util.Properties;
 

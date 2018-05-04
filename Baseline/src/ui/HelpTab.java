@@ -11,7 +11,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import email.Email;
+import generic.Email;
 
 public class HelpTab {
 	

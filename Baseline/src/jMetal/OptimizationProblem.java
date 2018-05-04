@@ -39,7 +39,7 @@ public class OptimizationProblem extends AbstractDoubleProblem {
 	   * Creating an OptimizationProblem
 	   */
 	  public OptimizationProblem(Integer numberOfVariables) {
-		numberOfVariables = Gui.getQuantity();
+//		numberOfVariables = Gui.getQuantity();
 	    setNumberOfVariables(numberOfVariables);
 	    //setNumberOfObjectives(2);
 	    setName("OptimizationProblem");
@@ -49,8 +49,7 @@ public class OptimizationProblem extends AbstractDoubleProblem {
 
 	    //intervalo de valores aqui
 	    for (int i = 0; i < getNumberOfVariables(); i++) {
-	      lowerLimit.add((double) Gui.getMinRange());
-	      upperLimit.add((double) Gui.getMaxRange());
+//	      lowerLimit.add((double) Gui.getMinRange());
 	    }
 
 	    setLowerLimit(lowerLimit);

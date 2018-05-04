@@ -2,6 +2,7 @@ package ui;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
@@ -13,13 +14,16 @@ import javax.swing.JPanel;
 import javax.swing.JSpinner;
 import javax.swing.JTextField;
 
+import generic.Variable;
+
 public class AdvancedConfigurationTab {
 
 	private JPanel configadvanced;
 	private static JSpinner quantity;
-	private JTextField varname;
+	private static JTextField varname;
 	private static JTextField varmin;
 	private static JTextField varmax;
+	private Variable rules;
 	
 	public AdvancedConfigurationTab(JFrame frame, Gui gui) {
 		
@@ -186,7 +190,7 @@ public class AdvancedConfigurationTab {
 					JOptionPane.showMessageDialog(frame, "Please fill all fields in the configuration tab");
 				}else if((int)maxtime.getValue()!=0 && !type.getSelectedItem().toString().equals("")&& !varname.getText().equals("") && (int)quantity.getValue()!=0){
 					
-					
+					VariableConfigurationTab.writeRules(getVariable());
 					JOptionPane.showMessageDialog(frame, "Data generated with success");
 					gui.setAdvanced(true);
 				}else{
@@ -203,9 +207,13 @@ public class AdvancedConfigurationTab {
 	public JPanel getConfigadvanced() {
 		return configadvanced;
 	}
+	
+	public static String getRulesName() {
+		return varname.getText();
+	}
 
-	public static JSpinner getQuantity() {
-		return quantity;
+	public static int getQuantity() {
+		return (int) quantity.getValue();
 	}
 
 	public static JTextField getVarmin() {
@@ -216,7 +224,10 @@ public class AdvancedConfigurationTab {
 		return varmax;
 	}
 	
-	
+	public Variable getVariable() {
+		Variable v = new Variable(getRulesName(),null, 0,0,0);
+		return v;
+	}
 	
 	
 }
