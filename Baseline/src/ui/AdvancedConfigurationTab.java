@@ -23,7 +23,8 @@ public class AdvancedConfigurationTab {
 	private static JTextField varname;
 	private static JTextField varmin;
 	private static JTextField varmax;
-	private Variable rules;
+	public static int variableType;
+	
 	
 	public AdvancedConfigurationTab(JFrame frame, Gui gui) {
 		
@@ -101,18 +102,21 @@ public class AdvancedConfigurationTab {
 	        		lblvaluerange.setVisible(false);
 	        		varmin.setVisible(false);
 	        		varmax.setVisible(false);
+	        		setVariableType(1);
 	        	}
 	        	
 	        	if(type.getSelectedItem().toString().equals("Integer")){
 	        		lblvaluerange.setVisible(true);
 	        		varmin.setVisible(true);
 	        		varmax.setVisible(true);
+	        		setVariableType(2);
 	        	}
 	        	
 	        	if(type.getSelectedItem().toString().equals("Double")){
 	        		lblvaluerange.setVisible(true);
 	        		varmin.setVisible(true);
 	        		varmax.setVisible(true);
+	        		setVariableType(3);
 	        	}
 	        }
 		});
@@ -186,6 +190,8 @@ public class AdvancedConfigurationTab {
 		JButton btnGenerate = new JButton("Generate");
 		btnGenerate.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				RunTab.algorithms(getVariableType());
+				System.out.println(getVariableType());
 				if(!gui.isConfiguration()){
 					JOptionPane.showMessageDialog(frame, "Please fill all fields in the configuration tab");
 				}else if((int)maxtime.getValue()!=0 && !type.getSelectedItem().toString().equals("")&& !varname.getText().equals("") && (int)quantity.getValue()!=0){
@@ -204,6 +210,7 @@ public class AdvancedConfigurationTab {
 		configadvanced.add(btnGenerate);
 	}
 
+	
 	public JPanel getConfigadvanced() {
 		return configadvanced;
 	}
@@ -224,9 +231,17 @@ public class AdvancedConfigurationTab {
 		return varmax;
 	}
 	
+	public static int getVariableType() {
+		return variableType;
+	}
+	
 	public Variable getVariable() {
 		Variable v = new Variable(getRulesName(),null, 0,0,0);
 		return v;
+	}
+	
+	public void setVariableType(int x) {
+		variableType = x;
 	}
 	
 	

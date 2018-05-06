@@ -18,7 +18,6 @@ public class VariableConfigurationTab {
 	private String[] colums = { "Rule", "Weight"};
 	private static Gui gui = null;
 	private JScrollPane scrollPane;
-	private ArrayList<Variable> rules = new ArrayList<Variable>();
 	
 	
 	
