@@ -72,8 +72,6 @@ public class AdvancedConfigurationTab {
 		varmax.setColumns(10);
 		
 		
-		
-		
 		lblvaluerange.setVisible(false);
 		varmin.setVisible(false);
 		varmax.setVisible(false);
@@ -191,7 +189,6 @@ public class AdvancedConfigurationTab {
 		btnGenerate.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				RunTab.algorithms(getVariableType());
-				System.out.println(getVariableType());
 				if(!gui.isConfiguration()){
 					JOptionPane.showMessageDialog(frame, "Please fill all fields in the configuration tab");
 				}else if((int)maxtime.getValue()!=0 && !type.getSelectedItem().toString().equals("")&& !varname.getText().equals("") && (int)quantity.getValue()!=0){
@@ -223,13 +220,14 @@ public class AdvancedConfigurationTab {
 		return (int) quantity.getValue();
 	}
 
-	public static JTextField getVarmin() {
-		return varmin;
+	public static int getVarMin() {
+		return Integer.valueOf(varmin.getText());
 	}
 
-	public static JTextField getVarmax() {
-		return varmax;
+	public static int getVarMax() {
+		return Integer.valueOf(varmax.getText());
 	}
+	
 	
 	public static int getVariableType() {
 		return variableType;

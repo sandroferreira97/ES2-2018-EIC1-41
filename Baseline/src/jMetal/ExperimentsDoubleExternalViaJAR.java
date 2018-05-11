@@ -35,7 +35,7 @@ public class ExperimentsDoubleExternalViaJAR {
     String experimentBaseDirectory = "experimentBaseDirectory";
 
     List<ExperimentProblem<DoubleSolution>> problemList = new ArrayList<>();
-    problemList.add(new ExperimentProblem<>(new MyProblemDoubleExternalViaJAR()));
+    problemList.add(new ExperimentProblem<>(new ProblemDouble()));
 
     List<ExperimentAlgorithm<DoubleSolution, List<DoubleSolution>>> algorithmList =
             configureAlgorithmList(problemList);
