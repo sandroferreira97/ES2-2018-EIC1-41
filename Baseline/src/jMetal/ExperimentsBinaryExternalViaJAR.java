@@ -24,6 +24,8 @@ import org.uma.jmetal.util.experiment.component.*;
 import org.uma.jmetal.util.experiment.util.ExperimentAlgorithm;
 import org.uma.jmetal.util.experiment.util.ExperimentProblem;
 
+import ui.AdvancedConfigurationTab;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -37,7 +39,7 @@ public class ExperimentsBinaryExternalViaJAR {
     String experimentBaseDirectory = "experimentBaseDirectory";
 
     List<ExperimentProblem<BinarySolution>> problemList = new ArrayList<>();
-    problemList.add(new ExperimentProblem<>(new ProblemBinary()));
+    problemList.add(new ExperimentProblem<>(new ProblemBinary(AdvancedConfigurationTab.getQuantity())));
 
     List<ExperimentAlgorithm<BinarySolution, List<BinarySolution>>> algorithmList =
             configureAlgorithmList(problemList);

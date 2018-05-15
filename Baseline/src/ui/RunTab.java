@@ -2,6 +2,7 @@ package ui;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
@@ -11,13 +12,15 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import generic.Problem;
 import jMetal.OptimizationProcess;
 
 public class RunTab {
 	
 	private static JPanel run;
+	public static Problem prob;
 	private JTextField path;
-	private static JComboBox bynaryAlgorithms;
+	private static JComboBox binaryAlgorithms;
 	private static String[] algorithm = {""};
 	static String[] AlgorithsForDoubleProblemType = new String[]{"NSGAII","SMSEMOA","GDE3","IBEA","MOCell","MOEAD","PAES","RandomSearch"};
 	static String[] AlgorithsForIntegerProblemType = new String[]{"NSGAII","SMSEMOA","MOCell","PAES","RandomSearch"};
@@ -45,47 +48,53 @@ public class RunTab {
 		run.add(lblXmlPath);
 		
 		
-		JLabel lblAlgorithms = new JLabel("Choose your Algorithm:");
-		lblAlgorithms.setBounds(40, 300, 200, 16);
-		run.add(lblAlgorithms);
-		lblAlgorithms.setVisible(true);
-		
-		bynaryAlgorithms = new JComboBox();
-		bynaryAlgorithms.setBounds(255, 300, 116, 22);
-		run.add(bynaryAlgorithms);
-		bynaryAlgorithms.setVisible(true);		
+//		JLabel lblAlgorithms = new JLabel("Choose your Algorithm:");
+//		lblAlgorithms.setBounds(40, 300, 200, 16);
+//		run.add(lblAlgorithms);
+//		lblAlgorithms.setVisible(true);
+//		
+//		binaryAlgorithms = new JComboBox();
+//		binaryAlgorithms.setBounds(255, 300, 116, 22);
+//		run.add(binaryAlgorithms);
+//		binaryAlgorithms.setVisible(true);		
 		
 		JButton btnRun = new JButton("Run");
 		btnRun.setBounds(402, 416, 144, 49);
 		run.add(btnRun);
 		btnRun.addActionListener(new ActionListener(){
 	        public void actionPerformed(ActionEvent e){
-	        	OptimizationProcess.main(null);     	
+	        	OptimizationProcess oP = new OptimizationProcess(prob);
+	        	oP.run();
 	        }
 		});	
 	}
 	
-	public static void algorithms(int x) {
-		if(x == 0) {
-			algorithm = new String[] {" "};
-		}
-		if(x == 1) {
-			algorithm = AlgorithsForBinaryProblemType;
-		}
-		if(x == 2) {
-			algorithm = AlgorithsForIntegerProblemType;
-		}
-		if(x == 3) {
-			algorithm = AlgorithsForDoubleProblemType;
-		}
-		bynaryAlgorithms.setModel(new DefaultComboBoxModel(algorithm));
-		run.repaint();
-		Gui.repaint();
-	}
+//	public static void algorithms(int x) {
+//		if(x == 0) {
+//			algorithm = new String[] {" "};
+//		}
+//		if(x == 1) {
+//			algorithm = AlgorithsForBinaryProblemType;
+//		}
+//		if(x == 2) {
+//			algorithm = AlgorithsForIntegerProblemType;
+//		}
+//		if(x == 3) {
+//			algorithm = AlgorithsForDoubleProblemType;
+//		}
+//		binaryAlgorithms.setModel(new DefaultComboBoxModel(algorithm));
+//		run.repaint();
+//		Gui.repaint();
+//	}
 
 	public JPanel getRun() {
 		return run;
 	}
+	
+	public static String getAlg() {
+		return (String) binaryAlgorithms.getModel().getSelectedItem();
+	}
+	
 	
 	
 }

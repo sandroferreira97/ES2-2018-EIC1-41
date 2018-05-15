@@ -4,7 +4,9 @@ import org.uma.jmetal.problem.impl.AbstractIntegerProblem;
 import org.uma.jmetal.solution.IntegerSolution;
 import org.uma.jmetal.util.JMetalException;
 
+import generic.Problem;
 import ui.AdvancedConfigurationTab;
+import ui.ConfigurationTab;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -13,13 +15,25 @@ import java.util.List;
 
 public class ProblemInteger extends AbstractIntegerProblem {
 	
-	  public ProblemInteger() throws JMetalException {
-		// 10 decision variables by default  
-	    this(10);
-	  }
+	private Problem prob;
+	
+	
+	
+	public ProblemInteger(Problem prob) throws JMetalException {
+//		this(prob.getProbVariables().size());
+		this(2);
+		CreateProblem(prob);
+	}
+	
+	
 
-	  public ProblemInteger(Integer numberOfVariables) throws JMetalException {
-	    setNumberOfVariables(numberOfVariables);
+	  public ProblemInteger(int var) {
+		  setNumberOfVariables(var);
+	}
+
+
+	public void CreateProblem(Problem prob) {
+		this.prob = prob;
 	    setNumberOfObjectives(2);
 	    setName("MyProblemInteger");
 

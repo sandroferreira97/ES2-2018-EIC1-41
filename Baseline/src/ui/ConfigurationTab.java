@@ -13,11 +13,11 @@ import javax.swing.JTextField;
 
 public class ConfigurationTab {
 
-	private JTextField name;
+	private static JTextField name;
 	private JTextField emailuser;
 	private String nomeproblema;
-	private String mailuser;
-	private String descricao;
+	private static String mailuser;
+	private static String descricao;
 	private JPanel config;
 	private Gui gui;
 	
@@ -73,5 +73,17 @@ public class ConfigurationTab {
 
 	public JPanel getConfig() {
 		return config;
+	}
+	
+	public static String getProbName() {
+		return name.getText();
+	}
+	
+	public static String getProbDescription() {
+		return descricao;
+	}
+	
+	public static String getProbMail() {
+		return mailuser;
 	}
 }

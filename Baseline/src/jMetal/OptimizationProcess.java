@@ -2,21 +2,43 @@ package jMetal;
 
 import java.io.IOException;
 
+import generic.Problem;
+import ui.AdvancedConfigurationTab;
+
 public class OptimizationProcess {
 	
 /* O conjunto de algoritmos adequados a cada tipo de problema estão indicados aqui */
 	String[] AlgorithsForDoubleProblemType = new String[]{"NSGAII","SMSEMOA","GDE3","IBEA","MOCell","MOEAD","PAES","RandomSearch"};
 	String[] AlgorithsForIntegerProblemType = new String[]{"NSGAII","SMSEMOA","MOCell","PAES","RandomSearch"};
 	String[] AlgorithsForBinaryProblemType = new String[]{"NSGAII","SMSEMOA","MOCell","MOCH","PAES","RandomSearch","SPEA2"};	
+	
+	public static ExperimentsInteger eI;
+	public static Problem prob;
 
-	public static void main(String[] args) {
+	public OptimizationProcess(Problem prob) {
+		this.prob = prob;
+	}
+		
+	public void run() {
+	
 		try {
-
-/* Deverão ser comentadas ou retiradas de comentário as linhas 
-   correspondentes às simulações que se pretendem executar */
-//			ExperimentsDouble.main(null);
-//			ExperimentsInteger.main(null);
-			ExperimentsBinary.main(null);
+			switch(AdvancedConfigurationTab.getVariableType()) {
+			case 1:
+				eI = new ExperimentsInteger(prob);
+				eI.run();
+				break;
+				
+			case 2:
+				ExperimentsInteger.run();
+				break;
+				
+			case 3:
+				ExperimentsDouble.run();
+				break;
+			}
+//			
+//			
+			
 
 /* As simulações com ExternalViaJAR no nome tem as funções de avaliação 
    implementadas em .JAR externos que são invocados no método evaluate() 

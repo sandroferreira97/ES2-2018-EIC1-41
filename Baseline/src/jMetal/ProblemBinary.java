@@ -5,6 +5,9 @@ import org.uma.jmetal.solution.BinarySolution;
 import org.uma.jmetal.solution.impl.DefaultBinarySolution;
 import org.uma.jmetal.util.JMetalException;
 
+import ui.AdvancedConfigurationTab;
+import ui.ConfigurationTab;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.BitSet;
@@ -12,13 +15,10 @@ import java.util.BitSet;
 public class ProblemBinary extends AbstractBinaryProblem {
 	  private int bits ;
 
-	  public ProblemBinary() throws JMetalException {
-			// 10 decision variables by default  
-		    this(10);
-		  }
 	 
+	  
 	  public ProblemBinary(Integer numberOfBits) throws JMetalException {
-		setNumberOfVariables(1);
+		setNumberOfVariables(1);// isto acho que não devia ser assim mas só assim funciona
 	    setNumberOfObjectives(2);
 	    setName("MyProblemBinary");
 	    bits = numberOfBits ;
@@ -33,15 +33,15 @@ public class ProblemBinary extends AbstractBinaryProblem {
 	  	return bits ;
 	  }
 
-	//mudar isto
-	  @Override
-	  public BinarySolution createSolution() {
-	    return new DefaultBinarySolution(this) ;
-	  }
+	
+//	  @Override
+//	  public BinarySolution createSolution() {
+//	    return new DefaultBinarySolution(this) ;
+//	  }
 
 	  @Override
 	  public void evaluate(BinarySolution solution){
-		  
+		 
 		  //if (avaliar por jar) evaluateByJar(solution) else
 		  
 	    int counterOnes;
@@ -87,5 +87,9 @@ public class ProblemBinary extends AbstractBinaryProblem {
 		    }	    	    
 		  
 		  }
+
+	
+
+	
   
 	}

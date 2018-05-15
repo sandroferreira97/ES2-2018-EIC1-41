@@ -17,6 +17,8 @@ import org.uma.jmetal.util.experiment.component.*;
 import org.uma.jmetal.util.experiment.util.ExperimentAlgorithm;
 import org.uma.jmetal.util.experiment.util.ExperimentProblem;
 
+import ui.AdvancedConfigurationTab;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -30,7 +32,7 @@ public class ExperimentsIntegeExternalViaJAR {
     String experimentBaseDirectory = "experimentBaseDirectory";
 
     List<ExperimentProblem<IntegerSolution>> problemList = new ArrayList<>();
-    problemList.add(new ExperimentProblem<>(new ProblemInteger()));
+    problemList.add(new ExperimentProblem<>(new ProblemInteger(AdvancedConfigurationTab.getQuantity())));
 
     List<ExperimentAlgorithm<IntegerSolution, List<IntegerSolution>>> algorithmList =
             configureAlgorithmList(problemList);

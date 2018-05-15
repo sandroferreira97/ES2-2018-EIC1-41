@@ -9,14 +9,11 @@ import org.uma.jmetal.problem.impl.AbstractDoubleProblem;
 import org.uma.jmetal.solution.DoubleSolution;
 
 import ui.AdvancedConfigurationTab;
+import ui.ConfigurationTab;
 
 public class ProblemDouble extends AbstractDoubleProblem {
 		
-	  public ProblemDouble() {
-	    // 10 variables (anti-spam filter rules) by default 
-	    this(10);
-	  }
-
+	 
 	  public ProblemDouble(Integer numberOfVariables) {
 	    setNumberOfVariables(numberOfVariables);
 	    setNumberOfObjectives(2);
