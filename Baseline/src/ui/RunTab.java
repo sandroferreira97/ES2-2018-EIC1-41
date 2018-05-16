@@ -13,6 +13,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import generic.Problem;
+import generic.Xml;
 import jMetal.OptimizationProcess;
 
 public class RunTab {
@@ -25,6 +26,7 @@ public class RunTab {
 	static String[] AlgorithsForDoubleProblemType = new String[]{"NSGAII","SMSEMOA","GDE3","IBEA","MOCell","MOEAD","PAES","RandomSearch"};
 	static String[] AlgorithsForIntegerProblemType = new String[]{"NSGAII","SMSEMOA","MOCell","PAES","RandomSearch"};
 	static String[] AlgorithsForBinaryProblemType = new String[]{"NSGAII","SMSEMOA","MOCell","MOCH","PAES","RandomSearch","SPEA2"};
+	private Xml a;
 	
 	public RunTab(JFrame frame, Gui gui) {
 		run = new JPanel();	
@@ -33,6 +35,12 @@ public class RunTab {
 		JButton btnSaveConfiguration = new JButton("Save configuration");
 		btnSaveConfiguration.setBounds(133, 416, 144, 49);
 		run.add(btnSaveConfiguration);
+		btnSaveConfiguration.addActionListener(new ActionListener(){
+	        public void actionPerformed(ActionEvent e){
+	        	System.out.println(AdvancedConfigurationTab.getProblem().getName());
+	        	a.saveConfig(AdvancedConfigurationTab.getProblem());
+	        }
+		});
 		
 		path = new JTextField();
 		path.setBounds(120, 77, 348, 22);
