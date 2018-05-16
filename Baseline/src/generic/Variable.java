@@ -20,6 +20,9 @@ public class Variable {
 		return name;
 	}
 	
+	public int getWeight() {
+		return weight;
+	}
    
 	public int getMin(){
 		return min;

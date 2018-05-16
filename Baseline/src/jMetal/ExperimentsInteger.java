@@ -40,7 +40,7 @@ public class ExperimentsInteger {
 		String experimentBaseDirectory = "experimentBaseDirectory";
 
 		List<ExperimentProblem<IntegerSolution>> problemList = new ArrayList<>();
-		problemList.add(new ExperimentProblem<>(new ProblemInteger(prob)));
+		problemList.add(new ExperimentProblem<>(new ProblemInteger(AdvancedConfigurationTab.getProblem())));
 
 		List<ExperimentAlgorithm<IntegerSolution, List<IntegerSolution>>> algorithmList = configureAlgorithmList(
 				problemList);
@@ -65,7 +65,7 @@ public class ExperimentsInteger {
 		List<ExperimentAlgorithm<IntegerSolution, List<IntegerSolution>>> algorithms = new ArrayList<>();
 
 		for (int i = 0; i < problemList.size(); i++) {
-//			for (int j = 0; j < prob.getAlgorithms().size(); j++) {
+			for (int j = 0; j < AdvancedConfigurationTab.getProblem().getAlgorithms().size(); j++) {
 				switch (AdvancedConfigurationTab.getAlg()) {
 
 				case "NSGAII":
@@ -112,8 +112,9 @@ public class ExperimentsInteger {
 				// problemList.get(i).getTag()));
 				}
 			}
-//		}
+		}
 		return algorithms;
+
 	}
 
 }

@@ -15,25 +15,24 @@ import java.util.List;
 
 public class ProblemInteger extends AbstractIntegerProblem {
 	
-	private Problem prob;
+	private Problem prob = AdvancedConfigurationTab.getProblem();
 	
 	
 	
 	public ProblemInteger(Problem prob) throws JMetalException {
-//		this(prob.getProbVariables().size());
-		this(2);
-		CreateProblem(prob);
+		this.prob = prob;
+		CreateProblem(AdvancedConfigurationTab.getProblem());
 	}
 	
 	
 
-	  public ProblemInteger(int var) {
-		  setNumberOfVariables(var);
-	}
+//	  public ProblemInteger(int var) {
+//		  setNumberOfVariables(var);
+//	}
 
 
 	public void CreateProblem(Problem prob) {
-		this.prob = prob;
+		setNumberOfVariables(prob.getProbVariables().size());
 	    setNumberOfObjectives(2);
 	    setName("MyProblemInteger");
 

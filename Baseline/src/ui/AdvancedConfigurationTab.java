@@ -220,12 +220,14 @@ public class AdvancedConfigurationTab {
 				} else if ((int) maxtime.getValue() != 0 && !type.getSelectedItem().toString().equals("")
 						&& !varname.getText().equals("") && (int) quantity.getValue() != 0) {
 					
-					// criação do problem
-					prob = new Problem(ConfigurationTab.getProbName(), ConfigurationTab.getProbDescription(),
-							getVariableArray(), getAlgorithmsArray(), getProbType(), ConfigurationTab.getProbMail());
+					
 					
 					VariableConfigurationTab.writeRules(getVariable());
-					System.out.println(prob.getAlgorithms().size());
+					
+					prob = new Problem(ConfigurationTab.getProbName(), ConfigurationTab.getProbDescription(),
+							getVariables(), getAlgorithmsArray(), getProbType(), ConfigurationTab.getProbMail());
+					
+					
 					JOptionPane.showMessageDialog(frame, "Data generated with success");
 					gui.setAdvanced(true);
 				} else {
@@ -256,6 +258,14 @@ public class AdvancedConfigurationTab {
 		binaryAlgorithms.setModel(new DefaultComboBoxModel(algorithm));
 		configadvanced.repaint();
 		Gui.repaint();
+	}
+	
+	public ArrayList<Variable> getVariables() {
+		for(int i = 0; i < getQuantity();i++) {
+			Variable v = new Variable(getRulesName(),getProbType(),0,0,0);
+			probVariables.add(v);
+		}
+		return probVariables;
 	}
 	
 
@@ -312,4 +322,7 @@ public class AdvancedConfigurationTab {
 		return type.getSelectedItem().toString();
 	}
 
+	public static Problem getProblem() {
+		return prob;
+	}
 }

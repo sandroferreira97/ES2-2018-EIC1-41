@@ -63,7 +63,7 @@ public class RunTab {
 		run.add(btnRun);
 		btnRun.addActionListener(new ActionListener(){
 	        public void actionPerformed(ActionEvent e){
-	        	OptimizationProcess oP = new OptimizationProcess(prob);
+	        	OptimizationProcess oP = new OptimizationProcess(AdvancedConfigurationTab.getProblem());
 	        	oP.run();
 	        }
 		});	
