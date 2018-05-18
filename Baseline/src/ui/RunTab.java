@@ -8,10 +8,12 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 import generic.Problem;
 import generic.Xml;
@@ -48,51 +50,63 @@ public class RunTab {
 			}
 		});
 
-		path = new JTextField();
-		path.setBounds(120, 77, 348, 22);
-		run.add(path);
-		path.setColumns(10);
 
-		JButton btnLoadConfiguration = new JButton("Load configuration");
-		btnLoadConfiguration.setBounds(520, 76, 137, 22);
+
+		JButton btnLoadConfiguration = new JButton("Load");
+		btnLoadConfiguration.setBounds(380, 76, 137, 22);
 		run.add(btnLoadConfiguration);
+		btnLoadConfiguration.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JFileChooser chooser = new JFileChooser();
+			    FileNameExtensionFilter filter = new FileNameExtensionFilter("XML", "xml");
+			    chooser.setFileFilter(filter);
+			    int returnVal = chooser.showOpenDialog(run);
+			    if(returnVal == JFileChooser.APPROVE_OPTION) {
+			       System.out.println("You chose to open this file: " +chooser.getSelectedFile().getName());
+			    }
+			}
+		});
 
-		JLabel lblXmlPath = new JLabel("Xml path");
-		lblXmlPath.setBounds(39, 80, 56, 16);
+		JLabel lblXmlPath = new JLabel("Load configuration from a previously saved XML file:");
+		lblXmlPath.setBounds(80, 80, 300, 16);
 		run.add(lblXmlPath);
 
 
 		JLabel lblJar = new JLabel("Jar");
-		lblJar.setBounds(40, 200, 200, 16);
+		lblJar.setBounds(80, 200, 200, 16);
 		run.add(lblJar);
 
 		JCheckBox jar = new JCheckBox();
-		jar.setBounds(100, 200, 200, 16);
+		jar.setBounds(120, 200, 200, 16);
 		run.add(jar);
 		
 		JLabel lblPath = new JLabel("Upload Jar file:");
-		lblPath.setBounds(40, 300, 200, 16);
+		lblPath.setBounds(80, 300, 200, 16);
 		run.add(lblPath);
 		lblPath.setVisible(false);
-		
-		JTextField jarPath = new JTextField();
-		jarPath.setBounds(130, 300, 200, 16);
-		run.add(jarPath);
-		jarPath.setVisible(false);
-		
+			
 		JButton btnLoadJar = new JButton("Load");
-		btnLoadJar.setBounds(380, 300, 80, 16);
+		btnLoadJar.setBounds(170, 300, 80, 16);
 		run.add(btnLoadJar);
 		btnLoadJar.setVisible(false);
+		btnLoadJar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				JFileChooser chooser = new JFileChooser();
+			    FileNameExtensionFilter filter = new FileNameExtensionFilter("Jar files", "jar");
+			    chooser.setFileFilter(filter);
+			    int returnVal = chooser.showOpenDialog(run);
+			    if(returnVal == JFileChooser.APPROVE_OPTION) {
+			       System.out.println("You chose to open this file: " +chooser.getSelectedFile().getName());
+			    }
+			}
+		});
 
 		jar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(jar.isSelected()) {
-					jarPath.setVisible(true);
 					lblPath.setVisible(true);
 					btnLoadJar.setVisible(true);
 				}else {
-					jarPath.setVisible(false);
 					lblPath.setVisible(false);
 					btnLoadJar.setVisible(false);
 				}

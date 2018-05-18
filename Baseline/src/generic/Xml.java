@@ -94,8 +94,7 @@ public abstract class Xml {
 				variable.appendChild(var_name);
 				
 				//Adicionar o peso
-				//var_weight.appendChild(doc.createTextNode(String.valueOf(vars.get(i).getWeight())));
-				var_weight.appendChild(doc.createTextNode("44"));
+				var_weight.appendChild(doc.createTextNode(String.valueOf(vars.get(i).getWeight())));
 				variable.appendChild(var_weight);
 
 				//Adicionar o tipo de variavel
