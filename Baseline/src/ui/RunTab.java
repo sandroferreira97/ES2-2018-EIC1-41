@@ -61,15 +61,6 @@ public class RunTab {
 		lblXmlPath.setBounds(39, 80, 56, 16);
 		run.add(lblXmlPath);
 
-		// JLabel lblAlgorithms = new JLabel("Choose your Algorithm:");
-		// lblAlgorithms.setBounds(40, 300, 200, 16);
-		// run.add(lblAlgorithms);
-		// lblAlgorithms.setVisible(true);
-		//
-		// binaryAlgorithms = new JComboBox();
-		// binaryAlgorithms.setBounds(255, 300, 116, 22);
-		// run.add(binaryAlgorithms);
-		// binaryAlgorithms.setVisible(true);
 
 		JLabel lblJar = new JLabel("Jar");
 		lblJar.setBounds(40, 200, 200, 16);
@@ -119,23 +110,6 @@ public class RunTab {
 		});
 	}
 
-	// public static void algorithms(int x) {
-	// if(x == 0) {
-	// algorithm = new String[] {" "};
-	// }
-	// if(x == 1) {
-	// algorithm = AlgorithsForBinaryProblemType;
-	// }
-	// if(x == 2) {
-	// algorithm = AlgorithsForIntegerProblemType;
-	// }
-	// if(x == 3) {
-	// algorithm = AlgorithsForDoubleProblemType;
-	// }
-	// binaryAlgorithms.setModel(new DefaultComboBoxModel(algorithm));
-	// run.repaint();
-	// Gui.repaint();
-	// }
 
 	public JPanel getRun() {
 		return run;

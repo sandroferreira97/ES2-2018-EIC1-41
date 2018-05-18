@@ -20,6 +20,10 @@ public class Variable {
 		return name;
 	}
 	
+	public void setName(String name) {
+		this.name = name;
+	}
+	
 	public int getWeight() {
 		return weight;
 	}

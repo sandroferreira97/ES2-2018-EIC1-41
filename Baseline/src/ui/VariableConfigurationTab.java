@@ -9,6 +9,7 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 import generic.Variable;
+import javax.swing.JLabel;
 
 public class VariableConfigurationTab {
 	
@@ -18,6 +19,7 @@ public class VariableConfigurationTab {
 	private String[] colums = { "Rule", "Weight"};
 	private static Gui gui = null;
 	private JScrollPane scrollPane;
+	private static JLabel lblGroup;
 	
 	
 	
@@ -39,17 +41,25 @@ public class VariableConfigurationTab {
 
 		};
 		
+		
+		
 		 table = new JTable(model);
 		 scrollPane = new JScrollPane(table);
 		 scrollPane.setBounds(111, 113, 419, 381);
 		 varconfig.add(scrollPane);
-		
-		
+		 
+		 lblGroup = new JLabel("");
+		 lblGroup.setBounds(242, 69, 238, 14);
+		 varconfig.add(lblGroup);
+
 		
 	}
 	
-	public static void writeRules(Variable rules) {
+	public static void writeRules(Variable rules,String group) {
+		lblGroup.setText(group);
+		String name = rules.getName();
 		for(int i = 0; i < AdvancedConfigurationTab.getQuantity();i++) {
+			rules.setName(name + " " + (i + 1));
 			((DefaultTableModel) table.getModel()).insertRow(i, rules.getVector());
 		}
 		varconfig.repaint();
