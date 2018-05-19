@@ -28,8 +28,8 @@ import javax.swing.JScrollPane;
 import javax.swing.table.DefaultTableModel;
 
 import generic.Email;
+import generic.Graph;
 import jMetal.OptimizationProcess;
-import perfil4a.GraphsWindow;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -66,8 +66,10 @@ public class Gui {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
+					Graph teste = new Graph();
 					Gui window = new Gui();
 					window.frame.setVisible(true);
+					
 				} catch (Exception e) {
 					e.printStackTrace();
 				}

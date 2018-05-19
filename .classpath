@@ -12,14 +12,6 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/5"/>
-	<classpathentry kind="lib" path="commons-io-2.5.jar"/>
-	<classpathentry kind="lib" path="commons-math3-3.3.jar"/>
-	<classpathentry kind="lib" path="jmetal-problem-5.3.jar"/>
-	<classpathentry kind="lib" path="jmetal-exec-5.3.jar"/>
-	<classpathentry kind="lib" path="jmetal-core-5.3.jar"/>
-	<classpathentry kind="lib" path="jmetal-algorithm-5.3.jar"/>
-	<classpathentry kind="lib" path="commons-lang3-3.3.2.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Sandro/Downloads/javax.mail.jar"/>
 	<classpathentry kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER">
 		<attributes>
 			<attribute name="maven.pomderived" value="true"/>
