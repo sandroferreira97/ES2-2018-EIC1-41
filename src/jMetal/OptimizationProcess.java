@@ -13,6 +13,8 @@ public class OptimizationProcess {
 	String[] AlgorithsForBinaryProblemType = new String[]{"NSGAII","SMSEMOA","MOCell","MOCH","PAES","RandomSearch","SPEA2"};	
 	
 	public static ExperimentsInteger eI;
+	public static ExperimentsBinary eB;
+	public static ExperimentsDouble eD;
 	public static Problem prob;
 
 	public OptimizationProcess(Problem prob) {
@@ -24,16 +26,21 @@ public class OptimizationProcess {
 		try {
 			switch(AdvancedConfigurationTab.getVariableType()) {
 			case 1:
+				System.out.println("binary");
+				eB = new ExperimentsBinary(prob);
+				eB.run();
+				break;
+				
+			case 2:
+				System.out.println("integer");
 				eI = new ExperimentsInteger(prob);
 				eI.run();
 				break;
 				
-			case 2:
-				ExperimentsInteger.run();
-				break;
-				
 			case 3:
-				ExperimentsDouble.run();
+				System.out.println("double");
+				eD = new ExperimentsDouble(prob);
+				eD.run();
 				break;
 			}
 //			

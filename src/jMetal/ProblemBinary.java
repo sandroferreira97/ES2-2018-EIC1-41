@@ -22,6 +22,8 @@ public class ProblemBinary extends AbstractBinaryProblem {
 		setNumberOfVariables(prob.getProbVariables().size());
 	    setNumberOfObjectives(AdvancedConfigurationTab.getObjQuantity());
 	    setName("MyProblemBinary");
+	    
+	    
 	  }
 	  
 	  @Override
@@ -29,6 +31,7 @@ public class ProblemBinary extends AbstractBinaryProblem {
 	  	if (index != 0) {
 	  		throw new JMetalException("Problem MyBinaryProblem has only a variable. Index = " + index) ;
 	  	}
+	  	
 	  	return bits ;
 	  }
 
@@ -42,23 +45,23 @@ public class ProblemBinary extends AbstractBinaryProblem {
 	  public void evaluate(BinarySolution solution){
 		 
 		  //if (avaliar por jar) evaluateByJar(solution) else
-		  
-	    int counterOnes;
-	    int counterZeroes;
-	    counterOnes = 0;
-	    counterZeroes = 0;
-
-	    BitSet bitset = solution.getVariableValue(0) ;
-	    for (int i = 0; i < bitset.length(); i++) {
-	      if (bitset.get(i)) {
-	        counterOnes++;
-	      } else {
-	        counterZeroes++;
-	      }
-	    }
-	    // OneZeroMax is a maximization problem: multiply by -1 to minimize
-	    solution.setObjective(0, -1.0 * counterOnes);
-	    solution.setObjective(1, -1.0 * counterZeroes);		  
+		  evaluateByJar(solution);
+//	    int counterOnes;
+//	    int counterZeroes;
+//	    counterOnes = 0;
+//	    counterZeroes = 0;
+//
+//	    BitSet bitset = solution.getVariableValue(0) ;
+//	    for (int i = 0; i < bitset.length(); i++) {
+//	      if (bitset.get(i)) {
+//	        counterOnes++;
+//	      } else {
+//	        counterZeroes++;
+//	      }
+//	    }
+//	    // OneZeroMax is a maximization problem: multiply by -1 to minimize
+//	    solution.setObjective(0, -1.0 * counterOnes);
+//	    solution.setObjective(1, -1.0 * counterZeroes);		  
 	  }
 	  
 	  // --------- jar-------------

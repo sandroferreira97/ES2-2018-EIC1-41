@@ -22,6 +22,7 @@ import org.uma.jmetal.util.experiment.component.*;
 import org.uma.jmetal.util.experiment.util.ExperimentAlgorithm;
 import org.uma.jmetal.util.experiment.util.ExperimentProblem;
 
+import generic.Problem;
 import ui.AdvancedConfigurationTab;
 import ui.RunTab;
 
@@ -33,6 +34,12 @@ import java.util.List;
 public class ExperimentsDouble {
 	private static final int INDEPENDENT_RUNS = 1;
 	private static final int maxEvaluations = 250;
+	
+	private static Problem prob;
+
+	public ExperimentsDouble(Problem prob) {
+		this.prob = prob;
+	}
 
 	public static void run() throws IOException {
 		String experimentBaseDirectory = "experimentBaseDirectory";
