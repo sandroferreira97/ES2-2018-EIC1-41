@@ -80,36 +80,36 @@ public class ExperimentsInteger {
 					System.out.println("Error!");
 					break;
 
-				/*
-				 * Esta simulações está a executar todos os algoritmos adequados à resolução de
-				 * problemas deste tipo (Integer) Na aplicação final, os algoritmos a ser
-				 * executados devem ser os indicados pelo utilizador na GUI da aplicação
-				 */
+				case "SMSEMOA":
+					Algorithm<List<IntegerSolution>> algorithm2 = new SMSEMOABuilder<>(problemList.get(i).getProblem(),
+							new IntegerSBXCrossover(0.9, 20.0), new IntegerPolynomialMutation(
+									1 / problemList.get(i).getProblem().getNumberOfVariables(), 20.0))
+											.setMaxEvaluations(maxEvaluations).build();
+					algorithms.add(new ExperimentAlgorithm<>(algorithm2, "SMSEMOA", problemList.get(i).getTag()));
+					break;
 
-				// Algorithm<List<IntegerSolution>> algorithm2 = new
-				// SMSEMOABuilder<>(problemList.get(i).getProblem(), new
-				// IntegerSBXCrossover(0.9, 20.0),new
-				// IntegerPolynomialMutation(1/problemList.get(i).getProblem().getNumberOfVariables(),
-				// 20.0)).setMaxEvaluations(maxEvaluations).build();
-				// algorithms.add(new ExperimentAlgorithm<>(algorithm2, "SMSEMOA",
-				// problemList.get(i).getTag()));
-				// Algorithm<List<IntegerSolution>> algorithm3 = new
-				// MOCellBuilder<>(problemList.get(i).getProblem(),new IntegerSBXCrossover(0.9,
-				// 20.0), new
-				// IntegerPolynomialMutation(1/problemList.get(i).getProblem().getNumberOfVariables(),
-				// 20.0)).setMaxEvaluations(maxEvaluations).build();
-				// algorithms.add(new ExperimentAlgorithm<>(algorithm3, "MOCell",
-				// problemList.get(i).getTag()));
-				// Algorithm<List<IntegerSolution>> algorithm4 = new
-				// PAESBuilder<>(problemList.get(i).getProblem()).setMaxEvaluations(maxEvaluations).setArchiveSize(100).setBiSections(2).setMutationOperator(new
-				// IntegerPolynomialMutation(1/problemList.get(i).getProblem().getNumberOfVariables(),
-				// 20.0)).build();
-				// algorithms.add(new ExperimentAlgorithm<>(algorithm4, "PAES",
-				// problemList.get(i).getTag()));
-				// Algorithm<List<IntegerSolution>> algorithm5 = new
-				// RandomSearchBuilder<>(problemList.get(i).getProblem()).setMaxEvaluations(maxEvaluations).build();
-				// algorithms.add(new ExperimentAlgorithm<>(algorithm5, "RandomSearch",
-				// problemList.get(i).getTag()));
+				case "MOCell":
+					Algorithm<List<IntegerSolution>> algorithm3 = new MOCellBuilder<>(problemList.get(i).getProblem(),
+							new IntegerSBXCrossover(0.9, 20.0), new IntegerPolynomialMutation(
+									1 / problemList.get(i).getProblem().getNumberOfVariables(), 20.0))
+											.setMaxEvaluations(maxEvaluations).build();
+					algorithms.add(new ExperimentAlgorithm<>(algorithm3, "MOCell", problemList.get(i).getTag()));
+					break;
+
+				case "PAES":
+					Algorithm<List<IntegerSolution>> algorithm4 = new PAESBuilder<>(problemList.get(i).getProblem())
+							.setMaxEvaluations(maxEvaluations).setArchiveSize(100).setBiSections(2)
+							.setMutationOperator(new IntegerPolynomialMutation(
+									1 / problemList.get(i).getProblem().getNumberOfVariables(), 20.0))
+							.build();
+					algorithms.add(new ExperimentAlgorithm<>(algorithm4, "PAES", problemList.get(i).getTag()));
+					break;
+
+				case "RandomSearch":
+					Algorithm<List<IntegerSolution>> algorithm5 = new RandomSearchBuilder<>(
+							problemList.get(i).getProblem()).setMaxEvaluations(maxEvaluations).build();
+					algorithms.add(new ExperimentAlgorithm<>(algorithm5, "RandomSearch", problemList.get(i).getTag()));
+					break;
 				}
 			}
 		}

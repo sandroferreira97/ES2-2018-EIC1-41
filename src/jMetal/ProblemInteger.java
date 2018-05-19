@@ -28,8 +28,8 @@ public class ProblemInteger extends AbstractIntegerProblem {
 	    List<Integer> upperLimit = new ArrayList<>(getNumberOfVariables()) ;
 
 	    for (int i = 0; i < getNumberOfVariables(); i++) {
-	      lowerLimit.add(/*AdvancedConfigurationTab.getVarMin()*/-5);
-	      upperLimit.add(/*AdvancedConfigurationTab.getVarMax()*/5);
+	      lowerLimit.add(AdvancedConfigurationTab.getVarMin());
+	      upperLimit.add(AdvancedConfigurationTab.getVarMax());
 	    }
 
 	    setLowerLimit(lowerLimit);

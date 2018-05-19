@@ -79,48 +79,54 @@ public class ExperimentsDouble {
 					System.out.println("Error!");
 					break;
 
-				/*
-				 * Esta simulações está a executar todos os algoritmos adequados à resolução de
-				 * problemas deste tipo (Double) Na aplicação final, os algoritmos a ser
-				 * executados devem ser os indicados pelo utilizador na GUI da aplicação
-				 */
+				case "SMSEMOA":
+					Algorithm<List<DoubleSolution>> algorithm2 = new SMSEMOABuilder<>(problemList.get(i).getProblem(),
+							new SBXCrossover(1.0, 5),
+							new PolynomialMutation(1.0 / problemList.get(i).getProblem().getNumberOfVariables(), 10.0))
+									.setMaxEvaluations(maxEvaluations).build();
+					algorithms.add(new ExperimentAlgorithm<>(algorithm2, "SMSEMOA", problemList.get(i).getTag()));
+					break;
 
-				// Algorithm<List<DoubleSolution>> algorithm2 = new
-				// SMSEMOABuilder<>(problemList.get(i).getProblem(), new SBXCrossover(1.0, 5),
-				// new PolynomialMutation(1.0 /
-				// problemList.get(i).getProblem().getNumberOfVariables(),
-				// 10.0)).setMaxEvaluations(maxEvaluations).build();
-				// algorithms.add(new ExperimentAlgorithm<>(algorithm2, "SMSEMOA",
-				// problemList.get(i).getTag()));
-				// Algorithm<List<DoubleSolution>> algorithm3 = new GDE3Builder((DoubleProblem)
-				// problemList.get(i).getProblem()).setMaxEvaluations(maxEvaluations).build();
-				// algorithms.add(new ExperimentAlgorithm<>(algorithm3, "GDE3",
-				// problemList.get(i).getTag()));
-				// Algorithm<List<DoubleSolution>> algorithm4 = new
-				// IBEABuilder(problemList.get(i).getProblem()).setMaxEvaluations(maxEvaluations).build();
-				// algorithms.add(new ExperimentAlgorithm<>(algorithm4, "IBEA",
-				// problemList.get(i).getTag()));
-				// Algorithm<List<DoubleSolution>> algorithm5 = new
-				// MOCellBuilder<>(problemList.get(i).getProblem(),new SBXCrossover(1.0, 5), new
-				// PolynomialMutation(1.0 /
-				// problemList.get(i).getProblem().getNumberOfVariables(),
-				// 10.0)).setMaxEvaluations(maxEvaluations).build();
-				// algorithms.add(new ExperimentAlgorithm<>(algorithm5, "MOCell",
-				// problemList.get(i).getTag()));
-				// Algorithm<List<DoubleSolution>> algorithm6 = new
-				// MOEADBuilder(problemList.get(i).getProblem(),Variant.MOEAD).setMaxEvaluations(maxEvaluations).build();
-				// algorithms.add(new ExperimentAlgorithm<>(algorithm6, "MOEAD",
-				// problemList.get(i).getTag()));
-				// Algorithm<List<DoubleSolution>> algorithm7 = new
-				// PAESBuilder<>(problemList.get(i).getProblem()).setMaxEvaluations(maxEvaluations).setArchiveSize(100).setBiSections(2).setMutationOperator(new
-				// PolynomialMutation(1.0 /
-				// problemList.get(i).getProblem().getNumberOfVariables(), 10.0)).build();
-				// algorithms.add(new ExperimentAlgorithm<>(algorithm7, "PAES",
-				// problemList.get(i).getTag()));
-				// Algorithm<List<DoubleSolution>> algorithm8 = new
-				// RandomSearchBuilder<>(problemList.get(i).getProblem()).setMaxEvaluations(maxEvaluations).build();
-				// algorithms.add(new ExperimentAlgorithm<>(algorithm8, "RandomSearch",
-				// problemList.get(i).getTag()));
+				case "GDE3":
+					Algorithm<List<DoubleSolution>> algorithm3 = new GDE3Builder(
+							(DoubleProblem) problemList.get(i).getProblem()).setMaxEvaluations(maxEvaluations).build();
+					algorithms.add(new ExperimentAlgorithm<>(algorithm3, "GDE3", problemList.get(i).getTag()));
+					break;
+
+				case "IBEA":
+					Algorithm<List<DoubleSolution>> algorithm4 = new IBEABuilder(problemList.get(i).getProblem())
+							.setMaxEvaluations(maxEvaluations).build();
+					algorithms.add(new ExperimentAlgorithm<>(algorithm4, "IBEA", problemList.get(i).getTag()));
+					break;
+
+				case "MOCell":
+					Algorithm<List<DoubleSolution>> algorithm5 = new MOCellBuilder<>(problemList.get(i).getProblem(),
+							new SBXCrossover(1.0, 5),
+							new PolynomialMutation(1.0 / problemList.get(i).getProblem().getNumberOfVariables(), 10.0))
+									.setMaxEvaluations(maxEvaluations).build();
+					algorithms.add(new ExperimentAlgorithm<>(algorithm5, "MOCell", problemList.get(i).getTag()));
+					break;
+
+				case "MOEAD":
+					Algorithm<List<DoubleSolution>> algorithm6 = new MOEADBuilder(problemList.get(i).getProblem(),
+							Variant.MOEAD).setMaxEvaluations(maxEvaluations).build();
+					algorithms.add(new ExperimentAlgorithm<>(algorithm6, "MOEAD", problemList.get(i).getTag()));
+					break;
+
+				case "PAES":
+					Algorithm<List<DoubleSolution>> algorithm7 = new PAESBuilder<>(problemList.get(i).getProblem())
+							.setMaxEvaluations(maxEvaluations).setArchiveSize(100).setBiSections(2)
+							.setMutationOperator(new PolynomialMutation(
+									1.0 / problemList.get(i).getProblem().getNumberOfVariables(), 10.0))
+							.build();
+					algorithms.add(new ExperimentAlgorithm<>(algorithm7, "PAES", problemList.get(i).getTag()));
+					break;
+					
+				case "RandomSearch":
+					Algorithm<List<DoubleSolution>> algorithm8 = new RandomSearchBuilder<>(
+							problemList.get(i).getProblem()).setMaxEvaluations(maxEvaluations).build();
+					algorithms.add(new ExperimentAlgorithm<>(algorithm8, "RandomSearch", problemList.get(i).getTag()));
+					break;
 				}
 			}
 		}

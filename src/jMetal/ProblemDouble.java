@@ -26,8 +26,8 @@ public class ProblemDouble extends AbstractDoubleProblem {
 	    List<Double> upperLimit = new ArrayList<>(getNumberOfVariables()) ;
 
 	    for (int i = 0; i < getNumberOfVariables(); i++) {
-	    	lowerLimit.add((double) -5);
-		    upperLimit.add((double) 5);
+	    	lowerLimit.add((double) AdvancedConfigurationTab.getVarMin());
+		    upperLimit.add((double) AdvancedConfigurationTab.getVarMax());
 	    }
 
 	    setLowerLimit(lowerLimit);
