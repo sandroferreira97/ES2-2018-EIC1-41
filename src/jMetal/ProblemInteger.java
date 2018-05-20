@@ -7,6 +7,7 @@ import org.uma.jmetal.util.JMetalException;
 import generic.Problem;
 import ui.AdvancedConfigurationTab;
 import ui.ConfigurationTab;
+import ui.RunTab;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -73,7 +74,7 @@ public class ProblemInteger extends AbstractIntegerProblem {
 		    }
 		    try {
 				String line;
-		    	Process p = Runtime.getRuntime().exec("java -jar c:\\NMMin.jar" + " " + solutionString);
+		    	Process p = Runtime.getRuntime().exec("java -jar c:\\" + RunTab.getJarName() + " " + solutionString);
 		    	BufferedReader brinput = new BufferedReader(new InputStreamReader(p.getInputStream()));
 		    	while ((line = brinput.readLine()) != null) 
 		    		{evaluationResultString+=line;}

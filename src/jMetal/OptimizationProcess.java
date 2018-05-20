@@ -26,19 +26,16 @@ public class OptimizationProcess {
 		try {
 			switch(AdvancedConfigurationTab.getVariableType()) {
 			case 1:
-				System.out.println("binary");
 				eB = new ExperimentsBinary(prob);
 				eB.run();
 				break;
 				
 			case 2:
-				System.out.println("integer");
 				eI = new ExperimentsInteger(prob);
 				eI.run();
 				break;
 				
 			case 3:
-				System.out.println("double");
 				eD = new ExperimentsDouble(prob);
 				eD.run();
 				break;

@@ -71,7 +71,7 @@ public class Gui {
 					Gui window = new Gui();
 					window.frame.setVisible(true);
 					
-					new Graph().setVisible(true);
+//					new Graph().setVisible(true);
 					
 					
 				} catch (Exception e) {

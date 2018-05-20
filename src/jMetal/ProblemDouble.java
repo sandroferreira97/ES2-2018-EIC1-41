@@ -11,6 +11,7 @@ import org.uma.jmetal.solution.DoubleSolution;
 import generic.Problem;
 import ui.AdvancedConfigurationTab;
 import ui.ConfigurationTab;
+import ui.RunTab;
 
 public class ProblemDouble extends AbstractDoubleProblem {
 		
@@ -67,7 +68,7 @@ public class ProblemDouble extends AbstractDoubleProblem {
 		    }
 		    try {
 				String line;
-		    	Process p = Runtime.getRuntime().exec("java -jar c:\\Kursawe.jar" + " " + solutionString);
+		    	Process p = Runtime.getRuntime().exec("java -jar c:\\" + RunTab.getJarName() + " " + solutionString);
 		    	BufferedReader brinput = new BufferedReader(new InputStreamReader(p.getInputStream()));
 		    	while ((line = brinput.readLine()) != null) 
 		    		{evaluationResultString+=line;}

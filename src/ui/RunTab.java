@@ -131,6 +131,10 @@ public class RunTab {
 		});
 	}
 
+	
+	public static String getJarName() {
+		return lblJarName.getText();
+	}
 
 	public JPanel getRun() {
 		return run;
