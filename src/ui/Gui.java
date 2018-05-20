@@ -71,10 +71,8 @@ public class Gui {
 					Gui window = new Gui();
 					window.frame.setVisible(true);
 					
-//					Graph chart = new Graph("School Vs Years" ,"Numer of Schools vs years");
-//					chart.pack( );
-//					RefineryUtilities.centerFrameOnScreen( chart );
-//					      chart.setVisible( true );
+					//new Graph().setVisible(true);
+					
 					
 				} catch (Exception e) {
 					e.printStackTrace();
