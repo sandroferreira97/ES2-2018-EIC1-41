@@ -11,15 +11,18 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import generic.Problem;
+
 public class ConfigurationTab {
 
 	private static JTextField name;
-	private JTextField emailuser;
+	private static JTextField emailuser;
 	private String nomeproblema;
 	private static String mailuser;
 	private static String descricao;
+	private static JEditorPane description;
 	private JPanel config;
-	private Gui gui;
+	private static Gui gui;
 	
 	public ConfigurationTab(JFrame frame, Gui gui) {
 		this.gui=gui;
@@ -39,7 +42,7 @@ public class ConfigurationTab {
 		probdescipt.setBounds(12, 84, 144, 16);
 		config.add(probdescipt);
 		
-		JEditorPane description = new JEditorPane();
+		description = new JEditorPane();
 		description.setBounds(158, 84, 350, 150);
 		config.add(description);
 		
@@ -85,5 +88,12 @@ public class ConfigurationTab {
 	
 	public static String getProbMail() {
 		return mailuser;
+	}
+	
+	public static void load(Problem p) {
+		name.setText(p.getName());
+		emailuser.setText(p.getEmail());
+		description.setText(p.getDescription());
+		gui.setConfiguration(true);
 	}
 }

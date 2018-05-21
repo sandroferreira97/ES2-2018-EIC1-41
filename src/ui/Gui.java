@@ -26,11 +26,16 @@ import javax.swing.JTable;
 import javax.swing.border.CompoundBorder;
 import javax.swing.JScrollPane;
 import javax.swing.table.DefaultTableModel;
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Unmarshaller;
 
 import org.jfree.ui.RefineryUtilities;
 
+import generic.Admin;
 import generic.Email;
 import generic.Graph;
+import generic.Problem;
 import jMetal.OptimizationProcess;
 
 import java.awt.Color;
@@ -68,6 +73,16 @@ public class Gui {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
+					
+					JAXBContext jaxbContext;
+					Admin adm = null;
+					try {
+						jaxbContext = JAXBContext.newInstance(Admin.class);
+						Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
+						adm = (Admin) jaxbUnmarshaller.unmarshal(new File());
+					} catch (JAXBException e) {
+						e.printStackTrace();
+					}
 					Gui window = new Gui();
 					window.frame.setVisible(true);
 					

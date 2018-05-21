@@ -280,8 +280,17 @@ public class AdvancedConfigurationTab {
 	public String getProbType() {
 		return type.getSelectedItem().toString();
 	}
+	
+	public static void setProblem(Problem p) {
+		prob=p;
+	}
 
 	public static Problem getProblem() {
 		return prob;
+	}
+	
+	public static void save(Problem p) {
+		
+	
 	}
 }

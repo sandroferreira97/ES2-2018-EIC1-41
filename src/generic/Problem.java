@@ -17,7 +17,6 @@ public class Problem {
 
 	
 	public Problem() {
-		System.out.println("teste XML");
 	}
 	
 	

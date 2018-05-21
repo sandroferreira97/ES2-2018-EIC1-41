@@ -24,6 +24,9 @@ import javax.xml.transform.stream.StreamResult;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
+import ui.AdvancedConfigurationTab;
+import ui.ConfigurationTab;
+
 public abstract class Xml {
 
 	public static void saveConfig(Problem prob) {
@@ -148,6 +151,9 @@ public abstract class Xml {
 		} catch (JAXBException e) {
 			e.printStackTrace();
 		}
+		AdvancedConfigurationTab.setProblem(prob);
+		ConfigurationTab.load(prob);
+		
 		
 	}
 
