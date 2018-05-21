@@ -86,7 +86,9 @@ public class ProblemBinary extends AbstractBinaryProblem {
 	   		String[] individualEvaluationCriteria = evaluationResultString.split("\\s+");
 		    // It is assumed that all evaluated criteria are returned in the same result string
 		    for (int i = 0; i < solution.getNumberOfObjectives(); i++) {
-		    	solution.setObjective(i, Double.parseDouble(individualEvaluationCriteria[i]));
+		    	
+		    		solution.setObjective(i, Double.parseDouble(individualEvaluationCriteria[i]));
+		    	
 		    }	    	    
 		  
 		  }

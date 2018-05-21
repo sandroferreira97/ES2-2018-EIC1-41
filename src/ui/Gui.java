@@ -71,7 +71,7 @@ public class Gui {
 					Gui window = new Gui();
 					window.frame.setVisible(true);
 					
-//					new Graph().setVisible(true);
+					
 					
 					
 				} catch (Exception e) {
@@ -131,6 +131,13 @@ public class Gui {
 		RunTab runTab = new RunTab(frame,this);
 		JPanel run= runTab.getRun();
 		tab.addTab("Run", null, run, null);
+		
+		//
+		//Creating the Graph panel
+		//
+		GraphTab graphTab= new GraphTab(frame,this);
+		JPanel graph= graphTab.getGraph();
+		tab.addTab("Graph", null, graph, null);
 		
 		//
 		//Creating the FAQ panel

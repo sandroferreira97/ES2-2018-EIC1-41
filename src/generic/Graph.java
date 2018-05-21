@@ -24,7 +24,7 @@ import org.jfree.data.xy.XYSeriesCollection;
 
 public class Graph extends ApplicationFrame {
 	
-	
+	JFreeChart chart;
    
    public Graph() {   // the constructor will contain the panel of a certain size and the close operations 
 	    super("XY Line Chart Example with JFreechart"); // calls the super class constructor
@@ -33,7 +33,7 @@ public class Graph extends ApplicationFrame {
 	    add(chartPanel, BorderLayout.CENTER);
 	    
 	    setSize(640, 480);
-	    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//	    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	    setLocationRelativeTo(null);
 	}
    
@@ -44,7 +44,7 @@ public class Graph extends ApplicationFrame {
 	    
 	    XYDataset dataset = createDataset();
 	    
-	    JFreeChart chart = ChartFactory.createXYLineChart(chartTitle, 
+	    chart = ChartFactory.createXYLineChart(chartTitle, 
 	            xAxisLabel, yAxisLabel, dataset);
 
 	   
@@ -121,5 +121,9 @@ public class Graph extends ApplicationFrame {
 	    
 	    return dataset;
    }  
+   
+   public JFreeChart getChartPanel() {
+	   return chart;
+   }
   
 }

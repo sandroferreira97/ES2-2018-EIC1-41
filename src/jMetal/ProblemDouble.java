@@ -68,7 +68,7 @@ public class ProblemDouble extends AbstractDoubleProblem {
 		    }
 		    try {
 				String line;
-		    	Process p = Runtime.getRuntime().exec("java -jar c:\\" + RunTab.getJarName() + " " + solutionString);
+		    	Process p = Runtime.getRuntime().exec("java -jar " + RunTab.getJarPath() + " " + solutionString);
 		    	BufferedReader brinput = new BufferedReader(new InputStreamReader(p.getInputStream()));
 		    	while ((line = brinput.readLine()) != null) 
 		    		{evaluationResultString+=line;}
