@@ -51,7 +51,23 @@ public abstract class Xml {
 	}
 	
 	
-	
+	public static void saveConfig(Problem prob) {
+		
+		  try {
+            JAXBContext context = JAXBContext.newInstance(Problem.class);
+            Marshaller m = context.createMarshaller();
+            //for pretty-print XML in JAXB
+            m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
+
+            // Write to System.out for debugging
+             m.marshal(prob, System.out);
+
+            // Write to File
+            m.marshal(prob, new File("email.xml"));
+        } catch (JAXBException e) {
+            e.printStackTrace();
+        }
+	}
 	
 
 	public static void loadConfig(File a) {

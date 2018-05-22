@@ -15,6 +15,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
+import generic.Email;
 import generic.Problem;
 import generic.Xml;
 import jMetal.OptimizationProcess;
@@ -106,6 +107,8 @@ public class RunTab {
 			public void actionPerformed(ActionEvent e) {
 				OptimizationProcess oP = new OptimizationProcess(AdvancedConfigurationTab.getProblem());
 				oP.run();
+				Xml.saveConfig(prob);
+				//Email.enviarRun(prob.getEmail(), prob.getName(), "O Programa começou a correr");
 			}
 		});
 	}
