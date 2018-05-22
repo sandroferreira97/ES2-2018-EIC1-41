@@ -4,6 +4,7 @@ package ui;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -34,7 +35,6 @@ import org.jfree.ui.RefineryUtilities;
 
 import generic.Admin;
 import generic.Email;
-import generic.Graph;
 import generic.Problem;
 import jMetal.OptimizationProcess;
 
@@ -72,6 +72,7 @@ public class Gui {
 		
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
+				
 				try {
 					
 					JAXBContext jaxbContext;
@@ -79,14 +80,14 @@ public class Gui {
 					try {
 						jaxbContext = JAXBContext.newInstance(Admin.class);
 						Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
-						adm = (Admin) jaxbUnmarshaller.unmarshal(new File());
+						//adm = (Admin) jaxbUnmarshaller.unmarshal(new File());
 					} catch (JAXBException e) {
 						e.printStackTrace();
 					}
 					Gui window = new Gui();
 					window.frame.setVisible(true);
 					
-					
+									
 					
 					
 				} catch (Exception e) {
@@ -114,7 +115,19 @@ public class Gui {
 		frame = new JFrame();
 		frame.setResizable(false);
 		frame.setBounds(100, 100, 700, 700);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+		
+		frame.addWindowListener(new java.awt.event.WindowAdapter() {
+		    @Override
+		    public void windowClosing(java.awt.event.WindowEvent windowEvent) {
+		        if (JOptionPane.showConfirmDialog(frame, 
+		            "Are you sure to close this window?", "Really Closing?", 
+		            JOptionPane.YES_NO_OPTION,
+		            JOptionPane.QUESTION_MESSAGE) == JOptionPane.YES_OPTION){
+		            System.exit(0);
+		        }
+		    }
+		});
 		
 		JTabbedPane tab = new JTabbedPane(JTabbedPane.TOP);
 		frame.getContentPane().add(tab, BorderLayout.CENTER);
@@ -190,5 +203,6 @@ public class Gui {
 		this.advanced = advanced;
 	}
 
+	
 	
 }

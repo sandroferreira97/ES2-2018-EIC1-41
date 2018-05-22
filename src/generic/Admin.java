@@ -50,11 +50,11 @@ public class Admin {
 
 	public void load(String path) {
 		JAXBContext jaxbContext;
-		Admin
+		//Admin
 		try {
 			jaxbContext = JAXBContext.newInstance(Problem.class);
 			Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
-			prob = (Problem) jaxbUnmarshaller.unmarshal(a);
+			//prob = (Problem) jaxbUnmarshaller.unmarshal(a);
 		} catch (JAXBException e) {
 			e.printStackTrace();
 		}
