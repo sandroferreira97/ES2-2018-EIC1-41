@@ -41,6 +41,8 @@ public GraphTab(JFrame frame, Gui gui) {
 	graphPanel.add(btgraph);
 	
 	
+	
+	
 }
 
 public JPanel getGraph() {

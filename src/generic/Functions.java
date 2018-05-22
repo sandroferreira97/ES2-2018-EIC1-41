@@ -51,6 +51,7 @@ public class Functions {
 		} catch (IOException e) {return null;}
 		
 		Double min = (double) (f1.get(0) + f2.get(0));
+		
 		for(int i = 0; i < f1.size();i++){
 			media = (double) (f1.get(i) + f2.get(i));
 			if(media < min){
@@ -68,11 +69,11 @@ public class Functions {
 	
 public static ArrayList<Variable> readWeights(String name, int index, int prob) {
 		
-		ArrayList<Variable> rules = new ArrayList<Variable>(20);
+		ArrayList<Variable> rules = new ArrayList<Variable>(10);
 		int i = 0;
 		String line = "";
 		try {
-			BufferedReader in = new BufferedReader(new FileReader("experimentBaseDirectory/ExperimentsDouble/data/NSGAII/MyProblemDouble/BEST_HV_VAR.tsv"));
+			BufferedReader in = new BufferedReader(new FileReader("experimentBaseDirectory/ExperimentsDouble/data/NSGAII/MyProblemInteger/BEST_HV_VAR.tsv"));
 				while ((line = in.readLine()) != null) {
 					if(i == index){
 				    String fx[] = line.split(" ");

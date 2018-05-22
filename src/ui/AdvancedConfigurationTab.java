@@ -27,16 +27,19 @@ public class AdvancedConfigurationTab {
 	private static JTextField varmax;
 	private static JSpinner optCriteria;
 	private static JComboBox binaryAlgorithms;
-	private static String[] algorithm = {""};
+	private static String[] algorithm = { "" };
 	public static int variableType;
-	public static JComboBox<?> type;
+	public static JComboBox<?> type, optType;
 	public static Problem prob;
 	private static ArrayList<Variable> probVariables = new ArrayList<Variable>();
 	private static ArrayList<String> probAlgorithms = new ArrayList<String>();
-	
-	static String[] AlgorithsForDoubleProblemType = new String[]{"","NSGAII","SMSEMOA","GDE3","IBEA","MOCell","MOEAD","PAES","RandomSearch"};
-	static String[] AlgorithsForIntegerProblemType = new String[]{"","NSGAII","SMSEMOA","MOCell","PAES","RandomSearch"};
-	static String[] AlgorithsForBinaryProblemType = new String[]{"","NSGAII","SMSEMOA","MOCell","MOCH","PAES","RandomSearch","SPEA2"};
+
+	static String[] AlgorithsForDoubleProblemType = new String[] { "", "NSGAII", "SMSEMOA", "GDE3", "IBEA", "MOCell",
+			"MOEAD", "PAES", "RandomSearch" };
+	static String[] AlgorithsForIntegerProblemType = new String[] { "", "NSGAII", "SMSEMOA", "MOCell", "PAES",
+			"RandomSearch" };
+	static String[] AlgorithsForBinaryProblemType = new String[] { "", "NSGAII", "SMSEMOA", "MOCell", "MOCH", "PAES",
+			"RandomSearch", "SPEA2" };
 	private JTextField testGroup;
 
 	public AdvancedConfigurationTab(JFrame frame, Gui gui) {
@@ -132,14 +135,14 @@ public class AdvancedConfigurationTab {
 		});
 
 		JLabel lblAlgorithms = new JLabel("Choose your Algorithm:");
-		lblAlgorithms.setBounds(40, 376, 200, 16);
+		lblAlgorithms.setBounds(40, 443, 200, 16);
 		configadvanced.add(lblAlgorithms);
-		lblAlgorithms.setVisible(true);
+		lblAlgorithms.setVisible(false);
 		
 		binaryAlgorithms = new JComboBox();
-		binaryAlgorithms.setBounds(255, 373, 116, 22);
+		binaryAlgorithms.setBounds(255, 440, 116, 22);
 		configadvanced.add(binaryAlgorithms);
-		binaryAlgorithms.setVisible(true);		
+		binaryAlgorithms.setVisible(false);		
 		
 		
 		binaryAlgorithms.addActionListener(new ActionListener() {
@@ -154,17 +157,17 @@ public class AdvancedConfigurationTab {
 		btnGenerate.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 //				teste();
+				
 				if (!gui.isConfiguration()) {
 					JOptionPane.showMessageDialog(frame, "Please fill all fields in the configuration tab");
 				} else if ((int) maxtime.getValue() != 0 && !type.getSelectedItem().toString().equals("")
 						&& !varname.getText().equals("") && (int) quantity.getValue() != 0) {
 					
-					
-					
-					VariableConfigurationTab.writeRules(getVariables(),testGroup.getText());
-					
 					prob = new Problem(ConfigurationTab.getProbName(), ConfigurationTab.getProbDescription(),
 							getVariables(), getAlgorithmsArray(), getProbType(), ConfigurationTab.getProbMail());
+//					String[] fx = Functions.readAutomatic("MyProblemInteger");
+//					ArrayList<Variable> v = Functions.readWeights("as",Integer.valueOf(fx[2]) , 10);
+					VariableConfigurationTab.writeRules(probVariables,testGroup.getText());
 					
 					
 					JOptionPane.showMessageDialog(frame, "Data generated with success");
@@ -195,42 +198,68 @@ public class AdvancedConfigurationTab {
 		optCriteria = new JSpinner();
 		optCriteria.setBounds(548, 47, 52, 22);
 		configadvanced.add(optCriteria);
+		
+		JLabel lblOptimizationType = new JLabel("Optimization type:");
+		lblOptimizationType.setBounds(38, 388, 123, 14);
+		configadvanced.add(lblOptimizationType);
+		
+		optType = new JComboBox();
+		optType.setModel(new DefaultComboBoxModel(new String[] { "", "Manual", "Automatic", "Mixed" }));
+		optType.setBounds(255, 385, 110, 22);
+		configadvanced.add(optType);
+		
+		optType.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				if(optType.getSelectedItem().toString().equals("Manual")) {
+					lblAlgorithms.setVisible(true);
+					binaryAlgorithms.setVisible(true);		
+				}
+				if(optType.getSelectedItem().toString().equals("Automatic")) {
+					lblAlgorithms.setVisible(false);
+					binaryAlgorithms.setVisible(false);		
+				}
+				// ainda não sei bem como isto funciona
+				if(optType.getSelectedItem().toString().equals("Mixed")) {
+					lblAlgorithms.setVisible(true);
+					binaryAlgorithms.setVisible(true);		
+				}
+			}
+		});
 	}
-	
 
 	public static void algorithms(int x) {
-		if(x == 0) {
-			algorithm = new String[] {" "};
+		if (x == 0) {
+			algorithm = new String[] { " " };
 		}
-		if(x == 1) {
+		if (x == 1) {
 			algorithm = AlgorithsForBinaryProblemType;
 		}
-		if(x == 2) {
+		if (x == 2) {
 			algorithm = AlgorithsForIntegerProblemType;
 		}
-		if(x == 3) {
+		if (x == 3) {
 			algorithm = AlgorithsForDoubleProblemType;
 		}
 		binaryAlgorithms.setModel(new DefaultComboBoxModel(algorithm));
 		configadvanced.repaint();
 		Gui.repaint();
-		
+
 	}
-	
+
 	public void teste() {
-		String[] fx = Functions.readAutomatic("MyProblemDouble");
-		prob.setProbVariables(Functions.readWeights("MyProblemDouble", Integer.valueOf(fx[2]),10));
-		VariableConfigurationTab.writeRules(prob.getProbVariables(), "ola");
+		
+		String[] fx = Functions.readAutomatic("MyProblemInteger");
+		probVariables = Functions.readWeights("MyProblemDouble", Integer.valueOf(fx[2]), 10);
+		VariableConfigurationTab.writeRules(getVariables(), "ola");
 	}
-	
+
 	public ArrayList<Variable> getVariables() {
-		for(int i = 0; i < getQuantity();i++) {
-			Variable v = new Variable(getRulesName(),getProbType(),0,0,"");
+		for (int i = 0; i < getQuantity(); i++) {
+			Variable v = new Variable(getRulesName(), getProbType(), 0, 0, "");
 			probVariables.add(v);
 		}
 		return probVariables;
 	}
-	
 
 	public JPanel getConfigadvanced() {
 		return configadvanced;
@@ -243,7 +272,7 @@ public class AdvancedConfigurationTab {
 	public static int getQuantity() {
 		return (int) quantity.getValue();
 	}
-	
+
 	public static int getObjQuantity() {
 		return (int) optCriteria.getValue();
 	}
@@ -272,11 +301,11 @@ public class AdvancedConfigurationTab {
 	public ArrayList<Variable> getVariableArray() {
 		return probVariables;
 	}
-	
+
 	public void addAlgorithms() {
 		probAlgorithms.add(binaryAlgorithms.getModel().getSelectedItem().toString());
 	}
-	
+
 	public static String getAlg() {
 		return binaryAlgorithms.getModel().getSelectedItem().toString();
 	}
@@ -288,17 +317,16 @@ public class AdvancedConfigurationTab {
 	public String getProbType() {
 		return type.getSelectedItem().toString();
 	}
-	
+
 	public static void setProblem(Problem p) {
-		prob=p;
+		prob = p;
 	}
 
 	public static Problem getProblem() {
 		return prob;
 	}
-	
+
 	public static void save(Problem p) {
-		
-	
+
 	}
 }

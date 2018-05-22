@@ -8,6 +8,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
+import generic.Functions;
 import generic.Variable;
 import javax.swing.JLabel;
 
