@@ -88,6 +88,9 @@ public class Gui {
 							e.printStackTrace();
 						}
 						
+						
+						
+						
 						Email.setAccount(adm.getEmail(), adm.getPassword());
 						Gui window = new Gui();
 						window.frame.setVisible(true);

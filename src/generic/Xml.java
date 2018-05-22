@@ -49,6 +49,10 @@ public abstract class Xml {
               e.printStackTrace();
           }
 	}
+	
+	
+	
+	
 
 	public static void loadConfig(File a) {
 		JAXBContext jaxbContext;
