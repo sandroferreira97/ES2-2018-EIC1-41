@@ -14,7 +14,6 @@ public class Variable {
 	
 	
 	public Variable() {
-		System.out.println("TESTE XML VARIAVEL");
 	}
 	
 	public Variable(String name, String type, int min, int max, String weight){

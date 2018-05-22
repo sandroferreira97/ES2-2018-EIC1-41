@@ -23,9 +23,11 @@ public class Email {
 	/**
 	 * Function that allow the user to send an email to us
 	 */
+	
+	private static String username;
+	private static String password;
+	
 	public static void enviar(String email, String assunto, String mensagem){
-		final String username = "eic2.2018.41@gmail.com";
-		final String password = "duartenunosandro";
 
 		Properties props = new Properties();
 		props.put("mail.smtp.auth", "true");
@@ -56,5 +58,11 @@ public class Email {
 		} catch (MessagingException e) {
 			throw new RuntimeException(e);
 		}
+	}
+	
+	
+	public static void setAccount(String username,String pass) {
+		Email.username=username;
+		Email.password=pass;
 	}
 }
