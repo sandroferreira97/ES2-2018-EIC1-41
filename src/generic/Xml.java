@@ -29,7 +29,7 @@ import ui.ConfigurationTab;
 
 public abstract class Xml {
 
-	public static void saveConfig(Problem prob) {
+	public static void saveConfig(Problem prob,String path) {
 		
 		  try {
               JAXBContext context = JAXBContext.newInstance(Problem.class);
@@ -43,7 +43,7 @@ public abstract class Xml {
               // Write to File
                
                String time = new SimpleDateFormat("yyyyMMddHHmm'.txt'").format(new Date());
-   			String fname = "Save_" + prob.getName() + "_" + time + ".xml";
+   			String fname = path+"/Save_" + prob.getName() + "_" + time + ".xml";
               m.marshal(prob, new File(fname));
           } catch (JAXBException e) {
               e.printStackTrace();

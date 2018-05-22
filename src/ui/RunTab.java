@@ -48,7 +48,7 @@ public class RunTab {
 		btnSaveConfiguration.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				System.out.println(AdvancedConfigurationTab.getProblem().getName());
-				a.saveConfig(AdvancedConfigurationTab.getProblem());
+				a.saveConfig(AdvancedConfigurationTab.getProblem(),gui.getAdm().getXmlDir());
 			}
 		});
 

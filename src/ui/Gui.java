@@ -60,6 +60,7 @@ public class Gui {
 
 	private boolean advanced;
 	private AdvancedConfigurationTab AdvancedTab;
+	private static Admin adm;
 
 	String[] AlgorithsForDoubleProblemType = new String[] { "NSGAII", "SMSEMOA", "GDE3", "IBEA", "MOCell", "MOEAD",
 			"PAES", "RandomSearch" };
@@ -79,7 +80,6 @@ public class Gui {
 					File a = new File("config.xml");
 					if (a.exists()) {
 						JAXBContext jaxbContext;
-						Admin adm = null;
 						try {
 							jaxbContext = JAXBContext.newInstance(Admin.class);
 							Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
@@ -208,5 +208,11 @@ public class Gui {
 	public void setAdvanced(boolean advanced) {
 		this.advanced = advanced;
 	}
+
+	public static Admin getAdm() {
+		return adm;
+	}
+	
+	
 
 }
