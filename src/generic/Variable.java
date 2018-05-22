@@ -10,14 +10,14 @@ public class Variable {
 	private String type;
 	private int min;
 	private int max;
-	private int weight;
+	private String weight;
 	
 	
 	public Variable() {
 		System.out.println("TESTE XML VARIAVEL");
 	}
 	
-	public Variable(String name, String type, int min, int max, int weight){
+	public Variable(String name, String type, int min, int max, String weight){
 		this.name=name;
 		this.type=type;
 		this.min = min;
@@ -48,12 +48,12 @@ public class Variable {
 		this.max = max;
 	}
 
-	public void setWeight(int weight) {
+	public void setWeight(String weight) {
 		this.weight = weight;
 	}
 
 	@XmlElement(name="Weight")
-	public int getWeight() {
+	public String getWeight() {
 		return weight;
 	}
    

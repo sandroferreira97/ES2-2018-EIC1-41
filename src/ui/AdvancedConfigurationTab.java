@@ -14,6 +14,7 @@ import javax.swing.JPanel;
 import javax.swing.JSpinner;
 import javax.swing.JTextField;
 
+import generic.Functions;
 import generic.Problem;
 import generic.Variable;
 
@@ -152,15 +153,15 @@ public class AdvancedConfigurationTab {
 		JButton btnGenerate = new JButton("Generate");
 		btnGenerate.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				
+//				teste();
 				if (!gui.isConfiguration()) {
 					JOptionPane.showMessageDialog(frame, "Please fill all fields in the configuration tab");
 				} else if ((int) maxtime.getValue() != 0 && !type.getSelectedItem().toString().equals("")
 						&& !varname.getText().equals("") && (int) quantity.getValue() != 0) {
 					
 					
-			
-					VariableConfigurationTab.writeRules(getVariable(),testGroup.getText());
+					
+					VariableConfigurationTab.writeRules(getVariables(),testGroup.getText());
 					
 					prob = new Problem(ConfigurationTab.getProbName(), ConfigurationTab.getProbDescription(),
 							getVariables(), getAlgorithmsArray(), getProbType(), ConfigurationTab.getProbMail());
@@ -213,11 +214,18 @@ public class AdvancedConfigurationTab {
 		binaryAlgorithms.setModel(new DefaultComboBoxModel(algorithm));
 		configadvanced.repaint();
 		Gui.repaint();
+		
+	}
+	
+	public void teste() {
+		String[] fx = Functions.readAutomatic("MyProblemDouble");
+		prob.setProbVariables(Functions.readWeights("MyProblemDouble", Integer.valueOf(fx[2]),10));
+		VariableConfigurationTab.writeRules(prob.getProbVariables(), "ola");
 	}
 	
 	public ArrayList<Variable> getVariables() {
 		for(int i = 0; i < getQuantity();i++) {
-			Variable v = new Variable(getRulesName(),getProbType(),0,0,0);
+			Variable v = new Variable(getRulesName(),getProbType(),0,0,"");
 			probVariables.add(v);
 		}
 		return probVariables;
@@ -253,7 +261,7 @@ public class AdvancedConfigurationTab {
 	}
 
 	public Variable getVariable() {
-		Variable v = new Variable(getRulesName(), null, 0, 0, 0);
+		Variable v = new Variable(getRulesName(), null, 0, 0, "");
 		return v;
 	}
 

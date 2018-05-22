@@ -55,12 +55,13 @@ public class VariableConfigurationTab {
 		
 	}
 	
-	public static void writeRules(Variable rules,String group) {
+	public static void writeRules(ArrayList<Variable> rules,String group) {
 		lblGroup.setText(group);
-		String name = rules.getName();
-		for(int i = 0; i < AdvancedConfigurationTab.getQuantity();i++) {
-			rules.setName(name + " " + (i + 1));
-			((DefaultTableModel) table.getModel()).insertRow(i, rules.getVector());
+		
+		for(int i = 0; i < rules.size();i++) {
+			String name = rules.get(i).getName();
+			rules.get(i).setName(name + " " + (i + 1));
+			((DefaultTableModel) table.getModel()).insertRow(i, rules.get(i).getVector());
 		}
 		varconfig.repaint();
 		Gui.repaint();

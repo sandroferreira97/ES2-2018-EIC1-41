@@ -1,8 +1,11 @@
 package jMetal;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
+import generic.Functions;
 import generic.Problem;
+import generic.Variable;
 import ui.AdvancedConfigurationTab;
 
 public class OptimizationProcess {
@@ -54,5 +57,6 @@ public class OptimizationProcess {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		
 	} 
 }
