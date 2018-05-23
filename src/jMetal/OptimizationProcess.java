@@ -1,5 +1,6 @@
 package jMetal;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -49,8 +50,8 @@ public class OptimizationProcess {
 				break;
 			}
 //			
-//			
-			
+			File a = new File(prob.getName()+".xml");
+			a.delete();			
 
 /* As simulações com ExternalViaJAR no nome tem as funções de avaliação 
    implementadas em .JAR externos que são invocados no método evaluate() 
