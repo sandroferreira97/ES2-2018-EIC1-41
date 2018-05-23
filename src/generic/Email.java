@@ -16,6 +16,8 @@ import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 
+import ui.AdvancedConfigurationTab;
+
 /**
  * Email is the class that will allow the user to request help if it is needed.
  *
@@ -104,8 +106,8 @@ public class Email {
 			
 			
 			MimeBodyPart messageBodyPart = new MimeBodyPart();
-	        String file = "email.xml";
-			String fileName = "email.xml";
+	        String file = AdvancedConfigurationTab.getProblem().getName()+".xml";
+			String fileName = AdvancedConfigurationTab.getProblem().getName()+".xml";
 	        DataSource source = new FileDataSource(file);
 	        messageBodyPart.setDataHandler(new DataHandler(source));
 	        messageBodyPart.setFileName(fileName);

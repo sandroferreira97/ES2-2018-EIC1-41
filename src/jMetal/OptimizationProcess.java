@@ -3,9 +3,11 @@ package jMetal;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import generic.Email;
 import generic.Functions;
 import generic.Problem;
 import generic.Variable;
+import generic.Xml;
 import ui.AdvancedConfigurationTab;
 
 public class OptimizationProcess {
@@ -26,6 +28,9 @@ public class OptimizationProcess {
 		
 	public void run() {
 	
+		Xml.saveConfig(prob);
+		Email.enviarRun(prob.getEmail(), prob.getName(), "O Programa começou a correr");
+		
 		try {
 			switch(AdvancedConfigurationTab.getVariableType()) {
 			case 1:

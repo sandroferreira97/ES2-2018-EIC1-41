@@ -38,7 +38,7 @@ public abstract class Xml {
               m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
 
               // Write to System.out for debugging
-               m.marshal(prob, System.out);
+               //m.marshal(prob, System.out);
 
               // Write to File
                
@@ -60,10 +60,10 @@ public abstract class Xml {
             m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
 
             // Write to System.out for debugging
-             m.marshal(prob, System.out);
+            // m.marshal(prob, System.out);
 
             // Write to File
-            m.marshal(prob, new File("email.xml"));
+            m.marshal(prob, new File(prob.getName()+".xml"));
         } catch (JAXBException e) {
             e.printStackTrace();
         }
