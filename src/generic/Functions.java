@@ -67,19 +67,19 @@ public class Functions {
 		
 	}
 	
-public static ArrayList<Variable> readWeights(String name, int index, int prob) {
+public static ArrayList<Variable> readWeights(ArrayList<Variable> rules, int index, int prob) {
 		
-		ArrayList<Variable> rules = new ArrayList<Variable>(10);
+		
 		int i = 0;
 		String line = "";
 		try {
-			BufferedReader in = new BufferedReader(new FileReader("experimentBaseDirectory/ExperimentsDouble/data/NSGAII/MyProblemInteger/BEST_HV_VAR.tsv"));
+			BufferedReader in = new BufferedReader(new FileReader("experimentBaseDirectory/ExperimentsInteger/data/NSGAII/MyProblemInteger/BEST_HV_VAR.tsv"));
 				while ((line = in.readLine()) != null) {
 					if(i == index){
 				    String fx[] = line.split(" ");
+				    System.out.println(fx[0]);
 				    	for(int j = 0; j < fx.length;j++){
 				    		rules.get(j).setWeight(fx[j]);
-				    		System.out.println("adeus");
 				    	}
 					}
 					i++;

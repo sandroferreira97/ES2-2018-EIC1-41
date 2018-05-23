@@ -40,7 +40,7 @@ public class AdvancedConfigurationTab {
 			"RandomSearch" };
 	static String[] AlgorithsForBinaryProblemType = new String[] { "", "NSGAII", "SMSEMOA", "MOCell", "MOCH", "PAES",
 			"RandomSearch", "SPEA2" };
-	private JTextField testGroup;
+	private static JTextField testGroup;
 
 	public AdvancedConfigurationTab(JFrame frame, Gui gui) {
 
@@ -156,7 +156,6 @@ public class AdvancedConfigurationTab {
 		JButton btnGenerate = new JButton("Generate");
 		btnGenerate.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-//				teste();
 				
 				if (!gui.isConfiguration()) {
 					JOptionPane.showMessageDialog(frame, "Please fill all fields in the configuration tab");
@@ -165,10 +164,8 @@ public class AdvancedConfigurationTab {
 					
 					prob = new Problem(ConfigurationTab.getProbName(), ConfigurationTab.getProbDescription(),
 							getVariables(), getAlgorithmsArray(), getProbType(), ConfigurationTab.getProbMail());
-//					String[] fx = Functions.readAutomatic("MyProblemInteger");
-//					ArrayList<Variable> v = Functions.readWeights("as",Integer.valueOf(fx[2]) , 10);
-					VariableConfigurationTab.writeRules(probVariables,testGroup.getText());
 					
+					VariableConfigurationTab.writeRules(getVariableArray(), getTestGroup());
 					
 					JOptionPane.showMessageDialog(frame, "Data generated with success");
 					gui.setAdvanced(true);
@@ -246,17 +243,11 @@ public class AdvancedConfigurationTab {
 
 	}
 
-	public void teste() {
-		
-		String[] fx = Functions.readAutomatic("MyProblemInteger");
-		probVariables = Functions.readWeights("MyProblemDouble", Integer.valueOf(fx[2]), 10);
-		VariableConfigurationTab.writeRules(getVariables(), "ola");
-	}
-
+	
 	public ArrayList<Variable> getVariables() {
 		for (int i = 0; i < getQuantity(); i++) {
-			Variable v = new Variable(getRulesName(), getProbType(), 0, 0, "");
-			probVariables.add(v);
+			probVariables.add(new Variable(getRulesName() + " " + (i +1), getProbType(), 0, 0, ""));
+			
 		}
 		return probVariables;
 	}
@@ -275,6 +266,10 @@ public class AdvancedConfigurationTab {
 
 	public static int getObjQuantity() {
 		return (int) optCriteria.getValue();
+	}
+	
+	public static String getTestGroup() {
+		return testGroup.getText();
 	}
 
 	public static int getVarMin() {
@@ -298,7 +293,7 @@ public class AdvancedConfigurationTab {
 		variableType = x;
 	}
 
-	public ArrayList<Variable> getVariableArray() {
+	public static ArrayList<Variable> getVariableArray() {
 		return probVariables;
 	}
 

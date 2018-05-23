@@ -6,6 +6,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.table.AbstractTableModel;
 import javax.swing.table.DefaultTableModel;
 
 import generic.Functions;
@@ -57,11 +58,15 @@ public class VariableConfigurationTab {
 	}
 	
 	public static void writeRules(ArrayList<Variable> rules,String group) {
+		
 		lblGroup.setText(group);
 		
+		
+			((DefaultTableModel) table.getModel()).getDataVector().removeAllElements();
+			((AbstractTableModel) table.getModel()).fireTableDataChanged();
+		
+		
 		for(int i = 0; i < rules.size();i++) {
-			String name = rules.get(i).getName();
-			rules.get(i).setName(name + " " + (i + 1));
 			((DefaultTableModel) table.getModel()).insertRow(i, rules.get(i).getVector());
 		}
 		varconfig.repaint();

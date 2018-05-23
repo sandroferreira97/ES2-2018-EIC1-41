@@ -15,7 +15,9 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
+import generic.Functions;
 import generic.Problem;
+import generic.Variable;
 import generic.Xml;
 import jMetal.OptimizationProcess;
 
@@ -37,6 +39,7 @@ public class RunTab {
 	static String[] AlgorithsForBinaryProblemType = new String[] { "NSGAII", "SMSEMOA", "MOCell", "MOCH", "PAES",
 			"RandomSearch", "SPEA2" };
 	private Xml a;
+	private static ArrayList<Variable> probVariables;
 
 	public RunTab(JFrame frame, Gui gui) {
 		run = new JPanel();
@@ -106,6 +109,11 @@ public class RunTab {
 			public void actionPerformed(ActionEvent e) {
 				OptimizationProcess oP = new OptimizationProcess(AdvancedConfigurationTab.getProblem());
 				oP.run();
+				probVariables = AdvancedConfigurationTab.getVariableArray();
+				String[] fx = Functions.readAutomatic("MyProblemInteger");
+				
+				probVariables = Functions.readWeights(probVariables,Integer.valueOf(fx[2]) , 10);
+				VariableConfigurationTab.writeRules(probVariables,AdvancedConfigurationTab.getTestGroup());
 			}
 		});
 	}

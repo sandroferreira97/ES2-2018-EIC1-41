@@ -29,7 +29,7 @@ public class OptimizationProcess {
 	public void run() {
 	
 		Xml.saveConfig(prob);
-		Email.enviarRun(prob.getEmail(), prob.getName(), "O Programa começou a correr");
+//		Email.enviarRun(prob.getEmail(), prob.getName(), "O Programa começou a correr");
 		
 		try {
 			switch(AdvancedConfigurationTab.getVariableType()) {
