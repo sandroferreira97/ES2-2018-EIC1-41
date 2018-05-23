@@ -102,7 +102,6 @@ public class Functions {
 				while ((line = in.readLine()) != null) {
 					if (i == index) {
 						String fx[] = line.split(" ");
-						System.out.println(fx[0]);
 						for (int j = 0; j < fx.length; j++) {
 							rules.get(j).setWeight(fx[j]);
 						}

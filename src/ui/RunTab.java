@@ -92,7 +92,6 @@ public class RunTab {
 				if (returnVal == JFileChooser.APPROVE_OPTION) {
 					lblJarName.setText(chooser.getSelectedFile().getName());
 					jarPath = chooser.getSelectedFile().getPath();
-					System.out.println(getJarPath());
 				}
 			}
 		});

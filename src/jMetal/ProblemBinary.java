@@ -18,12 +18,14 @@ public class ProblemBinary extends AbstractBinaryProblem {
 	  private int bits ;
 	  private Problem problem ;
 
+	 
+	  
 	  public ProblemBinary(Problem prob) throws JMetalException {
 		this.problem = prob;
 		setNumberOfVariables(prob.getProbVariables().size());
 	    setNumberOfObjectives(AdvancedConfigurationTab.getObjQuantity());
 	    setName("MyProblemBinary");
-	    
+	    bits = 10;//mudar isto
 	    
 	  }
 	  
@@ -37,45 +39,20 @@ public class ProblemBinary extends AbstractBinaryProblem {
 	  }
 
 	
-//	  @Override
-//	  public BinarySolution createSolution() {
-//	    return new DefaultBinarySolution(this) ;
-//	  }
+	  @Override
+	  public BinarySolution createSolution() {
+	    return new DefaultBinarySolution(this) ;
+	  }
 
 	  @Override
 	  public void evaluate(BinarySolution solution){
-		 
-		  //if (avaliar por jar) evaluateByJar(solution) else
-		  evaluateByJar(solution);
-//	    int counterOnes;
-//	    int counterZeroes;
-//	    counterOnes = 0;
-//	    counterZeroes = 0;
-//
-//	    BitSet bitset = solution.getVariableValue(0) ;
-//	    for (int i = 0; i < bitset.length(); i++) {
-//	      if (bitset.get(i)) {
-//	        counterOnes++;
-//	      } else {
-//	        counterZeroes++;
-//	      }
-//	    }
-//	    // OneZeroMax is a maximization problem: multiply by -1 to minimize
-//	    solution.setObjective(0, -1.0 * counterOnes);
-//	    solution.setObjective(1, -1.0 * counterZeroes);		  
-	  }
-	  
-	  // --------- jar-------------
-	  
-	  public void evaluateByJar(BinarySolution solution){
-		  
-		    String solutionString ="";
+		  String solutionString ="";
 		    String evaluationResultString ="";
 		    BitSet bitset = solution.getVariableValue(0) ;
 		    solutionString = bitset.toString();
 		    try {
 				String line;
-		    	Process p = Runtime.getRuntime().exec("java -jar c:\\" + RunTab.getJarName() + " " + solutionString);
+		    	Process p = Runtime.getRuntime().exec("java -jar " + RunTab.getJarPath() + " " + solutionString);
 		    	BufferedReader brinput = new BufferedReader(new InputStreamReader(p.getInputStream()));
 		    	while ((line = brinput.readLine()) != null) 
 		    		{evaluationResultString+=line;}
@@ -90,11 +67,8 @@ public class ProblemBinary extends AbstractBinaryProblem {
 		    		solution.setObjective(i, Double.parseDouble(individualEvaluationCriteria[i]));
 		    	
 		    }	    	    
-		  
-		  }
 
-	
-
-	
+	  }
+	  
   
 	}
