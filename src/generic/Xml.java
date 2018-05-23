@@ -77,7 +77,6 @@ public abstract class Xml {
 			jaxbContext = JAXBContext.newInstance(Problem.class);
 			Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
 			prob = (Problem) jaxbUnmarshaller.unmarshal(a);
-			System.out.println(prob.getEmail());
 		} catch (JAXBException e) {
 			e.printStackTrace();
 		}
