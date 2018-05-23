@@ -112,7 +112,7 @@ public class RunTab {
 				probVariables = AdvancedConfigurationTab.getVariableArray();
 				String[] fx = Functions.readAutomatic("MyProblemInteger");
 				
-				probVariables = Functions.readWeights(probVariables,Integer.valueOf(fx[2]) , 10);
+				probVariables = Functions.readWeights(probVariables,Integer.valueOf(fx[2]),AdvancedConfigurationTab.getProblem());
 				VariableConfigurationTab.writeRules(probVariables,AdvancedConfigurationTab.getTestGroup());
 			}
 		});
