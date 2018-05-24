@@ -28,11 +28,12 @@ import org.jfree.data.xy.XYDataset;
 import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
 
-/** @see http://stackoverflow.com/questions/5522575 */
+
 public class Graph {
 
     private static final String title = "Results";
     private ChartPanel chartPanel = createChart();
+    
 
     public Graph() {
         JFrame f = new JFrame(title);
@@ -106,32 +107,29 @@ public class Graph {
     	XYSeriesCollection dataset = new XYSeriesCollection();
 	    
 		   //for (int i = 0; i<results.size(); i++) {
-		   
+    	String[] rules = Functions.readAutomatic("myProblemInteger");
 		   	XYSeries series1 = new XYSeries("Algorithm 1");
 		    XYSeries series2 = new XYSeries("Algorithm 2");
 		    XYSeries series3 = new XYSeries("Algorithm 3");
 		    
-		    double fn = 1.0;
-		    double fp = 2.0;
+		    double criterio1 = 1.0;
+		    double criterio2 = 2.0;
 		    
+		    for (int i = 0; i<rules.length; i++) {
 		    
-		    series1.add(1.0, 2.0);
-		    series1.add(2.0, 3.0);
-		    series1.add(3.0, 2.5);
-		    series1.add(4.0, 2.8);
-		    series1.add(5.0, 6.0);
+		    series1.add(criterio1, Double.parseDouble(rules[0]));
+		    series1.add(criterio2, Double.parseDouble(rules[1]));
+		    }
 		    
-		    series2.add(1.0, 1.0);
-		    series2.add(2.0, 2.4);
-		    series2.add(3.0, 1.2);
-		    series2.add(4.0, 2.8);
-		    series2.add(5.0, 3.0);
+		    /*series2.add(criterio1, 1.0);
+		    series2.add(criterio2, 2.4);
+		    
 		    
 		    series3.add(1.0, 4.0);
 		    series3.add(2.0, 4.4);
 		    series3.add(3.0, 4.2);
 		    series3.add(4.0, 3.8);
-		    series3.add(5.0, 4.0);
+		    series3.add(5.0, 4.0);*/
 		    
 		    dataset.addSeries(series1);
 		    dataset.addSeries(series2);
