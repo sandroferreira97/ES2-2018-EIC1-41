@@ -108,11 +108,11 @@ public class RunTab {
 			public void actionPerformed(ActionEvent e) {
 				OptimizationProcess oP = new OptimizationProcess(AdvancedConfigurationTab.getProblem());
 				oP.run();
-				probVariables = AdvancedConfigurationTab.getVariableArray();
-				String[] fx = Functions.readAutomatic("MyProblemInteger");
-				
-				probVariables = Functions.readWeights(probVariables,Integer.valueOf(fx[2]),AdvancedConfigurationTab.getProblem());
-				VariableConfigurationTab.writeRules(probVariables,AdvancedConfigurationTab.getTestGroup());
+//				probVariables = AdvancedConfigurationTab.getVariableArray();
+//				String[] fx = Functions.readAutomatic("MyProblemInteger");
+//				
+//				probVariables = Functions.readWeights(probVariables,Integer.valueOf(fx[2]),AdvancedConfigurationTab.getProblem());
+//				VariableConfigurationTab.writeRules(probVariables,AdvancedConfigurationTab.getTestGroup());
 			}
 		});
 	}

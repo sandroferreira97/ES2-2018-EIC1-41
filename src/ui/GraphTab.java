@@ -30,7 +30,7 @@ public GraphTab(JFrame frame, Gui gui) {
 	JButton btgraph = new JButton("Show Graph");
 	btgraph.addActionListener(new ActionListener() {
 		public void actionPerformed(ActionEvent arg0) {
-			Graph graph = new Graph();
+			Graph graph = new Graph(AdvancedConfigurationTab.getProblem());
 			
 			
 			

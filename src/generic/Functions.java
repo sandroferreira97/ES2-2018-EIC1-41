@@ -9,20 +9,20 @@ import ui.AdvancedConfigurationTab;
 
 public class Functions {
 
-	public static String[] readResults() {
-		String[] rules = { "" };
+	public static ArrayList<ArrayList<Double>> readResults(Problem prob,String alg) {
+		ArrayList<ArrayList<Double>> rules = new ArrayList<ArrayList<Double>>();
 		switch (AdvancedConfigurationTab.getVariableType()) {
 		// binary
 		case 1:
-			rules = readAutomatic("MyProblemBinary");
+			rules = readAutomatic("MyProblemBinary", alg);
 			break;
 		// integer
 		case 2:
-			rules = readAutomatic("MyProblemInteger");
+			rules = readAutomatic("MyProblemInteger", alg);
 			break;
 		// double
 		case 3:
-			rules = readAutomatic("MyProblemDouble");
+			rules = readAutomatic("MyProblemDouble", alg);
 			break;
 		}
 
@@ -51,44 +51,28 @@ public class Functions {
 
 	}
 
-	public static String[] readAutomatic(String name) {
-
-		String[] rules = new String[3];
-
-		Double media = 0.0;
-		int control = 0;
-		ArrayList<Integer> f1 = new ArrayList<Integer>();
-		ArrayList<Integer> f2 = new ArrayList<Integer>();
-
+	public static ArrayList<ArrayList<Double>> readAutomatic(String name, String alg) {
+		ArrayList<ArrayList<Double>> f0 = new ArrayList<ArrayList<Double>>();
+		
 		String line = "";
 		try {
-			BufferedReader in = new BufferedReader(
-					new FileReader("experimentBaseDirectory/referenceFronts/" + name + ".rf"));
-			while ((line = in.readLine()) != null) {
-				String fx[] = line.split(" ");
-				f1.add((int) Double.parseDouble(fx[0]));
-				f2.add((int) Double.parseDouble(fx[1]));
-			}
-			in.close();
+			
+				BufferedReader in = new BufferedReader(new FileReader(
+						"experimentBaseDirectory/referenceFronts/" + name + "." + alg + ".rf"));
+				while ((line = in.readLine()) != null) {
+					String fx[] = line.split(" ");
+					ArrayList<Double> f1 = new ArrayList<Double>();
+					for(int i = 0; i < fx.length;i++) {	
+						f1.add(Double.parseDouble((fx[i])));
+					}
+						f0.add(f1);	
+				}
+				in.close();
 		} catch (IOException e) {
 			return null;
 		}
 
-		Double min = (double) (f1.get(0) + f2.get(0));
-
-		for (int i = 0; i < f1.size(); i++) {
-			media = (double) (f1.get(i) + f2.get(i));
-			if (media < min) {
-				min = media;
-				control = i;
-			}
-
-		}
-		rules[0] = f1.get(control).toString();
-		rules[1] = f2.get(control).toString();
-		rules[2] = "" + control;
-		return rules;
-
+		return f0;
 	}
 
 	public static ArrayList<Variable> readWeights(ArrayList<Variable> rules, int index, Problem prob) {
@@ -97,8 +81,8 @@ public class Functions {
 		String line = "";
 		try {
 			for (int z = 0; z < prob.getAlgorithms().size(); z++) {
-				BufferedReader in = new BufferedReader(new FileReader("experimentBaseDirectory/Experiments"  + fileType() + "/data/"
-						+ prob.getAlgorithms().get(z) + "/MyProblem" + fileType() + "/BEST_HV_VAR.tsv"));
+				BufferedReader in = new BufferedReader(new FileReader("experimentBaseDirectory/Experiments" + fileType()
+						+ "/data/" + prob.getAlgorithms().get(z) + "/MyProblem" + fileType() + "/BEST_HV_VAR.tsv"));
 				while ((line = in.readLine()) != null) {
 					if (i == index) {
 						String fx[] = line.split(" ");
