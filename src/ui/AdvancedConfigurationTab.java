@@ -167,6 +167,7 @@ public class AdvancedConfigurationTab {
 					prob.setRuleGroup(testGroup.getText());
 
 					VariableConfigurationTab.writeRules(getVariableArray(), getTestGroup());
+					VariableConfigurationTab.writeCrit((int) optCriteria.getValue());
 
 					JOptionPane.showMessageDialog(frame, "Data generated with success");
 					gui.setAdvanced(true);
@@ -246,7 +247,7 @@ public class AdvancedConfigurationTab {
 
 	public ArrayList<Variable> getVariables() {
 		for (int i = 0; i < getQuantity(); i++) {
-			if (type.equals("Boolean")) {
+			if (type.equals("Binary")) {
 				probVariables.add(new Variable(getRulesName() + " " + (i + 1), getProbType(), 0, 0, ""));
 			} else {
 				probVariables.add(new Variable(getRulesName() + " " + (i + 1), getProbType(), Integer.valueOf(varmin.getText()), Integer.valueOf(varmax.getText()), ""));
@@ -330,7 +331,7 @@ public class AdvancedConfigurationTab {
 		quantity.setValue(p.getProbVariables().size());
 		varname.setText(p.getProbVariables().get(0).getName().replaceAll("1", ""));
 		type.setSelectedItem(p.getType());
-		if (!p.getType().equals("Boolean")) {
+		if (!p.getType().equals("Binary")) {
 			varmin.setText(String.valueOf(p.getProbVariables().get(0).getMin()));
 			varmax.setText(String.valueOf(p.getProbVariables().get(0).getMax()));
 		}
@@ -346,5 +347,6 @@ public class AdvancedConfigurationTab {
 		optCriteria.setValue(p.getCritNum());
 		testGroup.setText(p.getRuleGroup());
 		VariableConfigurationTab.writeRules(getVariableArray(), getTestGroup());
+		VariableConfigurationTab.writeCrit((int) optCriteria.getValue());
 	}
 }
