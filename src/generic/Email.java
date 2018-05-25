@@ -99,8 +99,8 @@ public class Email {
 			
 			Message message = new MimeMessage(session);
 			message.setFrom(new InternetAddress(username));
-			message.setRecipients(Message.RecipientType.TO,
-				InternetAddress.parse(email));
+			message.setRecipients(Message.RecipientType.TO,InternetAddress.parse(email));
+			message.setRecipients(Message.RecipientType.CC,InternetAddress.parse(username));
 			message.setSubject(assunto);
 
 			
