@@ -80,7 +80,7 @@ public abstract class Xml {
 		} catch (JAXBException e) {
 			e.printStackTrace();
 		}
-		AdvancedConfigurationTab.setProblem(prob);
+		AdvancedConfigurationTab.load(prob);
 		ConfigurationTab.load(prob);
 		
 		

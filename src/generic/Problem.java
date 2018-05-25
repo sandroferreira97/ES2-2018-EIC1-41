@@ -14,6 +14,9 @@ public class Problem {
 	private ArrayList<String> probAlgorithms;
 	private String probType;
 	private String probEmail;
+	private int time;
+	private int CritNum;
+	private String RuleGroup;
 
 	
 	public Problem() {
@@ -63,6 +66,33 @@ public class Problem {
 		return probAlgorithms;
 	}
 
+	@XmlElement(name="MaxTime")
+	public int getTime() {
+		return time;
+	}
+	
+	public void setTime(int time) {
+		this.time = time;
+	}
+	
+	@XmlElement(name="NumberOfCriteria")
+	public int getCritNum() {
+		return CritNum;
+	}
+	
+	public void setCritNum(int CritNum) {
+		this.CritNum = CritNum;
+	}
+	
+	@XmlElement(name="RulesGroup")
+	public String getRuleGroup() {
+		return RuleGroup;
+	}
+	
+	public void setRuleGroup(String RuleGroup) {
+		this.RuleGroup = RuleGroup;
+	}
+	
 	public void setAlgorithms(ArrayList<String> algorithms) {
 		this.probAlgorithms = algorithms;
 	}

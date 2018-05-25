@@ -26,6 +26,8 @@ public class AdvancedConfigurationTab {
 	private static JTextField varmin;
 	private static JTextField varmax;
 	private static JSpinner optCriteria;
+	private static JSpinner maxtime;
+
 	private static JComboBox binaryAlgorithms;
 	private static String[] algorithm = { "" };
 	public static int variableType;
@@ -67,8 +69,6 @@ public class AdvancedConfigurationTab {
 		varname.setBounds(255, 223, 116, 22);
 		configadvanced.add(varname);
 		varname.setColumns(10);
-		
-		
 
 		JLabel lblVarType = new JLabel("Variable type:");
 		lblVarType.setBounds(40, 272, 150, 16);
@@ -97,7 +97,7 @@ public class AdvancedConfigurationTab {
 		type.setBounds(255, 269, 116, 22);
 		configadvanced.add(type);
 
-		JSpinner maxtime = new JSpinner();
+		maxtime = new JSpinner();
 		maxtime.setBounds(255, 47, 116, 22);
 		configadvanced.add(maxtime);
 		type.addActionListener(new ActionListener() {
@@ -129,7 +129,7 @@ public class AdvancedConfigurationTab {
 					varmax.setVisible(true);
 					setVariableType(3);
 				}
-				
+
 				algorithms(getVariableType());
 			}
 		});
@@ -138,35 +138,36 @@ public class AdvancedConfigurationTab {
 		lblAlgorithms.setBounds(40, 443, 200, 16);
 		configadvanced.add(lblAlgorithms);
 		lblAlgorithms.setVisible(false);
-		
+
 		binaryAlgorithms = new JComboBox();
 		binaryAlgorithms.setBounds(255, 440, 116, 22);
 		configadvanced.add(binaryAlgorithms);
-		binaryAlgorithms.setVisible(false);		
-		
-		
+		binaryAlgorithms.setVisible(false);
+
 		binaryAlgorithms.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				addAlgorithms();
 			}
 		});
-//		
-		
+		//
 
 		JButton btnGenerate = new JButton("Generate");
 		btnGenerate.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				
+
 				if (!gui.isConfiguration()) {
 					JOptionPane.showMessageDialog(frame, "Please fill all fields in the configuration tab");
 				} else if ((int) maxtime.getValue() != 0 && !type.getSelectedItem().toString().equals("")
 						&& !varname.getText().equals("") && (int) quantity.getValue() != 0) {
-					
+
 					prob = new Problem(ConfigurationTab.getProbName(), ConfigurationTab.getProbDescription(),
 							getVariables(), getAlgorithmsArray(), getProbType(), ConfigurationTab.getProbMail());
-					
+					prob.setTime((int) maxtime.getValue());
+					prob.setCritNum((int) optCriteria.getValue());
+					prob.setRuleGroup(testGroup.getText());
+
 					VariableConfigurationTab.writeRules(getVariableArray(), getTestGroup());
-					
+
 					JOptionPane.showMessageDialog(frame, "Data generated with success");
 					gui.setAdvanced(true);
 				} else {
@@ -178,47 +179,47 @@ public class AdvancedConfigurationTab {
 
 		btnGenerate.setBounds(255, 500, 97, 25);
 		configadvanced.add(btnGenerate);
-		
+
 		JLabel lblRulesGroup = new JLabel("Rules Group:");
 		lblRulesGroup.setBounds(40, 169, 150, 16);
 		configadvanced.add(lblRulesGroup);
-		
+
 		testGroup = new JTextField();
 		testGroup.setColumns(10);
 		testGroup.setBounds(255, 166, 116, 22);
 		configadvanced.add(testGroup);
-		
+
 		JLabel lblOptCriteria = new JLabel("Optimization Criteria");
 		lblOptCriteria.setBounds(422, 51, 116, 16);
 		configadvanced.add(lblOptCriteria);
-		
+
 		optCriteria = new JSpinner();
 		optCriteria.setBounds(548, 47, 52, 22);
 		configadvanced.add(optCriteria);
-		
+
 		JLabel lblOptimizationType = new JLabel("Optimization type:");
 		lblOptimizationType.setBounds(38, 388, 123, 14);
 		configadvanced.add(lblOptimizationType);
-		
+
 		optType = new JComboBox();
 		optType.setModel(new DefaultComboBoxModel(new String[] { "", "Manual", "Automatic", "Mixed" }));
 		optType.setBounds(255, 385, 110, 22);
 		configadvanced.add(optType);
-		
+
 		optType.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				if(optType.getSelectedItem().toString().equals("Manual")) {
+				if (optType.getSelectedItem().toString().equals("Manual")) {
 					lblAlgorithms.setVisible(true);
-					binaryAlgorithms.setVisible(true);		
+					binaryAlgorithms.setVisible(true);
 				}
-				if(optType.getSelectedItem().toString().equals("Automatic")) {
+				if (optType.getSelectedItem().toString().equals("Automatic")) {
 					lblAlgorithms.setVisible(false);
-					binaryAlgorithms.setVisible(false);		
+					binaryAlgorithms.setVisible(false);
 				}
 				// ainda não sei bem como isto funciona
-				if(optType.getSelectedItem().toString().equals("Mixed")) {
+				if (optType.getSelectedItem().toString().equals("Mixed")) {
 					lblAlgorithms.setVisible(true);
-					binaryAlgorithms.setVisible(true);		
+					binaryAlgorithms.setVisible(true);
 				}
 			}
 		});
@@ -243,11 +244,14 @@ public class AdvancedConfigurationTab {
 
 	}
 
-	
 	public ArrayList<Variable> getVariables() {
 		for (int i = 0; i < getQuantity(); i++) {
-			probVariables.add(new Variable(getRulesName() + " " + (i +1), getProbType(), 0, 0, ""));
-			
+			if (type.equals("Boolean")) {
+				probVariables.add(new Variable(getRulesName() + " " + (i + 1), getProbType(), 0, 0, ""));
+			} else {
+				probVariables.add(new Variable(getRulesName() + " " + (i + 1), getProbType(), Integer.valueOf(varmin.getText()), Integer.valueOf(varmax.getText()), ""));
+			}
+
 		}
 		return probVariables;
 	}
@@ -267,7 +271,7 @@ public class AdvancedConfigurationTab {
 	public static int getObjQuantity() {
 		return (int) optCriteria.getValue();
 	}
-	
+
 	public static String getTestGroup() {
 		return testGroup.getText();
 	}
@@ -321,7 +325,27 @@ public class AdvancedConfigurationTab {
 		return prob;
 	}
 
-	public static void save(Problem p) {
-
+	public static void load(Problem p) {
+		prob = p;
+		quantity.setValue(p.getProbVariables().size());
+		varname.setText(p.getProbVariables().get(0).getName().replaceAll("1", ""));
+		type.setSelectedItem(p.getType());
+		if (!p.getType().equals("Boolean")) {
+			System.out.println("entrei");
+			varmin.setText(String.valueOf(p.getProbVariables().get(0).getMin()));
+			varmax.setText(String.valueOf(p.getProbVariables().get(0).getMax()));
+		}
+		for (int i = 0; i < p.getProbVariables().size(); i++) {
+			probVariables.add(p.getProbVariables().get(i));
+		}
+		for (int i = 0; i < p.getAlgorithms().size(); i++) {
+			probAlgorithms.add(p.getAlgorithms().get(i));
+		}
+		optType.setSelectedIndex(1);
+		binaryAlgorithms.setSelectedItem(p.getAlgorithms().get(0));
+		maxtime.setValue(p.getTime());
+		optCriteria.setValue(p.getCritNum());
+		testGroup.setText(p.getRuleGroup());
+		VariableConfigurationTab.writeRules(getVariableArray(), getTestGroup());
 	}
 }
