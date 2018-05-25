@@ -93,12 +93,13 @@ public class RunTab {
 				if (returnVal == JFileChooser.APPROVE_OPTION) {
 					lblJarName.setText(chooser.getSelectedFile().getName());
 					jarPath = chooser.getSelectedFile().getPath();
+					running.setText("");
 				}
 			}
 		});
 
 		running=new JLabel();
-		running.setBounds(133,300,200,50);
+		running.setBounds(133,300,300,50);
 		run.add(running);
 		
 		JButton btnRun = new JButton("Run");
@@ -108,11 +109,11 @@ public class RunTab {
 		lblJarName = new JLabel("");
 		lblJarName.setBounds(275, 130, 270, 15);
 		run.add(lblJarName);
-
+		
 		btnRun.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				OptimizationProcess oP = new OptimizationProcess(AdvancedConfigurationTab.getProblem());
 				running.setText("JMetal is currently running");
+				OptimizationProcess oP = new OptimizationProcess(AdvancedConfigurationTab.getProblem());
 				oP.run();
 				running.setText("JMetal finished, you can view results");
 //				probVariables = AdvancedConfigurationTab.getVariableArray();

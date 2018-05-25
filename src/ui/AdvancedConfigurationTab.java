@@ -156,6 +156,7 @@ public class AdvancedConfigurationTab {
 		alg.setText("Selected Algorithms: ");
 		alg.setBounds(40, 450, 600, 50);
 		configadvanced.add(alg);
+		alg.setVisible(false);
 
 		JButton btnclear = new JButton("Clear Algorithms");
 		btnclear.addActionListener(new ActionListener() {
@@ -230,15 +231,18 @@ public class AdvancedConfigurationTab {
 				if (optType.getSelectedItem().toString().equals("Manual")) {
 					lblAlgorithms.setVisible(true);
 					binaryAlgorithms.setVisible(true);
+					alg.setVisible(true);
 				}
 				if (optType.getSelectedItem().toString().equals("Automatic")) {
 					lblAlgorithms.setVisible(false);
 					binaryAlgorithms.setVisible(false);
+					alg.setVisible(false);
 				}
 				// ainda não sei bem como isto funciona
 				if (optType.getSelectedItem().toString().equals("Mixed")) {
 					lblAlgorithms.setVisible(true);
 					binaryAlgorithms.setVisible(true);
+					alg.setVisible(true);
 				}
 			}
 		});
