@@ -28,7 +28,7 @@ import java.util.List;
 
 public class ExperimentsInteger {
 	private static final int INDEPENDENT_RUNS = 1;
-	private static final int maxEvaluations = 250;
+	private static final int maxEvaluations = 50;
 
 	private static Problem prob;
 

@@ -9,6 +9,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.Random;
 
 import javax.swing.AbstractAction;
 import javax.swing.DefaultComboBoxModel;
@@ -38,7 +39,6 @@ public class Graph {
 	private Problem prob;
 
 	public Graph(Problem prob) {
-		System.out.println("ola");
 		chartPanel = createChart(prob);
 		JFrame f = new JFrame(title);
 		f.setTitle(title);
@@ -62,6 +62,8 @@ public class Graph {
 	}
 
 	private ChartPanel createChart(Problem prob) {
+		Random rand = new Random();
+		
 		String xAxisLabel = "Objectives";
 		String yAxisLabel = "Values";
 
@@ -72,30 +74,22 @@ public class Graph {
 		XYLineAndShapeRenderer renderer = (XYLineAndShapeRenderer) plot.getRenderer();
 		renderer.setDefaultShapesVisible(true);
 
-		// sets paint color for each series
-		renderer.setSeriesPaint(0, Color.RED);
-		renderer.setSeriesPaint(1, Color.RED);
-		renderer.setSeriesPaint(2, Color.RED);
-		renderer.setSeriesPaint(3, Color.RED);
-		renderer.setSeriesPaint(4, Color.RED);
-		renderer.setSeriesPaint(5, Color.RED);
-		renderer.setSeriesPaint(6, Color.RED);
-		renderer.setSeriesPaint(7, Color.RED);
-		renderer.setSeriesPaint(8, Color.RED);
-		renderer.setSeriesPaint(9, Color.RED);
-		renderer.setSeriesPaint(10, Color.RED);
-		// sets thickness for series (using strokes)
-		renderer.setSeriesStroke(0, new BasicStroke(4.0f));
-		renderer.setSeriesStroke(1, new BasicStroke(4.0f));
-		renderer.setSeriesStroke(2, new BasicStroke(4.0f));
-		renderer.setSeriesStroke(3, new BasicStroke(4.0f));
-		renderer.setSeriesStroke(4, new BasicStroke(4.0f));
-		renderer.setSeriesStroke(5, new BasicStroke(4.0f));
-		renderer.setSeriesStroke(6, new BasicStroke(4.0f));
-		renderer.setSeriesStroke(7, new BasicStroke(4.0f));
-		renderer.setSeriesStroke(8, new BasicStroke(4.0f));
-		renderer.setSeriesStroke(9, new BasicStroke(4.0f));
-		renderer.setSeriesStroke(10, new BasicStroke(4.0f));
+		for (int i = 0; i < prob.getAlgorithms().size(); i++) {
+			float r = rand.nextFloat();
+			float g = rand.nextFloat();
+			float b = rand.nextFloat();
+			Color randomColor = new Color(r, g, b);
+			
+			ArrayList<ArrayList<Double>> rules = Functions.readResults(prob, prob.getAlgorithms().get(i));
+			for (int j = 0; j < rules.size(); j++) {
+				
+				for (int z = 0; z < rules.get(j).size(); z++) {
+					renderer.setSeriesPaint(j, randomColor);
+					renderer.setSeriesStroke(j, new BasicStroke(1.0f));
+				}				
+			}
+		}
+		
 		
 
 		// sets paint color for plot outlines
@@ -125,87 +119,20 @@ public class Graph {
 		 * tsc.addSeries(createSeries("Algorithm2", 400)); return tsc;
 		 */
 		XYSeriesCollection dataset = new XYSeriesCollection();
-		XYSeries series1 = new XYSeries ("");
-		XYSeries series2 = new XYSeries ("1");
-		XYSeries series3 = new XYSeries ("2");
-		XYSeries series4 = new XYSeries ("3");
-		XYSeries series5 = new XYSeries ("4");
-		XYSeries series6 = new XYSeries ("5");
-		XYSeries series7 = new XYSeries ("6");
-		XYSeries series8 = new XYSeries ("7");
-		XYSeries series9 = new XYSeries ("8");
-		XYSeries series10 = new XYSeries ("9");
-		XYSeries series11 = new XYSeries ("10");
-		
+		XYSeries series1 ;
 		for (int i = 0; i < prob.getAlgorithms().size(); i++) {
 			ArrayList<ArrayList<Double>> rules = Functions.readResults(prob, prob.getAlgorithms().get(i));
 			
-			System.out.println(rules);
-			//System.out.println(prob.getAlgorithms().size());
-			series1 = new XYSeries(prob.getAlgorithms().get(i)+i);
-			
-			
-			//for (int j = 0; j < rules.size(); j++) {
-				int j = 0;
+			for (int j = 0; j < rules.size(); j++) {
+				series1 = new XYSeries(prob.getAlgorithms().get(i) + j);
 				for (int z = 0; z < rules.get(j).size(); z++) {
 					series1.add(z + 1, rules.get(j).get(z));
-					j++;
-					series2.add(z + 1, rules.get(j).get(z));
-					j++;
-					series3.add(z + 1, rules.get(j).get(z));
-					j++;
-					series4.add(z + 1, rules.get(j).get(z));
-					j++;
-					series5.add(z + 1, rules.get(j).get(z));
-					j++;
-					series6.add(z + 1, rules.get(j).get(z));
-					j++;
-					series7.add(z + 1, rules.get(j).get(z));
-					j++;
-					series8.add(z + 1, rules.get(j).get(z));
-					j++;
-					series9.add(z + 1, rules.get(j).get(z));
-					j++;
-					series10.add(z + 1, rules.get(j).get(z));
-					j++;
-					series11.add(z + 1, rules.get(j).get(z));
-					j=0;
 				}				
-				
-			//}
-			
-			/*for (int j = 1; j < rules.size(); j++) {
-							
-				for (int z = 0; z < rules.get(j).size(); z++) {
-					series2.add(z + 1, rules.get(j).get(z));
-								
-				}				
-							
-			}*/
-			
-			/*
-			 * series2.add(criterio1, 1.0); series2.add(criterio2, 2.4);
-			 * 
-			 * 
-			 * series3.add(1.0, 4.0); series3.add(2.0, 4.4); series3.add(3.0, 4.2);
-			 * series3.add(4.0, 3.8); series3.add(5.0, 4.0);
-			 */
-			dataset.addSeries(series1);
-			dataset.addSeries(series2);
-			dataset.addSeries(series3);
-			dataset.addSeries(series4);
-			dataset.addSeries(series5);
-			dataset.addSeries(series6);
-			dataset.addSeries(series7);
-			dataset.addSeries(series8);
-			dataset.addSeries(series9);
-			dataset.addSeries(series10);
-			dataset.addSeries(series11);
-			
+				dataset.addSeries(series1);
+			}
 		}
 		
 		return dataset;
-
 	}
 
 	/*
