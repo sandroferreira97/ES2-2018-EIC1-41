@@ -29,13 +29,19 @@ import ui.AdvancedConfigurationTab;
 public class Email {
 	
 	/**
-	 * Function that allow the user to send an email to us
+	 * Function that allow the user to send an email to us NAO SEI O Q ISTO ESTA AQUI A FAZER???
 	 */
 	
 	private static String username;
 	private static String password;
 	
-	//enviar para o admin
+	/**
+	 * Function that sends a message to the administrator
+	 * 
+	 * @param email
+	 * @param assunto is the subject of the message
+	 * @param mensagem is the message the user wants to write
+	 */
 	public static void enviar(String email, String assunto, String mensagem){
 
 		Properties props = new Properties();
@@ -74,7 +80,13 @@ public class Email {
 	
 	
 	
-	//Enviar para o email
+	/**
+	 * Function that sends a message to the user.
+	 * 
+	 * @param email
+	 * @param assunto is the subject of the message
+	 * @param mensagem is the message the user wants to write
+	 */
 	public static void enviarRun(String email, String assunto, String mensagem){
 
 		Properties props = new Properties();
@@ -125,7 +137,12 @@ public class Email {
 		}
 	}
 	
-	
+	/**
+	 * Function that sets the account
+	 * 
+	 * @param username its the username the user wants to choose
+	 * @param pass its the passowrd to login in the account
+	 */
 	public static void setAccount(String username,String pass) {
 		Email.username=username;
 		Email.password=pass;

@@ -32,12 +32,27 @@ import org.jfree.data.xy.XYDataset;
 import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
 
+/**
+ * Graph is the class that creates the graphic of the solutions, after running the algorithms
+ * and allows to compare the algorithms, what is better to certain criterion 
+ * 
+ * @author Nuno Fialho EIC1 72910
+ * @author Sandro Ferreira EIC1 72911
+ * @author Duarte Pinto EIC1 73117
+ *
+ */
+
 public class Graph {
 
 	private static final String title = "Results";
 	private ChartPanel chartPanel;
 	private Problem prob;
-
+	
+	/**
+	 * Constructor of the class graphic
+	 * 
+	 * @param prob is the problem that needs to be solved
+	 */
 	public Graph(Problem prob) {
 		chartPanel = createChart(prob);
 		JFrame f = new JFrame(title);
@@ -60,7 +75,14 @@ public class Graph {
 		f.setSize(640, 480);
 		f.setVisible(true);
 	}
-
+	
+	/**
+	 * Function that allows to create the graphic not with the values/results,
+	 * but the colors, the x-axis and y-axis name, etc...
+	 * 
+	 * @param prob is the problem that needs to be solved
+	 * @return
+	 */
 	private ChartPanel createChart(Problem prob) {
 		Random rand = new Random();
 		
@@ -111,7 +133,15 @@ public class Graph {
 
 		return new ChartPanel(chart);
 	}
-
+	
+	/**
+	 * Function that allows to crate the dataset. After running the algorithms, 
+	 * this function will add the solution, values, to the graphic, creating a
+	 * dataset with this values.
+	 * 
+	 * @param prob, is the problem that needs to be solved 
+	 * @return the dataset that will be added to the graphic
+	 */
 	private XYDataset createDataset(Problem prob) {
 		/*
 		 * TimeSeriesCollection tsc = new TimeSeriesCollection();

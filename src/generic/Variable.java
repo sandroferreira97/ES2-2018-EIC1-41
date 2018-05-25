@@ -3,6 +3,17 @@ package generic;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
+/**
+ * Variable is the class that creates a variable. It has various characteristics:
+ * variable name, variable type, variable interval, where the user can choose
+ * the minimum value and the maximum value, and the variable weight, because
+ * there are variables that are more important then others.
+ * 
+ * @author Nuno Fialho EIC1 72910
+ * @author Sandro Ferreira EIC1 72911
+ * @author Duarte Pinto EIC1 73117
+ *
+ */
 
 @XmlRootElement(name="Variable")
 public class Variable {

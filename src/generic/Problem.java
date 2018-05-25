@@ -6,6 +6,18 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlRootElement;
 
+/**
+ * This class creates the problem. It has various characteristics:
+ * the problem name,the problem  description, the prblem variables,
+ * the algorithms that can be used, the problem type, and the problem
+ * mail
+ * 
+ * @author Nuno Fialho EIC1 72910
+ * @author Sandro Ferreira EIC1 72911
+ * @author Duarte Pinto EIC1 73117
+ *
+ */
+
 @XmlRootElement(name="Problem")
 public class Problem {
 	private String probName;

@@ -2,6 +2,15 @@ package generic;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
+/**
+ * Admin is the class that creates an administrator
+ * 
+ *
+ * @author Nuno Fialho EIC1 72910
+ * @author Sandro Ferreira EIC1 72911
+ * @author Duarte Pinto EIC1 73117
+ */
+
 @XmlRootElement(name="Admin")
 public class Admin {
 	private String name;
@@ -11,7 +20,15 @@ public class Admin {
 	
 	public Admin() {
 	}
-	
+	/**
+	 * Class constructor, will crate an administrator with a name, a mail, a password and
+	 * a directory to the xml file
+	 *  
+	 * @param n is the name 
+	 * @param mail is the mail 
+	 * @param pass is the password
+	 * @param dir is the directory to the xml file
+	 */
 	public Admin(String n, String mail, String pass, String dir) {
 		super();
 		name = n;

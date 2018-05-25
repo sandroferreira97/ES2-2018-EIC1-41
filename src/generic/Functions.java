@@ -7,8 +7,24 @@ import java.util.ArrayList;
 
 import ui.AdvancedConfigurationTab;
 
+/**
+ * Functions is the class that allows to read the manual results, 
+ * after running the algorithms, allows to read the automatic
+ * results and to get the file type
+ * 
+ * @author Nuno Fialho EIC1 72910
+ * @author Sandro Ferreira EIC1 72911
+ * @author Duarte Pinto EIC1 73117
+ */
 public class Functions {
-
+	
+	/**
+	 * Function that allows to read the manual results
+	 * 
+	 * @param prob is the problem to be solved
+	 * @param alg is the algorithm that is going to be used
+	 * @return the solution of the problem
+	 */
 	public static ArrayList<ArrayList<Double>> readResults(Problem prob,String alg) {
 		ArrayList<ArrayList<Double>> rules = new ArrayList<ArrayList<Double>>();
 		switch (AdvancedConfigurationTab.getVariableType()) {
@@ -29,7 +45,11 @@ public class Functions {
 		return rules;
 
 	}
-
+	
+	/**
+	 * 
+	 * @return
+	 */
 	public static String fileType() {
 		String name = "";
 		switch (AdvancedConfigurationTab.getVariableType()) {
@@ -50,7 +70,14 @@ public class Functions {
 		return name;
 
 	}
-
+	
+	/**
+	 * Function that allows to read the automatic results
+	 * 
+	 * @param name
+	 * @param alg
+	 * @return
+	 */
 	public static ArrayList<ArrayList<Double>> readAutomatic(String name, String alg) {
 		ArrayList<ArrayList<Double>> f0 = new ArrayList<ArrayList<Double>>();
 		

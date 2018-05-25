@@ -27,8 +27,23 @@ import org.w3c.dom.Element;
 import ui.AdvancedConfigurationTab;
 import ui.ConfigurationTab;
 
-public abstract class Xml {
+/**
+ * Xml is the class that allows to load or save an xml file
+ * 
+ * @author Nuno Fialho EIC1 72910
+ * @author Sandro Ferreira EIC1 72911
+ * @author Duarte Pinto EIC1 73117
+ *
+ */
 
+public abstract class Xml {
+	
+	/**
+	 * Function that allows to save a xml configuration to a directory
+	 * 
+	 * @param prob is the problem that needs to be solved
+	 * @param path is the location where the user wants to save the xml file
+	 */
 	public static void saveConfig(Problem prob,String path) {
 		
 		  try {
@@ -50,7 +65,11 @@ public abstract class Xml {
           }
 	}
 	
-	
+	/**
+	 * Function that allows to save a xml configuration
+	 * 
+	 * @param prob is the problem that needs to be solved
+	 */
 	public static void saveConfig(Problem prob) {
 		
 		  try {
@@ -69,7 +88,11 @@ public abstract class Xml {
         }
 	}
 	
-
+	/**
+	 * Function that allows the user to load a xml file from a directory
+	 * 
+	 * @param a is the directory/path of the xml file
+	 */
 	public static void loadConfig(File a) {
 		JAXBContext jaxbContext;
 		Problem prob = null;
