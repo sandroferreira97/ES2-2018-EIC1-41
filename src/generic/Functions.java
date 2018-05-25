@@ -75,32 +75,32 @@ public class Functions {
 		return f0;
 	}
 
-	public static ArrayList<Variable> readWeights(ArrayList<Variable> rules, int index, Problem prob) {
-
-		int i = 0;
-		String line = "";
-		try {
-			for (int z = 0; z < prob.getAlgorithms().size(); z++) {
-				BufferedReader in = new BufferedReader(new FileReader("experimentBaseDirectory/Experiments" + fileType()
-						+ "/data/" + prob.getAlgorithms().get(z) + "/MyProblem" + fileType() + "/BEST_HV_VAR.tsv"));
-				while ((line = in.readLine()) != null) {
-					if (i == index) {
-						String fx[] = line.split(" ");
-						for (int j = 0; j < fx.length; j++) {
-							rules.get(j).setWeight(fx[j]);
-						}
-					}
-					i++;
-				}
-
-				in.close();
-			}
-		} catch (IOException e) {
-			return null;
-		}
-
-		return rules;
-
-	}
+//	public static ArrayList<Variable> readWeights(ArrayList<Variable> rules, int index, Problem prob) {
+//
+//		int i = 0;
+//		String line = "";
+//		try {
+//			for (int z = 0; z < prob.getAlgorithms().size(); z++) {
+//				BufferedReader in = new BufferedReader(new FileReader("experimentBaseDirectory/Experiments" + fileType()
+//						+ "/data/" + prob.getAlgorithms().get(z) + "/MyProblem" + fileType() + "/BEST_HV_VAR.tsv"));
+//				while ((line = in.readLine()) != null) {
+//					if (i == index) {
+//						String fx[] = line.split(" ");
+//						for (int j = 0; j < fx.length; j++) {
+//							rules.get(j).setWeight(fx[j]);
+//						}
+//					}
+//					i++;
+//				}
+//
+//				in.close();
+//			}
+//		} catch (IOException e) {
+//			return null;
+//		}
+//
+//		return rules;
+//
+//	}
 
 }

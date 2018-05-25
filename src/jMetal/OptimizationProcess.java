@@ -48,18 +48,11 @@ public class OptimizationProcess {
 				eD = new ExperimentsDouble(prob);
 				eD.run();
 				break;
-			}
-//			
+			}			
 			File a = new File(prob.getName()+".xml");
 			a.delete();			
 
-/* As simulações com ExternalViaJAR no nome tem as funções de avaliação 
-   implementadas em .JAR externos que são invocados no método evaluate() 
-   As simulações que executam .jar externos são muito mais demoradas, 
-   maxEvaluations e INDEPENDENT_RUNS tem por isso valores mais baixos */
-//			ExperimentsDoubleExternalViaJAR.main(null);
-//			ExperimentsIntegeExternalViaJAR.main(null);
-//			ExperimentsBinaryExternalViaJAR.main(null);		
+
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

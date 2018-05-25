@@ -122,7 +122,6 @@ public class Graph {
 		XYSeries series1 ;
 		for (int i = 0; i < prob.getAlgorithms().size(); i++) {
 			ArrayList<ArrayList<Double>> rules = Functions.readResults(prob, prob.getAlgorithms().get(i));
-			
 			for (int j = 0; j < rules.size(); j++) {
 				series1 = new XYSeries(prob.getAlgorithms().get(i) + j);
 				for (int z = 0; z < rules.get(j).size(); z++) {

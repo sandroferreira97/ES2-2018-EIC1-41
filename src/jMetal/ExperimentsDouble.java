@@ -32,8 +32,8 @@ import java.util.Arrays;
 import java.util.List;
 
 public class ExperimentsDouble {
-	private static final int INDEPENDENT_RUNS = 2;
-	private static final int maxEvaluations = 250;
+	private static final int INDEPENDENT_RUNS = 1;
+	private static final int maxEvaluations = 50;
 	
 	private static Problem prob;
 
