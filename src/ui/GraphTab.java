@@ -5,6 +5,8 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -37,11 +39,13 @@ public GraphTab(JFrame frame, Gui gui) {
 		}
 	});
 	btgraph.setBounds(280, 300, 150, 25);
-	frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+	
+	
+
 	graphPanel.add(btgraph);
 	
 	
-	
+	frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 	
 }
 

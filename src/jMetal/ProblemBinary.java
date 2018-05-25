@@ -22,10 +22,10 @@ public class ProblemBinary extends AbstractBinaryProblem {
 	  
 	  public ProblemBinary(Problem prob) throws JMetalException {
 		this.problem = prob;
-		setNumberOfVariables(prob.getProbVariables().size());
+		setNumberOfVariables(1);
 	    setNumberOfObjectives(AdvancedConfigurationTab.getObjQuantity());
 	    setName("MyProblemBinary");
-	    bits = 10;//mudar isto
+	    bits = prob.getProbVariables().size();
 	    
 	  }
 	  
@@ -34,7 +34,6 @@ public class ProblemBinary extends AbstractBinaryProblem {
 	  	if (index != 0) {
 	  		throw new JMetalException("Problem MyBinaryProblem has only a variable. Index = " + index) ;
 	  	}
-	  	
 	  	return bits ;
 	  }
 
