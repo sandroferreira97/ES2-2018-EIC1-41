@@ -331,7 +331,6 @@ public class AdvancedConfigurationTab {
 		varname.setText(p.getProbVariables().get(0).getName().replaceAll("1", ""));
 		type.setSelectedItem(p.getType());
 		if (!p.getType().equals("Boolean")) {
-			System.out.println("entrei");
 			varmin.setText(String.valueOf(p.getProbVariables().get(0).getMin()));
 			varmax.setText(String.valueOf(p.getProbVariables().get(0).getMax()));
 		}
