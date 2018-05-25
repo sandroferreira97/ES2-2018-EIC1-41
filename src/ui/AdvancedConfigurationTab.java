@@ -35,6 +35,7 @@ public class AdvancedConfigurationTab {
 	public static Problem prob;
 	private static ArrayList<Variable> probVariables = new ArrayList<Variable>();
 	private static ArrayList<String> probAlgorithms = new ArrayList<String>();
+	private static JLabel alg;
 
 	static String[] AlgorithsForDoubleProblemType = new String[] { "", "NSGAII", "SMSEMOA", "GDE3", "IBEA", "MOCell",
 			"MOEAD", "PAES", "RandomSearch" };
@@ -151,6 +152,23 @@ public class AdvancedConfigurationTab {
 		});
 		//
 
+		alg = new JLabel();
+		alg.setText("Selected Algorithms: ");
+		alg.setBounds(40, 450, 600, 50);
+		configadvanced.add(alg);
+
+		JButton btnclear = new JButton("Clear Algorithms");
+		btnclear.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				alg.setText("Selected Algorithms: ");
+				probAlgorithms.clear();
+				binaryAlgorithms.setSelectedIndex(0);
+			}
+		});
+
+		btnclear.setBounds(255, 530, 150, 25);
+		configadvanced.add(btnclear);
+
 		JButton btnGenerate = new JButton("Generate");
 		btnGenerate.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -178,7 +196,7 @@ public class AdvancedConfigurationTab {
 			}
 		});
 
-		btnGenerate.setBounds(255, 500, 97, 25);
+		btnGenerate.setBounds(255, 580, 150, 25);
 		configadvanced.add(btnGenerate);
 
 		JLabel lblRulesGroup = new JLabel("Rules Group:");
@@ -250,7 +268,8 @@ public class AdvancedConfigurationTab {
 			if (type.equals("Binary")) {
 				probVariables.add(new Variable(getRulesName() + " " + (i + 1), getProbType(), 0, 0, ""));
 			} else {
-				probVariables.add(new Variable(getRulesName() + " " + (i + 1), getProbType(), Integer.valueOf(varmin.getText()), Integer.valueOf(varmax.getText()), ""));
+				probVariables.add(new Variable(getRulesName() + " " + (i + 1), getProbType(),
+						Integer.valueOf(varmin.getText()), Integer.valueOf(varmax.getText()), ""));
 			}
 
 		}
@@ -303,7 +322,10 @@ public class AdvancedConfigurationTab {
 	}
 
 	public void addAlgorithms() {
-		probAlgorithms.add(binaryAlgorithms.getModel().getSelectedItem().toString());
+		if (!probAlgorithms.contains(binaryAlgorithms.getModel().getSelectedItem().toString())) {
+			probAlgorithms.add(binaryAlgorithms.getModel().getSelectedItem().toString());
+			alg.setText(alg.getText() + binaryAlgorithms.getModel().getSelectedItem().toString() + " ");
+		}
 	}
 
 	public static String getAlg() {
@@ -348,5 +370,8 @@ public class AdvancedConfigurationTab {
 		testGroup.setText(p.getRuleGroup());
 		VariableConfigurationTab.writeRules(getVariableArray(), getTestGroup());
 		VariableConfigurationTab.writeCrit((int) optCriteria.getValue());
+		for(int i=0; i<p.getAlgorithms().size();i++) {
+			alg.setText(alg.getText()+p.getAlgorithms().get(i)+" ");
+		}
 	}
 }
