@@ -30,6 +30,7 @@ public class RunTab {
 	public static JLabel lblJarName;
 	private JTextField path;
 	private static String jarPath; 
+	private static JLabel running;
 	private static JComboBox binaryAlgorithms;
 	private static String[] algorithm = { "" };
 	static String[] AlgorithsForDoubleProblemType = new String[] { "NSGAII", "SMSEMOA", "GDE3", "IBEA", "MOCell",
@@ -96,18 +97,24 @@ public class RunTab {
 			}
 		});
 
+		running=new JLabel();
+		running.setBounds(133,300,200,50);
+		run.add(running);
+		
 		JButton btnRun = new JButton("Run");
-		btnRun.setBounds(402, 416, 144, 49);
+		btnRun.setBounds(400, 415, 145, 50);
 		run.add(btnRun);
 
 		lblJarName = new JLabel("");
-		lblJarName.setBounds(276, 131, 270, 16);
+		lblJarName.setBounds(275, 130, 270, 15);
 		run.add(lblJarName);
 
 		btnRun.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				OptimizationProcess oP = new OptimizationProcess(AdvancedConfigurationTab.getProblem());
+				running.setText("JMetal is currently running");
 				oP.run();
+				running.setText("JMetal finished, you can view results");
 //				probVariables = AdvancedConfigurationTab.getVariableArray();
 //				String[] fx = Functions.readAutomatic("MyProblemInteger");
 //				
