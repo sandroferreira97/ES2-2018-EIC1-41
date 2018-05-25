@@ -15,6 +15,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
+import generic.Files;
 import generic.Functions;
 import generic.Problem;
 import generic.Variable;
@@ -115,6 +116,8 @@ public class RunTab {
 				running.setText("JMetal is currently running");
 				OptimizationProcess oP = new OptimizationProcess(AdvancedConfigurationTab.getProblem());
 				oP.run();
+				Files.loadR(Functions.fileType());
+				Files.loadTex(Functions.fileType());
 				running.setText("JMetal finished, you can view results");
 //				probVariables = AdvancedConfigurationTab.getVariableArray();
 //				String[] fx = Functions.readAutomatic("MyProblemInteger");

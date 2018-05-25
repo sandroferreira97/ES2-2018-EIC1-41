@@ -22,7 +22,7 @@ public class VariableConfigurationTab {
 	private DefaultTableModel model;
 	private DefaultTableModel model2;
 	private String[] colums = { "Rule"};
-	private String[] colums2= {"Critetia","Known Best Val"};
+	private String[] colums2= {"Criteria","Known Best Val"};
 	private static Gui gui = null;
 	private JScrollPane scrollPane;
 	private JScrollPane scrollPane2;
