@@ -24,6 +24,16 @@ import jMetal.OptimizationProcess;
 
 // adicionar sitio para meter jars
 
+/**
+ * RunTab is the class that creates a tab to the frame that will allow the user to
+ * load a jar file or to load a xml file, that will run the algorithm to resolve the problem. It also allows
+ * the user to save a configuration to use in the future
+ * 
+ * @author Nuno Fialho EIC1 72910
+ * @author Sandro Ferreira EIC1 72911
+ * @author Duarte Pinto EIC1 73117
+ */
+
 public class RunTab {
 
 	private static JPanel run;
@@ -42,7 +52,13 @@ public class RunTab {
 			"RandomSearch", "SPEA2" };
 	private Xml a;
 	private static ArrayList<Variable> probVariables;
-
+	
+	/**
+	 * Constructor of the class RunTab
+	 * 
+	 * @param frame where the tab will be implemented 
+	 * @param gui where the tab will be implemented
+	 */
 	public RunTab(JFrame frame, Gui gui) {
 		run = new JPanel();
 		run.setLayout(null);

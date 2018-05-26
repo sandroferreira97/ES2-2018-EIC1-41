@@ -13,6 +13,15 @@ import javax.swing.JTextField;
 
 import generic.Problem;
 
+/**
+ * ConfigurationTab is the class that creates a tab to the frame that will allow the user to
+ * create a problem, give it a name, a description and an email.
+ *
+ * @author Nuno Fialho EIC1 72910
+ * @author Sandro Ferreira EIC1 72911
+ * @author Duarte Pinto EIC1 73117
+ */
+
 public class ConfigurationTab {
 
 	private static JTextField name;
@@ -24,6 +33,12 @@ public class ConfigurationTab {
 	private JPanel config;
 	private static Gui gui;
 	
+	/**
+	 * Constructor of the class ConfigurationTab
+	 * 
+	 * @param frame where the tab will be implemented 
+	 * @param gui where the tab will be implemented
+	 */
 	public ConfigurationTab(JFrame frame, Gui gui) {
 		this.gui=gui;
 		config = new JPanel();
@@ -90,6 +105,11 @@ public class ConfigurationTab {
 		return mailuser;
 	}
 	
+	/**
+	 * Function that allows to load a problem
+	 * 
+	 * @param p, is the problem that will be loaded
+	 */
 	public static void load(Problem p) {
 		name.setText(p.getName());
 		emailuser.setText(p.getEmail());

@@ -7,10 +7,25 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+/**
+ * FaqTab is the class that creates a tab to the frame that has 
+ * a list of questions and answers relating to a particular subject
+ *
+ * @author Nuno Fialho EIC1 72910
+ * @author Sandro Ferreira EIC1 72911
+ * @author Duarte Pinto EIC1 73117
+ */
+
 public class FaqTab {
 
-		private JPanel faq;
-		
+	private JPanel faq;
+	
+	/**
+	 * Constructor of the class FaqTab
+	 * 
+	 * @param frame where the tab will be implemented 
+	 * @param gui where the tab will be implemented
+	 */
 	public FaqTab(JFrame frame, Gui gui) {
 		faq = new JPanel();
 		

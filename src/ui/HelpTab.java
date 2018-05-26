@@ -13,12 +13,27 @@ import javax.swing.JTextField;
 
 import generic.Email;
 
+/**
+ * HelpTab is the class that creates a tab to the frame that will allow the user to
+ * send an email to the administrators to get help.
+ *
+ * @author Nuno Fialho EIC1 72910
+ * @author Sandro Ferreira EIC1 72911
+ * @author Duarte Pinto EIC1 73117
+ */
+
 public class HelpTab {
 	
 	private JPanel help;
 	private JTextField emailresposta;
 	private JTextField subject;
-
+	
+	/**
+	 * Constructor of the class HelpTab
+	 * 
+	 * @param frame where the tab will be implemented 
+	 * @param gui where the tab will be implemented
+	 */
 	public HelpTab (JFrame frame, Gui gui) {
 		help = new JPanel();
 		

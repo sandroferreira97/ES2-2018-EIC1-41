@@ -18,6 +18,15 @@ import generic.Functions;
 import generic.Problem;
 import generic.Variable;
 
+/**
+ * AdvancedConfigurationTab is the class that creates a tab to the frame that will allow the user to
+ * configure the variables and the algorithm to resolve the problem.
+ *
+ * @author Nuno Fialho EIC1 72910
+ * @author Sandro Ferreira EIC1 72911
+ * @author Duarte Pinto EIC1 73117
+ */
+
 public class AdvancedConfigurationTab {
 
 	private static JPanel configadvanced;
@@ -44,7 +53,13 @@ public class AdvancedConfigurationTab {
 	static String[] AlgorithsForBinaryProblemType = new String[] { "", "NSGAII", "SMSEMOA", "MOCell", "MOCH", "PAES",
 			"RandomSearch", "SPEA2" };
 	private static JTextField testGroup;
-
+	
+	/**
+	 * Constructor of the class AdvancedConfigurationTab
+	 * 
+	 * @param frame where the tab will be implemented 
+	 * @param gui where the tab will be implemented
+	 */
 	public AdvancedConfigurationTab(JFrame frame, Gui gui) {
 
 		configadvanced = new JPanel();
@@ -247,7 +262,12 @@ public class AdvancedConfigurationTab {
 			}
 		});
 	}
-
+	
+	/**
+	 * Function that allows to select the existing algorithms
+	 * 
+	 * @param x is the index that will select an algorithm
+	 */
 	public static void algorithms(int x) {
 		if (x == 0) {
 			algorithm = new String[] { " " };
@@ -266,7 +286,12 @@ public class AdvancedConfigurationTab {
 		Gui.repaint();
 
 	}
-
+	
+	/**
+	 * Function that allow to get the existing variables
+	 * 
+	 * @return the existing variables
+	 */
 	public ArrayList<Variable> getVariables() {
 		for (int i = 0; i < getQuantity(); i++) {
 			if (type.equals("Binary")) {
@@ -351,7 +376,12 @@ public class AdvancedConfigurationTab {
 	public static Problem getProblem() {
 		return prob;
 	}
-
+	
+	/**
+	 * Function that allows to load a problem
+	 * 
+	 * @param p, is the problem that will be loaded
+	 */
 	public static void load(Problem p) {
 		prob = p;
 		quantity.setValue(p.getProbVariables().size());

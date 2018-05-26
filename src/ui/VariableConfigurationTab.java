@@ -14,6 +14,15 @@ import generic.Functions;
 import generic.Variable;
 import javax.swing.JLabel;
 
+/**
+ * VariableConfigurationTab is the class that creates a tab to the frame
+ *  that allows the user to personally configure a variable and its criteria
+ * 
+ * @author Nuno Fialho EIC1 72910
+ * @author Sandro Ferreira EIC1 72911
+ * @author Duarte Pinto EIC1 73117
+ */
+
 public class VariableConfigurationTab {
 	
 	private static JTable table;
@@ -29,6 +38,12 @@ public class VariableConfigurationTab {
 	private static JLabel lblGroup;
 	
 	
+	/**
+	 * Constructor of the class VariableConfigurationTab
+	 * 
+	 * @param frame where the tab will be implemented 
+	 * @param gui where the tab will be implemented
+	 */
 	
 	public VariableConfigurationTab(JFrame frame, Gui gui) {
 		varconfig = new JPanel();
@@ -59,6 +74,12 @@ public class VariableConfigurationTab {
 		
 	}
 	
+	/**
+	 * Function that allows the user to write a rule
+	 * 
+	 * @param rules is the list of the existing rules
+	 * @param group is where certain rules belong
+	 */
 	public static void writeRules(ArrayList<Variable> rules,String group) {
 		
 		lblGroup.setText(group);
@@ -79,6 +100,11 @@ public class VariableConfigurationTab {
 		return varconfig;
 	}
 	
+	/**
+	 * Function that allows the user to write a criteria
+	 * 
+	 * @param numCrit ???
+	 */
 	public static void writeCrit(int numCrit) {
 		((DefaultTableModel) crit.getModel()).getDataVector().removeAllElements();
 		((AbstractTableModel) crit.getModel()).fireTableDataChanged();

@@ -17,11 +17,25 @@ import javax.swing.JPanel;
 import generic.Graph;
 import generic.Email;
 
+/**
+ * GraphTab is the class that creates a tab to the frame where the user can click a
+ * button to see the results in a graphic.
+ *
+ * @author Nuno Fialho EIC1 72910
+ * @author Sandro Ferreira EIC1 72911
+ * @author Duarte Pinto EIC1 73117
+ */
 
 public class GraphTab {
 
 	private JPanel graphPanel;
 	
+	/**
+	 * Constructor of the class GraphTab
+	 * 
+	 * @param frame where the tab will be implemented 
+	 * @param gui where the tab will be implemented
+	 */	
 public GraphTab(JFrame frame, Gui gui) {
 	
 	
