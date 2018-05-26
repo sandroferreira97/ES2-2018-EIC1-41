@@ -4,7 +4,7 @@
     <AdminName>ES2-2018-EIC1-41</AdminName>
     <AdminPass>duartenunosandro</AdminPass>
     <xmlDir>C:/Users/nunol/Desktop</xmlDir>
-    <indRuns>1</indRuns>
-    <maxEval>50</maxEval>
+    <indRuns>2</indRuns>
+    <maxEval>100</maxEval>
 </Admin>
 
