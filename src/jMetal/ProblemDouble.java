@@ -43,24 +43,24 @@ public class ProblemDouble extends AbstractDoubleProblem {
 
 	public void evaluate(DoubleSolution solution) {
 		
-		 runs++;
-
-		 perc=((double)runs/ExperimentsDouble.numberRuns);
-		 System.out.println(perc);
-		  if(perc>0.25&&!first) {
-			  first=true;
-			  Email.enviarRun(problem.getEmail(), problem.getName(), "O Programa chegou a 25% da execução");
-		  }
-		  
-		  if(perc>0.50&&!second) {
-			  second=true;
-			  Email.enviarRun(problem.getEmail(), problem.getName(), "O Programa chegou a 50% da execução");
-		  }
-		  
-		  if(perc>0.75&&!third) {
-			  third=true;
-			  Email.enviarRun(problem.getEmail(), problem.getName(), "O Programa chegou a 75% da execução");
-		  }
+//		 runs++;
+//
+//		 perc=((double)runs/ExperimentsDouble.numberRuns);
+//		 System.out.println(perc);
+//		  if(perc>0.25&&!first) {
+//			  first=true;
+//			  Email.enviarRun(problem.getEmail(), problem.getName(), "O Programa chegou a 25% da execução");
+//		  }
+//		  
+//		  if(perc>0.50&&!second) {
+//			  second=true;
+//			  Email.enviarRun(problem.getEmail(), problem.getName(), "O Programa chegou a 50% da execução");
+//		  }
+//		  
+//		  if(perc>0.75&&!third) {
+//			  third=true;
+//			  Email.enviarRun(problem.getEmail(), problem.getName(), "O Programa chegou a 75% da execução");
+//		  }
 
 		String solutionString = "";
 		String evaluationResultString = "";

@@ -250,13 +250,16 @@ public class AdvancedConfigurationTab {
 				if (optType.getSelectedItem().toString().equals("Automatic")) {
 					lblAlgorithms.setVisible(false);
 					binaryAlgorithms.setVisible(false);
-					alg.setVisible(false);
+					alg.setVisible(true);
+					addAutomaticAlgorithms();
 				}
-				// ainda não sei bem como isto funciona
+				
 				if (optType.getSelectedItem().toString().equals("Mixed")) {
 					lblAlgorithms.setVisible(true);
 					binaryAlgorithms.setVisible(true);
 					alg.setVisible(true);
+					addAutomaticAlgorithms();
+					
 				}
 			}
 		});
@@ -351,8 +354,18 @@ public class AdvancedConfigurationTab {
 	public void addAlgorithms() {
 		if (!probAlgorithms.contains(binaryAlgorithms.getModel().getSelectedItem().toString())) {
 			probAlgorithms.add(binaryAlgorithms.getModel().getSelectedItem().toString());
-			alg.setText(alg.getText() + binaryAlgorithms.getModel().getSelectedItem().toString() + " ");
+			
 		}
+		alg.setText("Selected Algorithms: " + probAlgorithms);
+	}
+	
+	public void addAutomaticAlgorithms() {
+		
+			probAlgorithms.add("NSGAII");
+			probAlgorithms.add("SMSEMOA");
+			
+			alg.setText("Selected Algorithms: " + probAlgorithms);
+		
 	}
 
 	public static String getAlg() {

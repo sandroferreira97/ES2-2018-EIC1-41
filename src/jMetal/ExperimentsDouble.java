@@ -75,8 +75,8 @@ System.out.println(numberRuns);
 
 		for (int i = 0; i < problemList.size(); i++) {
 
-			for (int j = 0; j < AdvancedConfigurationTab.getProblem().getAlgorithms().size(); j++) {
-				switch (AdvancedConfigurationTab.getAlg()) {
+			for (int j = 0; j < prob.getAlgorithms().size(); j++) {
+				switch (prob.getAlgorithms().get(j)) {
 
 				case "NSGAII":
 					Algorithm<List<DoubleSolution>> algorithm1 = new NSGAIIBuilder<>(problemList.get(i).getProblem(),

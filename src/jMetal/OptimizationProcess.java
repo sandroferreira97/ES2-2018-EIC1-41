@@ -35,8 +35,8 @@ public class OptimizationProcess {
 
 	public void run() {
 
-		Xml.saveConfig(prob);
-		Email.enviarRun(prob.getEmail(), prob.getName(), "O Programa começou a correr");
+//		Xml.saveConfig(prob);
+//		Email.enviarRun(prob.getEmail(), prob.getName(), "O Programa começou a correr");
 
 		try {
 			switch (AdvancedConfigurationTab.getVariableType()) {
@@ -57,13 +57,13 @@ public class OptimizationProcess {
 				break;
 			}
 
-			ProblemBinary.reset();
-			ProblemDouble.reset();
-			ProblemInteger.reset();
-			Email.enviarRun(prob.getEmail(), prob.getName(),
-					"O Programa terminou a execução, Obrigado por ter utilizado o nosso programa");
-			File a = new File(prob.getName() + ".xml");
-			a.delete();
+//			ProblemBinary.reset();
+//			ProblemDouble.reset();
+//			ProblemInteger.reset();
+//			Email.enviarRun(prob.getEmail(), prob.getName(),
+//					"O Programa terminou a execução, Obrigado por ter utilizado o nosso programa");
+//			File a = new File(prob.getName() + ".xml");
+//			a.delete();
 
 		} catch (IOException e) {
 			e.printStackTrace();

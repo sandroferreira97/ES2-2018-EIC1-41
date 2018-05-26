@@ -80,8 +80,8 @@ public class ExperimentsBinary {
 		List<ExperimentAlgorithm<BinarySolution, List<BinarySolution>>> algorithms = new ArrayList<>();
 
 		for (int i = 0; i < problemList.size(); i++) {
-			for (int j = 0; j < AdvancedConfigurationTab.getProblem().getAlgorithms().size(); j++) {
-				switch (AdvancedConfigurationTab.getAlg()) {
+			for (int j = 0; j < prob.getAlgorithms().size(); j++) {
+				switch (prob.getAlgorithms().get(j)) {
 
 				case "NSGAII":
 

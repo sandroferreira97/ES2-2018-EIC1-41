@@ -47,6 +47,8 @@ public class Graph {
 	private static final String title = "Results";
 	private ChartPanel chartPanel;
 	private Problem prob;
+	XYPlot plot;
+	XYLineAndShapeRenderer renderer;
 	
 	/**
 	 * Constructor of the class graphic
@@ -84,7 +86,7 @@ public class Graph {
 	 * @return
 	 */
 	private ChartPanel createChart(Problem prob) {
-		Random rand = new Random();
+		
 		
 		String xAxisLabel = "Objectives";
 		String yAxisLabel = "Values";
@@ -92,21 +94,31 @@ public class Graph {
 		XYDataset roiData = createDataset(prob);
 		JFreeChart chart = ChartFactory.createXYLineChart(title, xAxisLabel, yAxisLabel, roiData,
 				PlotOrientation.VERTICAL, true, true, false);
-		XYPlot plot = chart.getXYPlot();
-		XYLineAndShapeRenderer renderer = (XYLineAndShapeRenderer) plot.getRenderer();
+		plot = chart.getXYPlot();
+		renderer = (XYLineAndShapeRenderer) plot.getRenderer();
 		renderer.setDefaultShapesVisible(true);
-
+		
+		
+		
+		
 		for (int i = 0; i < prob.getAlgorithms().size(); i++) {
+			Random rand = new Random();
 			float r = rand.nextFloat();
 			float g = rand.nextFloat();
 			float b = rand.nextFloat();
+			
 			Color randomColor = new Color(r, g, b);
+		
 			
 			ArrayList<ArrayList<Double>> rules = Functions.readResults(prob, prob.getAlgorithms().get(i));
 			for (int j = 0; j < rules.size(); j++) {
 				
+				
 				for (int z = 0; z < rules.get(j).size(); z++) {
-					renderer.setSeriesPaint(j, randomColor);
+					
+						renderer.setSeriesPaint(j, randomColor);
+					
+					
 					renderer.setSeriesStroke(j, new BasicStroke(1.0f));
 				}				
 			}
@@ -155,11 +167,13 @@ public class Graph {
 			for (int j = 0; j < rules.size(); j++) {
 				series1 = new XYSeries(prob.getAlgorithms().get(i) + j);
 				for (int z = 0; z < rules.get(j).size(); z++) {
-					series1.add(z + 1, rules.get(j).get(z));
+					series1.add(z, rules.get(j).get(z));
 				}				
 				dataset.addSeries(series1);
 			}
 		}
+		
+		
 		
 		return dataset;
 	}

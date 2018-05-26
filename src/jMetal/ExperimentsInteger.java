@@ -70,8 +70,8 @@ public class ExperimentsInteger {
 		List<ExperimentAlgorithm<IntegerSolution, List<IntegerSolution>>> algorithms = new ArrayList<>();
 
 		for (int i = 0; i < problemList.size(); i++) {
-			for (int j = 0; j < AdvancedConfigurationTab.getProblem().getAlgorithms().size(); j++) {
-				switch (AdvancedConfigurationTab.getProblem().getAlgorithms().get(j)) {
+			for (int j = 0; j < prob.getAlgorithms().size(); j++) {
+				switch (prob.getAlgorithms().get(j)) {
 
 				case "NSGAII":
 					Algorithm<List<IntegerSolution>> algorithm1 = new NSGAIIBuilder<>(problemList.get(i).getProblem(),

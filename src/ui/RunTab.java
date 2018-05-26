@@ -135,11 +135,6 @@ public class RunTab {
 				Files.loadR(Functions.fileType());
 				Files.loadTex(Functions.fileType());
 				running.setText("JMetal finished, you can view results");
-//				probVariables = AdvancedConfigurationTab.getVariableArray();
-//				String[] fx = Functions.readAutomatic("MyProblemInteger");
-//				
-//				probVariables = Functions.readWeights(probVariables,Integer.valueOf(fx[2]),AdvancedConfigurationTab.getProblem());
-//				VariableConfigurationTab.writeRules(probVariables,AdvancedConfigurationTab.getTestGroup());
 			}
 		});
 	}
