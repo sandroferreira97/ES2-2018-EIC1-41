@@ -61,7 +61,7 @@ public class Graph {
 		f.setLayout(new BorderLayout(0, 5));
 		f.add(chartPanel, BorderLayout.CENTER);
 
-		// chartPanel.setMouseWheelEnabled(true);
+		chartPanel.setMouseWheelEnabled(true);
 		// chartPanel.setHorizontalAxisTrace(true);
 		// chartPanel.setVerticalAxisTrace(true);
 

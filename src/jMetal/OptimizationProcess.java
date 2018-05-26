@@ -49,6 +49,8 @@ public class OptimizationProcess {
 				eD.run();
 				break;
 			}			
+			
+//			Email.enviarRun(prob.getEmail(), prob.getName(), "O Programa terminou a execução, Obrigado por ter utilizado o nosso programa");
 			File a = new File(prob.getName()+".xml");
 			a.delete();			
 

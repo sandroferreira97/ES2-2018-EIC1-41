@@ -108,6 +108,7 @@ public class RunTab {
 				chooser.setFileFilter(filter);
 				int returnVal = chooser.showOpenDialog(run);
 				if (returnVal == JFileChooser.APPROVE_OPTION) {
+					prob.setJarPath(chooser.getSelectedFile().getPath());
 					lblJarName.setText(chooser.getSelectedFile().getName());
 					jarPath = chooser.getSelectedFile().getPath();
 					running.setText("");
@@ -152,6 +153,12 @@ public class RunTab {
 		return run;
 	}
 
+	public static void setJar(String jarpath) {
+		lblJarName.setText(jarpath);
+		jarPath = jarpath;
+		running.setText("");
+	}
+	
 	public static String getJarPath() {
 		return jarPath;
 	}

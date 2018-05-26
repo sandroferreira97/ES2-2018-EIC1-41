@@ -24,6 +24,7 @@ import org.uma.jmetal.util.experiment.util.ExperimentProblem;
 
 import generic.Problem;
 import ui.AdvancedConfigurationTab;
+import ui.Gui;
 import ui.RunTab;
 
 import java.io.IOException;
@@ -32,8 +33,8 @@ import java.util.Arrays;
 import java.util.List;
 
 public class ExperimentsDouble {
-	private static final int INDEPENDENT_RUNS = 1;
-	private static final int maxEvaluations = 50;
+	private static final int INDEPENDENT_RUNS = Gui.getAdm().getIndRuns();
+	private static final int maxEvaluations = Gui.getAdm().getMaxEval();
 	
 	private static Problem prob;
 

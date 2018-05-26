@@ -34,11 +34,12 @@ import org.uma.jmetal.util.experiment.util.ExperimentProblem;
 
 import generic.Problem;
 import ui.AdvancedConfigurationTab;
+import ui.Gui;
 import ui.RunTab;
 
 public class ExperimentsBinary {
-	private static final int INDEPENDENT_RUNS = 1;
-	private static final int maxEvaluations = 500;
+	private static final int INDEPENDENT_RUNS = Gui.getAdm().getIndRuns();
+	private static final int maxEvaluations = Gui.getAdm().getMaxEval();
 
 	private static Problem prob;
 

@@ -26,6 +26,7 @@ import org.w3c.dom.Element;
 
 import ui.AdvancedConfigurationTab;
 import ui.ConfigurationTab;
+import ui.RunTab;
 
 /**
  * Xml is the class that allows to load or save an xml file
@@ -105,7 +106,7 @@ public abstract class Xml {
 		}
 		AdvancedConfigurationTab.load(prob);
 		ConfigurationTab.load(prob);
-		
+		RunTab.setJar(prob.getJarPath());
 		
 	}
 

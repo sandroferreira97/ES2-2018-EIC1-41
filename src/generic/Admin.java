@@ -17,6 +17,8 @@ public class Admin {
 	private String email;
 	private String password;
 	private String xmlDir;
+	private int indRuns;
+	private int maxEval;
 	
 	public Admin() {
 	}
@@ -28,19 +30,33 @@ public class Admin {
 	 * @param mail is the mail 
 	 * @param pass is the password
 	 * @param dir is the directory to the xml file
+	 * @param ind is the number of independent runs
+	 * @param max is the number of max evaluations
 	 */
-	public Admin(String n, String mail, String pass, String dir) {
+	public Admin(String n, String mail, String pass, String dir, int ind, int max) {
 		super();
 		name = n;
 		email = mail;
 		password = pass;
 		xmlDir = dir;
+		indRuns=ind;
+		maxEval=max;
 	}
 
 	
 	@XmlElement(name="AdminName")
 	public String getName() {
 		return name;
+	}
+	
+	@XmlElement(name="indRuns")
+	public int getIndRuns() {
+		return indRuns;
+	}
+	
+	@XmlElement(name="maxEval")
+	public int getMaxEval() {
+		return maxEval;
 	}
 
 	@XmlElement(name="AdminEmail")
@@ -66,7 +82,13 @@ public class Admin {
 		this.email = email;
 	}
 
+	public void setMaxEval(int max) {
+		this.maxEval=max;
+	}
 	
+	public void setIndRuns(int ind) {
+		this.indRuns=ind;
+	}
 	
 	
 	public void setPassword(String password) {

@@ -29,6 +29,7 @@ public class Problem {
 	private int time;
 	private int CritNum;
 	private String RuleGroup;
+	private String jarpath;
 
 	
 	public Problem() {
@@ -85,6 +86,15 @@ public class Problem {
 	
 	public void setTime(int time) {
 		this.time = time;
+	}
+	
+	@XmlElement(name="JarPath")
+	public String getJarPath() {
+		return jarpath;
+	}
+	
+	public void setJarPath(String jar) {
+		this.jarpath = jar;
 	}
 	
 	@XmlElement(name="NumberOfCriteria")
