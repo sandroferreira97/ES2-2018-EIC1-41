@@ -194,8 +194,7 @@ public class AdvancedConfigurationTab {
 				} else if ((int) maxtime.getValue() != 0 && !type.getSelectedItem().toString().equals("")
 						&& !varname.getText().equals("") && (int) quantity.getValue() != 0) {
 
-					prob = new Problem(ConfigurationTab.getProbName(), ConfigurationTab.getProbDescription(),
-							getVariables(), getAlgorithmsArray(), getProbType(), ConfigurationTab.getProbMail());
+					prob = new Problem(ConfigurationTab.getProbName(), ConfigurationTab.getProbDescription(),getVariables(), getAlgorithmsArray(), getProbType(), ConfigurationTab.getProbMail());
 					prob.setTime((int) maxtime.getValue());
 					prob.setCritNum((int) optCriteria.getValue());
 					prob.setRuleGroup(testGroup.getText());
@@ -294,11 +293,10 @@ public class AdvancedConfigurationTab {
 	 */
 	public ArrayList<Variable> getVariables() {
 		for (int i = 0; i < getQuantity(); i++) {
-			if (type.equals("Binary")) {
+			if (type.getSelectedItem().toString().equals("Binary")) {
 				probVariables.add(new Variable(getRulesName() + " " + (i + 1), getProbType(), 0, 0, ""));
 			} else {
-				probVariables.add(new Variable(getRulesName() + " " + (i + 1), getProbType(),
-						Integer.valueOf(varmin.getText()), Integer.valueOf(varmax.getText()), ""));
+				probVariables.add(new Variable(getRulesName() + " " + (i + 1), getProbType(),Integer.valueOf(varmin.getText()), Integer.valueOf(varmax.getText()), ""));
 			}
 
 		}

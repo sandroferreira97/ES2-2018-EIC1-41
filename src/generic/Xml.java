@@ -48,6 +48,7 @@ public abstract class Xml {
 	public static void saveConfig(Problem prob,String path) {
 		
 		  try {
+			  prob.setJarPath(RunTab.getJarPath());
               JAXBContext context = JAXBContext.newInstance(Problem.class);
               Marshaller m = context.createMarshaller();
               //for pretty-print XML in JAXB
@@ -74,6 +75,7 @@ public abstract class Xml {
 	public static void saveConfig(Problem prob) {
 		
 		  try {
+			prob.setJarPath(RunTab.getJarPath());
             JAXBContext context = JAXBContext.newInstance(Problem.class);
             Marshaller m = context.createMarshaller();
             //for pretty-print XML in JAXB

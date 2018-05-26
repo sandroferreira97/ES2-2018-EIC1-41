@@ -35,6 +35,7 @@ public class OptimizationProcess {
 		try {
 			switch(AdvancedConfigurationTab.getVariableType()) {
 			case 1:
+				System.out.println("teste");
 				eB = new ExperimentsBinary(prob);
 				eB.run();
 				break;
