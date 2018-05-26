@@ -29,6 +29,7 @@ import generic.Email;
 public class GraphTab {
 
 	private JPanel graphPanel;
+	public JButton btgraph ;
 	
 	/**
 	 * Constructor of the class GraphTab
@@ -43,7 +44,7 @@ public GraphTab(JFrame frame, Gui gui) {
 	graphPanel.setLayout(null);
 	
 	
-	JButton btgraph = new JButton("Show Graph");
+	btgraph = new JButton("Show Graph");
 	btgraph.addActionListener(new ActionListener() {
 		public void actionPerformed(ActionEvent arg0) {
 			Graph graph = new Graph(AdvancedConfigurationTab.getProblem());

@@ -30,17 +30,18 @@ import generic.Variable;
 public class AdvancedConfigurationTab {
 
 	private static JPanel configadvanced;
-	private static JSpinner quantity;
-	private static JTextField varname;
+	public static JSpinner quantity;
+	public static JTextField varname;
 	private static JTextField varmin;
 	private static JTextField varmax;
 	private static JSpinner optCriteria;
-	private static JSpinner maxtime;
+	public static JSpinner maxtime;
 
 	private static JComboBox binaryAlgorithms;
 	private static String[] algorithm = { "" };
 	public static int variableType;
 	public static JComboBox<?> type, optType;
+	public static JButton btnGenerate;
 	public static Problem prob;
 	private static ArrayList<Variable> probVariables = new ArrayList<Variable>();
 	private static ArrayList<String> probAlgorithms = new ArrayList<String>();
@@ -185,7 +186,7 @@ public class AdvancedConfigurationTab {
 		btnclear.setBounds(255, 530, 150, 25);
 		configadvanced.add(btnclear);
 
-		JButton btnGenerate = new JButton("Generate");
+		btnGenerate = new JButton("Generate");
 		btnGenerate.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 
