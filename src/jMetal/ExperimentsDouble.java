@@ -47,7 +47,7 @@ public class ExperimentsDouble {
 		String experimentBaseDirectory = "experimentBaseDirectory";
 
 		List<ExperimentProblem<DoubleSolution>> problemList = new ArrayList<>();
-		problemList.add(new ExperimentProblem<>(new ProblemDouble(AdvancedConfigurationTab.getProblem())));
+		problemList.add(new ExperimentProblem<>(new ProblemDouble(prob)));
 
 		List<ExperimentAlgorithm<DoubleSolution, List<DoubleSolution>>> algorithmList = configureAlgorithmList(
 				problemList);

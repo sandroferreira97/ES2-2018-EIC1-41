@@ -19,8 +19,9 @@ import generic.Problem;
 import generic.Variable;
 
 /**
- * AdvancedConfigurationTab is the class that creates a tab to the frame that will allow the user to
- * configure the variables and the algorithm to resolve the problem.
+ * AdvancedConfigurationTab is the class that creates a tab to the frame that
+ * will allow the user to configure the variables and the algorithm to resolve
+ * the problem.
  *
  * @author Nuno Fialho EIC1 72910
  * @author Sandro Ferreira EIC1 72911
@@ -43,7 +44,7 @@ public class AdvancedConfigurationTab {
 	public static JComboBox<?> type, optType;
 	public static JButton btnGenerate;
 	public static Problem prob;
-	private static ArrayList<Variable> probVariables = new ArrayList<Variable>();
+	public static ArrayList<Variable> probVariables = new ArrayList<Variable>();
 	private static ArrayList<String> probAlgorithms = new ArrayList<String>();
 	private static JLabel alg;
 
@@ -54,12 +55,14 @@ public class AdvancedConfigurationTab {
 	static String[] AlgorithsForBinaryProblemType = new String[] { "", "NSGAII", "SMSEMOA", "MOCell", "MOCH", "PAES",
 			"RandomSearch", "SPEA2" };
 	private static JTextField testGroup;
-	
+
 	/**
 	 * Constructor of the class AdvancedConfigurationTab
 	 * 
-	 * @param frame where the tab will be implemented 
-	 * @param gui where the tab will be implemented
+	 * @param frame
+	 *            where the tab will be implemented
+	 * @param gui
+	 *            where the tab will be implemented
 	 */
 	public AdvancedConfigurationTab(JFrame frame, Gui gui) {
 
@@ -195,11 +198,12 @@ public class AdvancedConfigurationTab {
 				} else if ((int) maxtime.getValue() != 0 && !type.getSelectedItem().toString().equals("")
 						&& !varname.getText().equals("") && (int) quantity.getValue() != 0) {
 
-					prob = new Problem(ConfigurationTab.getProbName(), ConfigurationTab.getProbDescription(),getVariables(), getAlgorithmsArray(), getProbType(), ConfigurationTab.getProbMail());
+					prob = new Problem(ConfigurationTab.getProbName(), ConfigurationTab.getProbDescription(),
+							getVariables(), getAlgorithmsArray(), getProbType(), ConfigurationTab.getProbMail());
 					prob.setTime((int) maxtime.getValue());
 					prob.setCritNum((int) optCriteria.getValue());
 					prob.setRuleGroup(testGroup.getText());
-
+					
 					VariableConfigurationTab.writeRules(getVariableArray(), getTestGroup());
 					VariableConfigurationTab.writeCrit((int) optCriteria.getValue());
 
@@ -254,22 +258,23 @@ public class AdvancedConfigurationTab {
 					alg.setVisible(true);
 					addAutomaticAlgorithms();
 				}
-				
+
 				if (optType.getSelectedItem().toString().equals("Mixed")) {
 					lblAlgorithms.setVisible(true);
 					binaryAlgorithms.setVisible(true);
 					alg.setVisible(true);
 					addAutomaticAlgorithms();
-					
+
 				}
 			}
 		});
 	}
-	
+
 	/**
 	 * Function that allows to select the existing algorithms
 	 * 
-	 * @param x is the index that will select an algorithm
+	 * @param x
+	 *            is the index that will select an algorithm
 	 */
 	public static void algorithms(int x) {
 		if (x == 0) {
@@ -289,18 +294,19 @@ public class AdvancedConfigurationTab {
 		Gui.repaint();
 
 	}
-	
+
 	/**
 	 * Function that allow to get the existing variables
 	 * 
 	 * @return the existing variables
 	 */
-	public ArrayList<Variable> getVariables() {
+	public static ArrayList<Variable> getVariables() {
 		for (int i = 0; i < getQuantity(); i++) {
 			if (type.getSelectedItem().toString().equals("Binary")) {
 				probVariables.add(new Variable(getRulesName() + " " + (i + 1), getProbType(), 0, 0, ""));
 			} else {
-				probVariables.add(new Variable(getRulesName() + " " + (i + 1), getProbType(),Integer.valueOf(varmin.getText()), Integer.valueOf(varmax.getText()), ""));
+				probVariables.add(new Variable(getRulesName() + " " + (i + 1), getProbType(),
+						Integer.valueOf(varmin.getText()), Integer.valueOf(varmax.getText()), ""));
 			}
 
 		}
@@ -355,18 +361,18 @@ public class AdvancedConfigurationTab {
 	public void addAlgorithms() {
 		if (!probAlgorithms.contains(binaryAlgorithms.getModel().getSelectedItem().toString())) {
 			probAlgorithms.add(binaryAlgorithms.getModel().getSelectedItem().toString());
-			
+
 		}
 		alg.setText("Selected Algorithms: " + probAlgorithms);
 	}
-	
+
 	public void addAutomaticAlgorithms() {
-		
-			probAlgorithms.add("NSGAII");
-			probAlgorithms.add("SMSEMOA");
-			
-			alg.setText("Selected Algorithms: " + probAlgorithms);
-		
+
+		probAlgorithms.add("NSGAII");
+		probAlgorithms.add("SMSEMOA");
+
+		alg.setText("Selected Algorithms: " + probAlgorithms);
+
 	}
 
 	public static String getAlg() {
@@ -377,7 +383,7 @@ public class AdvancedConfigurationTab {
 		return probAlgorithms;
 	}
 
-	public String getProbType() {
+	public static String getProbType() {
 		return type.getSelectedItem().toString();
 	}
 
@@ -388,11 +394,11 @@ public class AdvancedConfigurationTab {
 	public static Problem getProblem() {
 		return prob;
 	}
-	
+
 	/**
 	 * Function that allows to load a problem
 	 * 
-	 * @param p, is the problem that will be loaded
+	 * @param p is the problem that will be loaded
 	 */
 	public static void load(Problem p) {
 		prob = p;
@@ -416,8 +422,7 @@ public class AdvancedConfigurationTab {
 		testGroup.setText(p.getRuleGroup());
 		VariableConfigurationTab.writeRules(getVariableArray(), getTestGroup());
 		VariableConfigurationTab.writeCrit((int) optCriteria.getValue());
-		for(int i=0; i<p.getAlgorithms().size();i++) {
-			alg.setText(alg.getText()+p.getAlgorithms().get(i)+" ");
-		}
+
+		alg.setText("Selected Algorithms: " + p.getAlgorithms());
 	}
 }

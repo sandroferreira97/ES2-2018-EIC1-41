@@ -42,7 +42,7 @@ public class ExperimentsInteger {
 		String experimentBaseDirectory = "experimentBaseDirectory";
 
 		List<ExperimentProblem<IntegerSolution>> problemList = new ArrayList<>();
-		problemList.add(new ExperimentProblem<>(new ProblemInteger(AdvancedConfigurationTab.getProblem())));
+		problemList.add(new ExperimentProblem<>(new ProblemInteger(prob)));
 
 		List<ExperimentAlgorithm<IntegerSolution, List<IntegerSolution>>> algorithmList = configureAlgorithmList(
 				problemList);

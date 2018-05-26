@@ -53,7 +53,7 @@ public class ExperimentsBinary {
 		String experimentBaseDirectory = "experimentBaseDirectory";
 
 		List<ExperimentProblem<BinarySolution>> problemList = new ArrayList<>();
-		problemList.add(new ExperimentProblem<>(new ProblemBinary(AdvancedConfigurationTab.getProblem())));
+		problemList.add(new ExperimentProblem<>(new ProblemBinary(prob)));
 
 		List<ExperimentAlgorithm<BinarySolution, List<BinarySolution>>> algorithmList = configureAlgorithmList(
 				problemList);

@@ -10,6 +10,7 @@ import generic.Problem;
 import generic.Variable;
 import generic.Xml;
 import ui.AdvancedConfigurationTab;
+import ui.RunTab;
 
 public class OptimizationProcess {
 
@@ -37,7 +38,7 @@ public class OptimizationProcess {
 
 //		Xml.saveConfig(prob);
 //		Email.enviarRun(prob.getEmail(), prob.getName(), "O Programa começou a correr");
-
+		
 		try {
 			switch (AdvancedConfigurationTab.getVariableType()) {
 			case 1:

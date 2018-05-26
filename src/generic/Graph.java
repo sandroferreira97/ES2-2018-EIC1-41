@@ -47,8 +47,8 @@ public class Graph {
 	private static final String title = "Results";
 	private ChartPanel chartPanel;
 	private Problem prob;
-	XYPlot plot;
-	XYLineAndShapeRenderer renderer;
+	
+	
 	
 	/**
 	 * Constructor of the class graphic
@@ -64,13 +64,8 @@ public class Graph {
 		f.add(chartPanel, BorderLayout.CENTER);
 
 		chartPanel.setMouseWheelEnabled(true);
-		// chartPanel.setHorizontalAxisTrace(true);
-		// chartPanel.setVerticalAxisTrace(true);
-
+		
 		JPanel panel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
-		// panel.add(createTrace());
-		// panel.add(createDate());
-		// panel.add(createZoom());
 		f.add(panel, BorderLayout.SOUTH);
 		f.pack();
 		f.setLocationRelativeTo(null);
@@ -94,8 +89,8 @@ public class Graph {
 		XYDataset roiData = createDataset(prob);
 		JFreeChart chart = ChartFactory.createXYLineChart(title, xAxisLabel, yAxisLabel, roiData,
 				PlotOrientation.VERTICAL, true, true, false);
-		plot = chart.getXYPlot();
-		renderer = (XYLineAndShapeRenderer) plot.getRenderer();
+		XYPlot plot = chart.getXYPlot();
+		XYLineAndShapeRenderer renderer = (XYLineAndShapeRenderer) plot.getRenderer();
 		renderer.setDefaultShapesVisible(true);
 		
 		
@@ -155,11 +150,7 @@ public class Graph {
 	 * @return the dataset that will be added to the graphic
 	 */
 	private XYDataset createDataset(Problem prob) {
-		/*
-		 * TimeSeriesCollection tsc = new TimeSeriesCollection();
-		 * tsc.addSeries(createSeries("Algorithm1", 200));
-		 * tsc.addSeries(createSeries("Algorithm2", 400)); return tsc;
-		 */
+		
 		XYSeriesCollection dataset = new XYSeriesCollection();
 		XYSeries series1 ;
 		for (int i = 0; i < prob.getAlgorithms().size(); i++) {
@@ -173,52 +164,9 @@ public class Graph {
 			}
 		}
 		
-		
-		
 		return dataset;
 	}
 
-	/*
-	 * private TimeSeries createSeries(String name, double scale) { TimeSeries
-	 * series = new TimeSeries(name); for (int i = 0; i < 6; i++) { series.add(new
-	 * Year(2005 + i), Math.pow(2, i) * scale); } return series; }
-	 */
-
-	/*
-	 * private JComboBox createTrace() { final JComboBox trace = new JComboBox();
-	 * final String[] traceCmds = {"Enable Trace", "Disable Trace"};
-	 * trace.setModel(new DefaultComboBoxModel(traceCmds));
-	 * trace.addActionListener(new ActionListener() {
-	 * 
-	 * @Override public void actionPerformed(ActionEvent e) { if
-	 * (traceCmds[0].equals(trace.getSelectedItem())) {
-	 * chartPanel.setHorizontalAxisTrace(true);
-	 * chartPanel.setVerticalAxisTrace(true); chartPanel.repaint(); } else {
-	 * chartPanel.setHorizontalAxisTrace(false);
-	 * chartPanel.setVerticalAxisTrace(false); chartPanel.repaint(); } } }); return
-	 * trace; }
-	 */
-
-	/*
-	 * private JComboBox createDate() { final JComboBox date = new JComboBox();
-	 * final String[] dateCmds = {"Horizontal Dates", "Vertical Dates"};
-	 * date.setModel(new DefaultComboBoxModel(dateCmds)); date.addActionListener(new
-	 * ActionListener() {
-	 * 
-	 * @Override public void actionPerformed(ActionEvent e) { JFreeChart chart =
-	 * chartPanel.getChart(); XYPlot plot = (XYPlot) chart.getPlot(); DateAxis
-	 * domain = (DateAxis) plot.getDomainAxis(); if
-	 * (dateCmds[0].equals(date.getSelectedItem())) {
-	 * domain.setVerticalTickLabels(false); } else {
-	 * domain.setVerticalTickLabels(true); } } }); return date; }
-	 */
-
-	/*
-	 * private JButton createZoom() { final JButton auto = new JButton(new
-	 * AbstractAction("Auto Zoom") {
-	 * 
-	 * @Override public void actionPerformed(ActionEvent e) {
-	 * chartPanel.restoreAutoBounds(); } }); return auto; }
-	 */
+	
 
 }

@@ -30,7 +30,7 @@ public class VariableConfigurationTab {
 	private static JPanel varconfig;
 	private DefaultTableModel model;
 	private DefaultTableModel model2;
-	private String[] colums = { "Rule"};
+	private String[] colums = { "Rules"};
 	private String[] colums2= {"Criteria","Known Best Val"};
 	private static Gui gui = null;
 	private JScrollPane scrollPane;
@@ -75,13 +75,12 @@ public class VariableConfigurationTab {
 	}
 	
 	/**
-	 * Function that allows the user to write a rule
+	 * Function that writes into a table the name of the problem rules
 	 * 
 	 * @param rules is the list of the existing rules
-	 * @param group is where certain rules belong
+	 * @param group is the name of group of rules
 	 */
 	public static void writeRules(ArrayList<Variable> rules,String group) {
-		
 		lblGroup.setText(group);
 		
 		
@@ -101,9 +100,9 @@ public class VariableConfigurationTab {
 	}
 	
 	/**
-	 * Function that allows the user to write a criteria
+	 * Function that writes the criteria data
 	 * 
-	 * @param numCrit ???
+	 * @param numCrit is the number of criteria functions
 	 */
 	public static void writeCrit(int numCrit) {
 		((DefaultTableModel) crit.getModel()).getDataVector().removeAllElements();

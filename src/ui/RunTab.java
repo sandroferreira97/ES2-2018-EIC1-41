@@ -41,7 +41,7 @@ public class RunTab {
 	public static JLabel lblJarName;
 	private JTextField path;
 	private static String jarPath; 
-	private static JLabel running;
+	public static JLabel running;
 	private static JComboBox binaryAlgorithms;
 	private static String[] algorithm = { "" };
 	static String[] AlgorithsForDoubleProblemType = new String[] { "NSGAII", "SMSEMOA", "GDE3", "IBEA", "MOCell",
@@ -110,7 +110,7 @@ public class RunTab {
 				if (returnVal == JFileChooser.APPROVE_OPTION) {
 					lblJarName.setText(chooser.getSelectedFile().getName());
 					jarPath = chooser.getSelectedFile().getPath();
-					running.setText("");
+//					running.setText("");
 				}
 			}
 		});
@@ -118,6 +118,8 @@ public class RunTab {
 		running=new JLabel();
 		running.setBounds(133,300,300,50);
 		run.add(running);
+		running.setText("JMetal is currently running");
+		running.setVisible(false);
 		
 		JButton btnRun = new JButton("Run");
 		btnRun.setBounds(400, 415, 145, 50);
@@ -129,7 +131,7 @@ public class RunTab {
 		
 		btnRun.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				running.setText("JMetal is currently running");
+				running.setVisible(true);
 				OptimizationProcess oP = new OptimizationProcess(AdvancedConfigurationTab.getProblem());
 				oP.run();
 				Files.loadR(Functions.fileType());
@@ -150,7 +152,7 @@ public class RunTab {
 	public static void setJar(String jarpath) {
 		lblJarName.setText(jarpath);
 		jarPath = jarpath;
-		running.setText("");
+//		running.setText("");
 	}
 	
 	public static String getJarPath() {

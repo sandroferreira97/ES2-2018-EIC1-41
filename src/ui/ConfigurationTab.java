@@ -70,11 +70,13 @@ public class ConfigurationTab {
 		config.add(emailuser);
 		emailuser.setColumns(10);
 		
+		
 		JButton validate = new JButton("Validate");
 		validate.setBounds(300, 500, 100, 25);
 		config.add(validate);
 		validate.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				AdvancedConfigurationTab.getVariables().clear();
 				if(emailuser.getText().length()>0 && name.getText().length()>0 && description.getText().length()>0){
 					nomeproblema = name.getText();
 					mailuser = emailuser.getText();
@@ -106,7 +108,7 @@ public class ConfigurationTab {
 	}
 	
 	/**
-	 * Function that allows to load a problem
+	 * Function that writes problem information loaded from the xml file
 	 * 
 	 * @param p, is the problem that will be loaded
 	 */
