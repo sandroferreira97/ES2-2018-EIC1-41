@@ -11,7 +11,7 @@ public class Files {
 
 		params[0] = "C:\\Program Files\\R\\R-3.5.0\\bin\\x64\\Rscript.exe";
 
-		params[1] = "C:\\Users\\Sandro\\git\\ES2-2018-EIC1-41\\experimentBaseDirectory\\Experiments" + name + "\\R\\HV.Boxplot.R";
+		params[1] = "C:\\Users\\"+System.getProperty("user.name")+"\\git\\ES2-2018-EIC1-41\\experimentBaseDirectory\\Experiments" + name + "\\R\\HV.Boxplot.R";
 
 		String[] envp = new String[1];
 
@@ -19,7 +19,7 @@ public class Files {
 
 		try {
 			Process p = Runtime.getRuntime().exec(params, envp,
-					new File("C:\\Users\\Sandro\\git\\ES2-2018-EIC1-41\\experimentBaseDirectory\\Experiments" + name + "\\R"));
+					new File("C:\\Users\\"+System.getProperty("user.name")+"\\git\\ES2-2018-EIC1-41\\experimentBaseDirectory\\Experiments" + name + "\\R"));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -32,7 +32,7 @@ public class Files {
 
 		params[0] = "C:\\Program Files\\MiKTeX 2.9\\miktex\\bin\\x64\\pdflatex.exe";
 
-		params[1] = "C:\\Users\\Sandro\\git\\ES2-2018-EIC1-41\\experimentBaseDirectory\\Experiments" + name + "\\latex\\Experiments" + name + ".tex";
+		params[1] = "C:\\Users\\"+System.getProperty("user.name")+"\\git\\ES2-2018-EIC1-41\\experimentBaseDirectory\\Experiments" + name + "\\latex\\Experiments" + name + ".tex";
 
 		String[] envp = new String[1];
 
@@ -40,7 +40,7 @@ public class Files {
 
 		try {
 			Process p = Runtime.getRuntime().exec(params, envp,
-					new File("C:\\Users\\Sandro\\git\\ES2-2018-EIC1-41\\experimentBaseDirectory\\Experiments" + name + "\\latex"));
+					new File("C:\\Users\\"+System.getProperty("user.name")+"\\git\\ES2-2018-EIC1-41\\experimentBaseDirectory\\Experiments" + name + "\\latex"));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
