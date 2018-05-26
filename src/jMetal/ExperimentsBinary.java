@@ -40,6 +40,8 @@ import ui.RunTab;
 public class ExperimentsBinary {
 	private static final int INDEPENDENT_RUNS = Gui.getAdm().getIndRuns();
 	private static final int maxEvaluations = Gui.getAdm().getMaxEval();
+	public static int numberRuns;
+	
 
 	private static Problem prob;
 
@@ -56,6 +58,8 @@ public class ExperimentsBinary {
 		List<ExperimentAlgorithm<BinarySolution, List<BinarySolution>>> algorithmList = configureAlgorithmList(
 				problemList);
 
+		numberRuns = INDEPENDENT_RUNS *maxEvaluations* prob.getAlgorithms().size();
+		
 		Experiment<BinarySolution, List<BinarySolution>> experiment = new ExperimentBuilder<BinarySolution, List<BinarySolution>>(
 				"ExperimentsBinary").setAlgorithmList(algorithmList).setProblemList(problemList)
 						.setExperimentBaseDirectory(experimentBaseDirectory).setOutputParetoFrontFileName("FUN")
@@ -85,7 +89,7 @@ public class ExperimentsBinary {
 							new SinglePointCrossover(1.0),
 							new BitFlipMutation(
 									1.0 / ((ProblemBinary) problemList.get(i).getProblem()).getNumberOfBits(0)))
-											.setMaxEvaluations(maxEvaluations).setPopulationSize(100).build();
+											.setMaxEvaluations(maxEvaluations).setPopulationSize(10).build();
 					algorithms.add(new ExperimentAlgorithm<>(algorithm, "NSGAII", problemList.get(i).getTag()));
 					break;
 
@@ -98,7 +102,7 @@ public class ExperimentsBinary {
 							problemList.get(i).getProblem(), new SinglePointCrossover(1.0),
 							new BitFlipMutation(
 									1.0 / ((BinaryProblem) problemList.get(i).getProblem()).getNumberOfBits(0)))
-											.setMaxEvaluations(maxEvaluations).build();
+											.setMaxEvaluations(maxEvaluations).setPopulationSize(10).build();
 					algorithms.add(new ExperimentAlgorithm<>(algorithmsmsemoa, "SMSEMOA", problemList.get(i).getTag()));
 					break;
 
@@ -107,13 +111,13 @@ public class ExperimentsBinary {
 							problemList.get(i).getProblem(), new SinglePointCrossover(1.0),
 							new BitFlipMutation(
 									1.0 / ((BinaryProblem) problemList.get(i).getProblem()).getNumberOfBits(0)))
-											.setMaxEvaluations(maxEvaluations).build();
+											.setMaxEvaluations(maxEvaluations).setPopulationSize(10).build();
 					algorithms.add(new ExperimentAlgorithm<>(algorithmmocell, "MOCell", problemList.get(i).getTag()));
 					break;
 
 				case "MOCH":
 					Algorithm<List<BinarySolution>> algorithm4 = new MOCHCBuilder(
-							(BinaryProblem) problemList.get(i).getProblem()).setMaxEvaluations(maxEvaluations)
+							(BinaryProblem) problemList.get(i).getProblem()).setMaxEvaluations(maxEvaluations).setPopulationSize(10)
 									.setCrossover(new HUXCrossover(1.0))
 									.setNewGenerationSelection(new RankingAndCrowdingSelection<BinarySolution>(100))
 									.setCataclysmicMutation(new BitFlipMutation(0.35))
@@ -142,7 +146,7 @@ public class ExperimentsBinary {
 							new SinglePointCrossover(1.0),
 							new BitFlipMutation(
 									1.0 / ((BinaryProblem) problemList.get(i).getProblem()).getNumberOfBits(0)))
-											.setMaxIterations(maxEvaluations).build();
+											.setMaxIterations(maxEvaluations).setPopulationSize(10).build();
 					algorithms.add(new ExperimentAlgorithm<>(algorithmspea2, "SPEA2", problemList.get(i).getTag()));
 				}
 			}

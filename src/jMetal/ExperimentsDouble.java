@@ -35,6 +35,7 @@ import java.util.List;
 public class ExperimentsDouble {
 	private static final int INDEPENDENT_RUNS = Gui.getAdm().getIndRuns();
 	private static final int maxEvaluations = Gui.getAdm().getMaxEval();
+	public static int numberRuns;
 	
 	private static Problem prob;
 
@@ -50,7 +51,9 @@ public class ExperimentsDouble {
 
 		List<ExperimentAlgorithm<DoubleSolution, List<DoubleSolution>>> algorithmList = configureAlgorithmList(
 				problemList);
-
+		
+		numberRuns = INDEPENDENT_RUNS *maxEvaluations* prob.getAlgorithms().size();
+System.out.println(numberRuns);
 		Experiment<DoubleSolution, List<DoubleSolution>> experiment = new ExperimentBuilder<DoubleSolution, List<DoubleSolution>>(
 				"ExperimentsDouble").setAlgorithmList(algorithmList).setProblemList(problemList)
 						.setExperimentBaseDirectory(experimentBaseDirectory).setOutputParetoFrontFileName("FUN")
@@ -79,7 +82,7 @@ public class ExperimentsDouble {
 					Algorithm<List<DoubleSolution>> algorithm1 = new NSGAIIBuilder<>(problemList.get(i).getProblem(),
 							new SBXCrossover(1.0, 5),
 							new PolynomialMutation(1.0 / problemList.get(i).getProblem().getNumberOfVariables(), 10.0))
-									.setMaxEvaluations(maxEvaluations).setPopulationSize(100).build();
+									.setMaxEvaluations(maxEvaluations).setPopulationSize(10).build();
 					algorithms.add(new ExperimentAlgorithm<>(algorithm1, "NSGAII", problemList.get(i).getTag()));
 					break;
 
@@ -91,19 +94,19 @@ public class ExperimentsDouble {
 					Algorithm<List<DoubleSolution>> algorithm2 = new SMSEMOABuilder<>(problemList.get(i).getProblem(),
 							new SBXCrossover(1.0, 5),
 							new PolynomialMutation(1.0 / problemList.get(i).getProblem().getNumberOfVariables(), 10.0))
-									.setMaxEvaluations(maxEvaluations).build();
+									.setMaxEvaluations(maxEvaluations).setPopulationSize(10).build();
 					algorithms.add(new ExperimentAlgorithm<>(algorithm2, "SMSEMOA", problemList.get(i).getTag()));
 					break;
 
 				case "GDE3":
 					Algorithm<List<DoubleSolution>> algorithm3 = new GDE3Builder(
-							(DoubleProblem) problemList.get(i).getProblem()).setMaxEvaluations(maxEvaluations).build();
+							(DoubleProblem) problemList.get(i).getProblem()).setMaxEvaluations(maxEvaluations).setPopulationSize(10).build();
 					algorithms.add(new ExperimentAlgorithm<>(algorithm3, "GDE3", problemList.get(i).getTag()));
 					break;
 
 				case "IBEA":
 					Algorithm<List<DoubleSolution>> algorithm4 = new IBEABuilder(problemList.get(i).getProblem())
-							.setMaxEvaluations(maxEvaluations).build();
+							.setMaxEvaluations(maxEvaluations).setPopulationSize(10).build();
 					algorithms.add(new ExperimentAlgorithm<>(algorithm4, "IBEA", problemList.get(i).getTag()));
 					break;
 
@@ -111,19 +114,19 @@ public class ExperimentsDouble {
 					Algorithm<List<DoubleSolution>> algorithm5 = new MOCellBuilder<>(problemList.get(i).getProblem(),
 							new SBXCrossover(1.0, 5),
 							new PolynomialMutation(1.0 / problemList.get(i).getProblem().getNumberOfVariables(), 10.0))
-									.setMaxEvaluations(maxEvaluations).build();
+									.setMaxEvaluations(maxEvaluations).setPopulationSize(10).build();
 					algorithms.add(new ExperimentAlgorithm<>(algorithm5, "MOCell", problemList.get(i).getTag()));
 					break;
 
 				case "MOEAD":
 					Algorithm<List<DoubleSolution>> algorithm6 = new MOEADBuilder(problemList.get(i).getProblem(),
-							Variant.MOEAD).setMaxEvaluations(maxEvaluations).build();
+							Variant.MOEAD).setMaxEvaluations(maxEvaluations).setPopulationSize(10).build();
 					algorithms.add(new ExperimentAlgorithm<>(algorithm6, "MOEAD", problemList.get(i).getTag()));
 					break;
 
 				case "PAES":
 					Algorithm<List<DoubleSolution>> algorithm7 = new PAESBuilder<>(problemList.get(i).getProblem())
-							.setMaxEvaluations(maxEvaluations).setArchiveSize(100).setBiSections(2)
+							.setMaxEvaluations(maxEvaluations).setArchiveSize(10).setBiSections(2)
 							.setMutationOperator(new PolynomialMutation(
 									1.0 / problemList.get(i).getProblem().getNumberOfVariables(), 10.0))
 							.build();

@@ -8,6 +8,7 @@ import java.util.List;
 import org.uma.jmetal.problem.impl.AbstractDoubleProblem;
 import org.uma.jmetal.solution.DoubleSolution;
 
+import generic.Email;
 import generic.Problem;
 import ui.AdvancedConfigurationTab;
 import ui.ConfigurationTab;
@@ -16,6 +17,11 @@ import ui.RunTab;
 public class ProblemDouble extends AbstractDoubleProblem {
 
 	private Problem problem;
+	private int runs=0;
+	private double perc=0;
+	private static boolean first=false;
+	private static boolean second=false;
+	private static boolean third=false;
 
 	public ProblemDouble(Problem prob) {
 		this.problem = prob;
@@ -36,6 +42,25 @@ public class ProblemDouble extends AbstractDoubleProblem {
 	}
 
 	public void evaluate(DoubleSolution solution) {
+		
+		 runs++;
+
+		 perc=((double)runs/ExperimentsDouble.numberRuns);
+		 System.out.println(perc);
+		  if(perc>0.25&&!first) {
+			  first=true;
+			  Email.enviarRun(problem.getEmail(), problem.getName(), "O Programa chegou a 25% da execução");
+		  }
+		  
+		  if(perc>0.50&&!second) {
+			  second=true;
+			  Email.enviarRun(problem.getEmail(), problem.getName(), "O Programa chegou a 50% da execução");
+		  }
+		  
+		  if(perc>0.75&&!third) {
+			  third=true;
+			  Email.enviarRun(problem.getEmail(), problem.getName(), "O Programa chegou a 75% da execução");
+		  }
 
 		String solutionString = "";
 		String evaluationResultString = "";
@@ -62,6 +87,12 @@ public class ProblemDouble extends AbstractDoubleProblem {
 		}
 
 	}
-		    
- 	  	  
+	
+	public static void reset() {
+		first=false;
+		third=false;
+		second=false;
 	}
+	
+ 	  	  
+}

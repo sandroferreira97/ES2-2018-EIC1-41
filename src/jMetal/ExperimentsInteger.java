@@ -30,6 +30,7 @@ import java.util.List;
 public class ExperimentsInteger {
 	private static final int INDEPENDENT_RUNS = Gui.getAdm().getIndRuns();
 	private static final int maxEvaluations = Gui.getAdm().getMaxEval();
+	public static int numberRuns;
 
 	private static Problem prob;
 
@@ -45,6 +46,9 @@ public class ExperimentsInteger {
 
 		List<ExperimentAlgorithm<IntegerSolution, List<IntegerSolution>>> algorithmList = configureAlgorithmList(
 				problemList);
+		
+
+		numberRuns = INDEPENDENT_RUNS * maxEvaluations* prob.getAlgorithms().size();
 
 		Experiment<IntegerSolution, List<IntegerSolution>> experiment = new ExperimentBuilder<IntegerSolution, List<IntegerSolution>>(
 				"ExperimentsInteger").setAlgorithmList(algorithmList).setProblemList(problemList)
@@ -73,7 +77,7 @@ public class ExperimentsInteger {
 					Algorithm<List<IntegerSolution>> algorithm1 = new NSGAIIBuilder<>(problemList.get(i).getProblem(),
 							new IntegerSBXCrossover(0.9, 20.0), new IntegerPolynomialMutation(
 									1 / problemList.get(i).getProblem().getNumberOfVariables(), 20.0))
-											.setMaxEvaluations(maxEvaluations).setPopulationSize(100).build();
+											.setMaxEvaluations(maxEvaluations).setPopulationSize(10).build();
 					algorithms.add(new ExperimentAlgorithm<>(algorithm1, "NSGAII", problemList.get(i).getTag()));
 					break;
 
@@ -85,7 +89,7 @@ public class ExperimentsInteger {
 					Algorithm<List<IntegerSolution>> algorithm2 = new SMSEMOABuilder<>(problemList.get(i).getProblem(),
 							new IntegerSBXCrossover(0.9, 20.0), new IntegerPolynomialMutation(
 									1 / problemList.get(i).getProblem().getNumberOfVariables(), 20.0))
-											.setMaxEvaluations(maxEvaluations).build();
+											.setMaxEvaluations(maxEvaluations).setPopulationSize(10).build();
 					algorithms.add(new ExperimentAlgorithm<>(algorithm2, "SMSEMOA", problemList.get(i).getTag()));
 					break;
 
@@ -93,7 +97,7 @@ public class ExperimentsInteger {
 					Algorithm<List<IntegerSolution>> algorithm3 = new MOCellBuilder<>(problemList.get(i).getProblem(),
 							new IntegerSBXCrossover(0.9, 20.0), new IntegerPolynomialMutation(
 									1 / problemList.get(i).getProblem().getNumberOfVariables(), 20.0))
-											.setMaxEvaluations(maxEvaluations).build();
+											.setMaxEvaluations(maxEvaluations).setPopulationSize(10).build();
 					algorithms.add(new ExperimentAlgorithm<>(algorithm3, "MOCell", problemList.get(i).getTag()));
 					break;
 
@@ -102,7 +106,7 @@ public class ExperimentsInteger {
 							.setMaxEvaluations(maxEvaluations).setArchiveSize(100).setBiSections(2)
 							.setMutationOperator(new IntegerPolynomialMutation(
 									1 / problemList.get(i).getProblem().getNumberOfVariables(), 20.0))
-							.build();
+							.setMaxEvaluations(maxEvaluations).build();
 					algorithms.add(new ExperimentAlgorithm<>(algorithm4, "PAES", problemList.get(i).getTag()));
 					break;
 
@@ -117,5 +121,6 @@ public class ExperimentsInteger {
 		return algorithms;
 
 	}
+
 
 }
