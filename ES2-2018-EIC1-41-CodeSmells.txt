@@ -1,0 +1,50 @@
+
+-----Long Method---------
+
+ui.Gui	private void initialize() 	tab	B1	0/27
+ui.AdvancedConfigurationTab	public static void algorithms(int) 	binaryAlgorithms	B1	0/9
+ui.AdvancedConfigurationTab	public static void algorithms(int) 	binaryAlgorithms	B3	0/7
+ui.AdvancedConfigurationTab	public static void algorithms(int) 	binaryAlgorithms	B5	0/5
+ui.AdvancedConfigurationTab	public static void algorithms(int) 	binaryAlgorithms	B7	0/3
+generic.Xml	public static void loadConfig(java.io.File) 	prob	B1	0/6
+generic.Email	public static void enviar(java.lang.String, java.lang.String, java.lang.String) 	props	B1	0/5
+generic.Email	public static void enviarRun(java.lang.String, java.lang.String, java.lang.String) 	props	B1	0/5
+generic.Graph	private org.jfree.chart.ChartPanel createChart(generic.Problem) 	randomColor	B3	0/5
+ui.Gui	private void initialize() 	frame	B1	0/5
+generic.Functions	public static ArrayList<ArrayList<java.lang.Double>> readAutomatic(java.lang.String, java.lang.String) 	f1	B3	0/4
+generic.Functions	public static ArrayList<ArrayList<java.lang.Double>> readAutomatic(java.lang.String, java.lang.String) 	f1	B4	0/2
+generic.Files	public static void loadR(java.lang.String) 	params	B1	0/3
+generic.Files	public static void loadTex(java.lang.String) 	params	B1	0/3
+jMetal.ProblemBinary	public void evaluate(org.uma.jmetal.solution.BinarySolution) 	solutionString	B7	0/3
+tests.Tests	public void testGraph() throws java.io.IOException	p	B1	0/3
+tests.Tests	public void testXml() throws java.io.IOException	p	B1	0/3
+jMetal.ProblemDouble	public void evaluate(org.uma.jmetal.solution.DoubleSolution) 	solutionString	B1	0/3
+jMetal.ProblemDouble	public void evaluate(org.uma.jmetal.solution.DoubleSolution) 	solutionString	B2	0/2
+jMetal.ProblemInteger	public void evaluate(org.uma.jmetal.solution.IntegerSolution) 	solutionString	B1	0/3
+jMetal.ProblemInteger	public void evaluate(org.uma.jmetal.solution.IntegerSolution) 	solutionString	B2	0/2
+jMetal.ProblemBinary	public void evaluate(org.uma.jmetal.solution.BinarySolution) 	evaluationResultString	B8	0/2
+jMetal.ProblemDouble	public void evaluate(org.uma.jmetal.solution.DoubleSolution) 	evaluationResultString	B5	0/2
+jMetal.ProblemInteger	public void evaluate(org.uma.jmetal.solution.IntegerSolution) 	evaluationResultString	B5	0/2
+ui.AdvancedConfigurationTab	public static void load(generic.Problem) 	probAlgorithms	B5	0/2
+ui.AdvancedConfigurationTab	public static void load(generic.Problem) 	probVariables	B3	0/2
+ui.AdvancedConfigurationTab	public void addAlgorithms() 	probAlgorithms	B1	0/2
+ui.AdvancedConfigurationTab	public void addAutomaticAlgorithms() 	probAlgorithms	B1	0/2
+generic.Xml	public static void loadConfig(java.io.File) 	jaxbContext	B1	1/3
+
+
+-------God Class-------
+
+tests.Tests	[tests.Tests::generic.Problem p, tests.Tests::testXml():void, tests.Tests::testGraph():void]
+
+
+---------Feature Envy-----------
+
+Refactoring Type	Source Entity	Target Class	Source/Target accessed members	Rate it!
+Move Method	generic.Graph::createDataset(generic.Problem):org.jfree.data.xy.XYDataset	generic.Problem	0/1	
+
+
+
+----------Type Checking--------
+
+
+		(vazio)
