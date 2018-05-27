@@ -2,7 +2,7 @@
 
 Class: EIC1 Group:41
  
- video:
+ video: https://www.youtube.com/watch?v=JdpGKiTnmds&feature=youtu.be
  
  running estimation time and variable constraints were not implemented.
  
