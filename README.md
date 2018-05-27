@@ -4,7 +4,7 @@ Class: EIC1 Group:41
  
  video:
  
- 
+ running estimation time and variable constraints were not implemented.
  
  72910, Nuno Fialho, nfsfo1@iscte-iul.pt, DEVELOPER
  72911, Sandro Ferreira, smsfa1@iscte-iul.pt, SCRUM MASTER
