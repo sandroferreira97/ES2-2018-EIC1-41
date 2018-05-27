@@ -1,10 +1,21 @@
 package generic;
 
+import java.awt.BasicStroke;
+import java.awt.Color;
 import java.util.ArrayList;
-
+import java.util.Random;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlRootElement;
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartPanel;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.chart.plot.XYPlot;
+import org.jfree.chart.renderer.xy.XYLineAndShapeRenderer;
+import org.jfree.data.xy.XYDataset;
+import org.jfree.data.xy.XYSeries;
+import org.jfree.data.xy.XYSeriesCollection;
 
 /**
  * This class creates the problem. It has various characteristics:
@@ -143,6 +154,67 @@ public class Problem {
 
 	public void setEmail(String email) {
 		this.probEmail = email;
+	}
+
+
+	/**
+	 * Function that allows to crate the dataset. After running the algorithms,  this function will add the solution, values, to the graphic, creating a dataset with this values.
+	 * @param  prob, is the problem that needs to be solved 
+	 * @return  the dataset that will be added to the graphic
+	 */
+	public XYDataset createDataset() {
+		XYSeriesCollection dataset = new XYSeriesCollection();
+		XYSeries series1;
+		for (int i = 0; i < getAlgorithms().size(); i++) {
+			ArrayList<ArrayList<Double>> rules = Functions.readResults(this, getAlgorithms().get(i));
+			for (int j = 0; j < rules.size(); j++) {
+				series1 = new XYSeries(getAlgorithms().get(i) + j);
+				for (int z = 0; z < rules.get(j).size(); z++) {
+					series1.add(z, rules.get(j).get(z));
+				}
+				dataset.addSeries(series1);
+			}
+		}
+		return dataset;
+	}
+
+
+	/**
+	 * Function that allows to create the graphic not with the values/results, but the colors, the x-axis and y-axis name, etc...
+	 * @return
+	 */
+	public ChartPanel createChart() {
+		String xAxisLabel = "Objectives";
+		String yAxisLabel = "Values";
+		XYDataset roiData = createDataset();
+		JFreeChart chart = ChartFactory.createXYLineChart(Graph.title, xAxisLabel, yAxisLabel, roiData,
+				PlotOrientation.VERTICAL, true, true, false);
+		XYPlot plot = chart.getXYPlot();
+		XYLineAndShapeRenderer renderer = (XYLineAndShapeRenderer) plot.getRenderer();
+		renderer.setDefaultShapesVisible(true);
+		for (int i = 0; i < getAlgorithms().size(); i++) {
+			Random rand = new Random();
+			float r = rand.nextFloat();
+			float g = rand.nextFloat();
+			float b = rand.nextFloat();
+			Color randomColor = new Color(r, g, b);
+			ArrayList<ArrayList<Double>> rules = Functions.readResults(this, getAlgorithms().get(i));
+			for (int j = 0; j < rules.size(); j++) {
+				for (int z = 0; z < rules.get(j).size(); z++) {
+					renderer.setSeriesPaint(j, randomColor);
+					renderer.setSeriesStroke(j, new BasicStroke(1.0f));
+				}
+			}
+		}
+		plot.setOutlinePaint(Color.BLUE);
+		plot.setOutlineStroke(new BasicStroke(2.0f));
+		plot.setRenderer(renderer);
+		plot.setBackgroundPaint(Color.DARK_GRAY);
+		plot.setRangeGridlinesVisible(true);
+		plot.setRangeGridlinePaint(Color.BLACK);
+		plot.setDomainGridlinesVisible(true);
+		plot.setDomainGridlinePaint(Color.BLACK);
+		return new ChartPanel(chart);
 	}
 	
 	

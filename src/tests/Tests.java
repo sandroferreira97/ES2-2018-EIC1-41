@@ -35,7 +35,7 @@ import ui.RunTab;
 public class Tests {
 
 	private JFrame frame;
-	Problem p;
+	private Problem p;
 
 	@Test
 	public void testConfiguration() {
