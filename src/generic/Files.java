@@ -3,7 +3,21 @@ package generic;
 import java.io.File;
 import java.io.IOException;
 
+/**
+ * Files is the class that will allow to create the files .eps and .pdf.
+ *
+ * @author Nuno Fialho EIC1 72910
+ * @author Sandro Ferreira EIC1 72911
+ * @author Duarte Pinto EIC1 73117
+ */
+
 public class Files {
+	
+	/**
+	 * Function that create a .eps file
+	 * 
+	 * @param name
+	 */
 
 	public static void loadR(String name) {
 
@@ -25,6 +39,13 @@ public class Files {
 			e.printStackTrace();
 		}
 	}
+	
+
+	/**
+	 * Function that create a .pdf file
+	 * 
+	 * @param name
+	 */
 	
 	public static void loadTex(String name) {
 	

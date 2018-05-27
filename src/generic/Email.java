@@ -28,9 +28,6 @@ import ui.AdvancedConfigurationTab;
 
 public class Email {
 	
-	/**
-	 * Function that allow the user to send an email to us NAO SEI O Q ISTO ESTA AQUI A FAZER???
-	 */
 	
 	private static String username;
 	private static String password;
@@ -141,7 +138,7 @@ public class Email {
 	 * Function that sets the account
 	 * 
 	 * @param username its the username the user wants to choose
-	 * @param pass its the passowrd to login in the account
+	 * @param pass its the passoword to login in the account
 	 */
 	public static void setAccount(String username,String pass) {
 		Email.username=username;

@@ -8,9 +8,7 @@ import java.util.ArrayList;
 import ui.AdvancedConfigurationTab;
 
 /**
- * Functions is the class that allows to read the manual results, 
- * after running the algorithms, allows to read the automatic
- * results and to get the file type
+ * Functions is the class that allows to read the files .rf results
  * 
  * @author Nuno Fialho EIC1 72910
  * @author Sandro Ferreira EIC1 72911
@@ -19,11 +17,11 @@ import ui.AdvancedConfigurationTab;
 public class Functions {
 	
 	/**
-	 * Function that allows to read the manual results
+	 * This function calls readAutomatic choosing the parameters according to the variable type of the problem
 	 * 
 	 * @param prob is the problem to be solved
-	 * @param alg is the algorithm that is going to be used
-	 * @return the solution of the problem
+	 * @param alg is the algorithm name that is going to be used in order to find the file
+	 * @return an arrayList with data from the .rf file
 	 */
 	public static ArrayList<ArrayList<Double>> readResults(Problem prob,String alg) {
 		ArrayList<ArrayList<Double>> rules = new ArrayList<ArrayList<Double>>();
@@ -46,10 +44,7 @@ public class Functions {
 
 	}
 	
-	/**
-	 * 
-	 * @return
-	 */
+
 	public static String fileType() {
 		String name = "";
 		switch (AdvancedConfigurationTab.getVariableType()) {
@@ -72,11 +67,11 @@ public class Functions {
 	}
 	
 	/**
-	 * Function that allows to read the automatic results
+	 * Function that reads the .rf file
 	 * 
 	 * @param name
 	 * @param alg
-	 * @return
+	 * @return an arrayList with data from the .rf file
 	 */
 	public static ArrayList<ArrayList<Double>> readAutomatic(String name, String alg) {
 		ArrayList<ArrayList<Double>> f0 = new ArrayList<ArrayList<Double>>();

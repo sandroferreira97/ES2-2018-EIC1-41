@@ -120,6 +120,8 @@ public class AdvancedConfigurationTab {
 		maxtime = new JSpinner();
 		maxtime.setBounds(255, 47, 116, 22);
 		configadvanced.add(maxtime);
+		
+		
 		type.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 

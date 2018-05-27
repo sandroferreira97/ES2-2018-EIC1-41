@@ -53,7 +53,6 @@ public class ExperimentsDouble {
 				problemList);
 		
 		numberRuns = INDEPENDENT_RUNS *maxEvaluations* prob.getAlgorithms().size();
-System.out.println(numberRuns);
 		Experiment<DoubleSolution, List<DoubleSolution>> experiment = new ExperimentBuilder<DoubleSolution, List<DoubleSolution>>(
 				"ExperimentsDouble").setAlgorithmList(algorithmList).setProblemList(problemList)
 						.setExperimentBaseDirectory(experimentBaseDirectory).setOutputParetoFrontFileName("FUN")
@@ -61,12 +60,13 @@ System.out.println(numberRuns);
 						.setReferenceFrontDirectory(experimentBaseDirectory + "/referenceFronts")
 						.setIndicatorList(Arrays.asList(new PISAHypervolume<DoubleSolution>()))
 						.setIndependentRuns(INDEPENDENT_RUNS).setNumberOfCores(8).build();
-
+		
 		new ExecuteAlgorithms<>(experiment).run();
 		new GenerateReferenceParetoSetAndFrontFromDoubleSolutions(experiment).run();
 		new ComputeQualityIndicators<>(experiment).run();
 		new GenerateLatexTablesWithStatistics(experiment).run();
 		new GenerateBoxplotsWithR<>(experiment).setRows(1).setColumns(1).run();
+		
 	}
 
 	static List<ExperimentAlgorithm<DoubleSolution, List<DoubleSolution>>> configureAlgorithmList(

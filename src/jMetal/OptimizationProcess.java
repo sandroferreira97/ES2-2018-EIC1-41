@@ -32,6 +32,7 @@ public class OptimizationProcess {
 
 	public OptimizationProcess(Problem prob) {
 		this.prob = prob;
+		
 	}
 
 	public void run() {

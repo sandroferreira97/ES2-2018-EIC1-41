@@ -25,9 +25,10 @@ import jMetal.OptimizationProcess;
 // adicionar sitio para meter jars
 
 /**
- * RunTab is the class that creates a tab to the frame that will allow the user to
- * load a jar file or to load a xml file, that will run the algorithm to resolve the problem. It also allows
- * the user to save a configuration to use in the future
+ * RunTab is the class that creates a tab to the frame that will allow the user
+ * to load a jar file or to load a xml file, that will run the algorithm to
+ * resolve the problem. It also allows the user to save a configuration to use
+ * in the future
  * 
  * @author Nuno Fialho EIC1 72910
  * @author Sandro Ferreira EIC1 72911
@@ -40,7 +41,7 @@ public class RunTab {
 	public static Problem prob;
 	public static JLabel lblJarName;
 	private JTextField path;
-	private static String jarPath; 
+	private static String jarPath;
 	public static JLabel running;
 	private static JComboBox binaryAlgorithms;
 	private static String[] algorithm = { "" };
@@ -52,12 +53,14 @@ public class RunTab {
 			"RandomSearch", "SPEA2" };
 	private Xml a;
 	private static ArrayList<Variable> probVariables;
-	
+
 	/**
 	 * Constructor of the class RunTab
 	 * 
-	 * @param frame where the tab will be implemented 
-	 * @param gui where the tab will be implemented
+	 * @param frame
+	 *            where the tab will be implemented
+	 * @param gui
+	 *            where the tab will be implemented
 	 */
 	public RunTab(JFrame frame, Gui gui) {
 		run = new JPanel();
@@ -69,7 +72,7 @@ public class RunTab {
 		btnSaveConfiguration.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				System.out.println(AdvancedConfigurationTab.getProblem().getName());
-				a.saveConfig(AdvancedConfigurationTab.getProblem(),gui.getAdm().getXmlDir());
+				a.saveConfig(AdvancedConfigurationTab.getProblem(), gui.getAdm().getXmlDir());
 			}
 		});
 
@@ -110,17 +113,17 @@ public class RunTab {
 				if (returnVal == JFileChooser.APPROVE_OPTION) {
 					lblJarName.setText(chooser.getSelectedFile().getName());
 					jarPath = chooser.getSelectedFile().getPath();
-//					running.setText("");
+					// running.setText("");
 				}
 			}
 		});
 
-		running=new JLabel();
-		running.setBounds(133,300,300,50);
+		running = new JLabel();
+		running.setBounds(133, 300, 300, 50);
 		run.add(running);
 		running.setText("JMetal is currently running");
 		running.setVisible(false);
-		
+
 		JButton btnRun = new JButton("Run");
 		btnRun.setBounds(400, 415, 145, 50);
 		run.add(btnRun);
@@ -128,12 +131,15 @@ public class RunTab {
 		lblJarName = new JLabel("");
 		lblJarName.setBounds(275, 130, 270, 15);
 		run.add(lblJarName);
-		
+
 		btnRun.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
 				running.setVisible(true);
 				OptimizationProcess oP = new OptimizationProcess(AdvancedConfigurationTab.getProblem());
-				oP.run();
+				
+					oP.run();
+					
 				Files.loadR(Functions.fileType());
 				Files.loadTex(Functions.fileType());
 				running.setText("JMetal finished, you can view results");
@@ -152,13 +158,13 @@ public class RunTab {
 	public static void setJar(String jarpath) {
 		lblJarName.setText(jarpath);
 		jarPath = jarpath;
-//		running.setText("");
+		// running.setText("");
 	}
-	
+
 	public static String getJarPath() {
 		return jarPath;
 	}
-	
+
 	public static String getAlg() {
 		return (String) binaryAlgorithms.getModel().getSelectedItem();
 	}

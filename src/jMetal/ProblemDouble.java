@@ -22,8 +22,10 @@ public class ProblemDouble extends AbstractDoubleProblem {
 	private static boolean first=false;
 	private static boolean second=false;
 	private static boolean third=false;
+	
 
 	public ProblemDouble(Problem prob) {
+		
 		this.problem = prob;
 		setNumberOfVariables(prob.getProbVariables().size());
 		setNumberOfObjectives(AdvancedConfigurationTab.getObjQuantity());
@@ -42,7 +44,7 @@ public class ProblemDouble extends AbstractDoubleProblem {
 	}
 
 	public void evaluate(DoubleSolution solution) {
-		
+	
 //		 runs++;
 //
 //		 perc=((double)runs/ExperimentsDouble.numberRuns);
@@ -85,6 +87,9 @@ public class ProblemDouble extends AbstractDoubleProblem {
 		for (int i = 0; i < solution.getNumberOfObjectives(); i++) {
 			solution.setObjective(i, Double.parseDouble(individualEvaluationCriteria[i]));
 		}
+		
+	
+		
 
 	}
 	
